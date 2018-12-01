@@ -21,9 +21,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.mushr.a433.Page1_Activity">
-
-        </activity>
     </application>
 
 </manifest>

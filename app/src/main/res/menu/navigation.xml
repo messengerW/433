@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_page1"
+        android:icon="@mipmap/nav_call"
+        android:title="首页" />
+    <item
+        android:id="@+id/navigation_page2"
+        android:icon="@mipmap/nav_mail"
+        android:title="数据" />
+    <item
+        android:id="@+id/navigation_page3"
+        android:icon="@mipmap/nav_location"
+        android:title="分析" />
+
+
+</menu>

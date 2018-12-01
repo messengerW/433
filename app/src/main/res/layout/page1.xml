@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
@@ -9,25 +8,23 @@
     android:padding="1dp"
     tools:context="com.example.mushr.a433.Page1_Activity">
 
-    <com.example.mushr.a433.Topbar
+    <com.example.mushr.a433.TopBar
         android:id="@+id/top_bar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:LeftText="王子鑫"
-        app:LeftTextSize="10sp"
-        app:LeftTextColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
         app:LeftBackground="@color/cw_5"
+        app:LeftText="王子鑫"
+        app:LeftTextColor="#ffffff"
+        app:LeftTextSize="10sp"
 
+        app:RightBackground="@color/cw_5"
+        app:RightText="大笨比"
+        app:RightTextColor="#ffffff"
+
+        app:RightTextSize="10sp"
         app:TitleText="是个"
         app:TitleTextColor="#ffffff"
-        app:TitleTextSize="15sp"
-
-        app:RightText="大笨比"
-        app:RightTextSize="10sp"
-        app:RightTextColor="#ffffff"
-        app:RightBackground="@color/cw_5"
-        >
-    </com.example.mushr.a433.Topbar>
+        app:TitleTextSize="15sp"></com.example.mushr.a433.TopBar>
 
 
 </RelativeLayout>

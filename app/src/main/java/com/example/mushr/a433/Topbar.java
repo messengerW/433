@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class Topbar extends RelativeLayout {
+public class TopBar extends RelativeLayout {
 
     private Button LeftButton;
     private String LeftText;
@@ -31,24 +31,24 @@ public class Topbar extends RelativeLayout {
 
     private LayoutParams LeftBtnParams, RightBtnParams, TitleParams;
 
-    public Topbar(Context context, AttributeSet attrs) {
+    public TopBar(Context context, AttributeSet attrs) {
 
         super(context, attrs);
-        TypedArray ta = context.obtainStyledAttributes(attrs,R.styleable.Topbar);
+        TypedArray ta = context.obtainStyledAttributes(attrs,R.styleable.TopBar);
 
-        LeftText = ta.getString(R.styleable.Topbar_LeftText);
-        LeftTextSize = ta.getDimension(R.styleable.Topbar_LeftTextSize,0);
-        LeftTextColor = ta.getColor(R.styleable.Topbar_LeftTextColor,0);
-        LeftBackground = ta.getColor(R.styleable.Topbar_LeftBackground,0);
+        LeftText = ta.getString(R.styleable.TopBar_LeftText);
+        LeftTextSize = ta.getDimension(R.styleable.TopBar_LeftTextSize,0);
+        LeftTextColor = ta.getColor(R.styleable.TopBar_LeftTextColor,0);
+        LeftBackground = ta.getColor(R.styleable.TopBar_LeftBackground,0);
 
-        RightText = ta.getString(R.styleable.Topbar_RightText);
-        RightTextSize = ta.getDimension(R.styleable.Topbar_RightTextSize,0);
-        RightTextColor = ta.getColor(R.styleable.Topbar_RightTextColor,0);
-        RightBackground = ta.getColor(R.styleable.Topbar_RightBackground,0);
+        RightText = ta.getString(R.styleable.TopBar_RightText);
+        RightTextSize = ta.getDimension(R.styleable.TopBar_RightTextSize,0);
+        RightTextColor = ta.getColor(R.styleable.TopBar_RightTextColor,0);
+        RightBackground = ta.getColor(R.styleable.TopBar_RightBackground,0);
 
-        TitleText = ta.getString(R.styleable.Topbar_TitleText);
-        TitleTextColor = ta.getColor(R.styleable.Topbar_TitleTextColor,0);
-        TitleTextSize = ta.getDimension(R.styleable.Topbar_TitleTextSize,0);
+        TitleText = ta.getString(R.styleable.TopBar_TitleText);
+        TitleTextColor = ta.getColor(R.styleable.TopBar_TitleTextColor,0);
+        TitleTextSize = ta.getDimension(R.styleable.TopBar_TitleTextSize,0);
 
         ta.recycle();
 
@@ -84,6 +84,8 @@ public class Topbar extends RelativeLayout {
         TitleParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.MATCH_PARENT);
         TitleParams.addRule(RelativeLayout.CENTER_IN_PARENT,TRUE);
         addView(Title,TitleParams);
+
+
 
     }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="Topbar">
+    <declare-styleable name="TopBar">
         <attr name="TitleText" format="string" />
         <attr name="TitleTextSize" format="dimension" />
         <attr name="TitleTextColor" format="color" />
@@ -14,5 +14,22 @@
         <attr name="RightTextSize" format="dimension" />
         <attr name="RightTextColor" format="color" />
         <attr name="RightBackground" format="color" />
+    </declare-styleable>
+    
+    <declare-styleable name="Bar">
+        <attr name="Button1Text" format="string" />
+        <attr name="Button1TextSize" format="dimension" />
+        <attr name="Button1TextColor" format="color" />
+        <attr name="Button1Backgroung" format="color" />
+
+        <attr name="Button2Text" format="string" />
+        <attr name="Button2TextSize" format="dimension" />
+        <attr name="Button2TextColor" format="color" />
+        <attr name="Button2Backgroung" format="color" />
+
+        <attr name="Button3Text" format="string" />
+        <attr name="Button3TextSize" format="dimension" />
+        <attr name="Button3TextColor" format="color" />
+        <attr name="Button3Backgroung" format="color" />
     </declare-styleable>
 </resources>
