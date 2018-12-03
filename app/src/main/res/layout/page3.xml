@@ -8,13 +8,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="第1个页面"
+        android:text="第3个页面"
         android:textSize="22sp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView4"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        app:srcCompat="@android:drawable/ic_delete" />
 
 </LinearLayout>

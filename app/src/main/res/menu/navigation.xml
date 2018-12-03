@@ -2,17 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_page1"
-        android:icon="@mipmap/nav_call"
+        android:id="@+id/item1"
+        android:icon="@drawable/ic_home_black_24dp"
         android:title="首页" />
-    <item
-        android:id="@+id/navigation_page2"
-        android:icon="@mipmap/nav_mail"
-        android:title="数据" />
-    <item
-        android:id="@+id/navigation_page3"
-        android:icon="@mipmap/nav_location"
-        android:title="分析" />
 
+    <item
+        android:id="@+id/item2"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="数据" />
+
+    <item
+        android:id="@+id/item3"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="分析" />
 
 </menu>
