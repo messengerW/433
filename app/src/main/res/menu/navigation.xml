@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/item1"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="首页" />
+        android:icon="@drawable/ic_bottom_home"
+        android:title="@string/bottom_btn1" />
 
     <item
         android:id="@+id/item2"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="数据" />
+        android:title="@string/bottom_btn2" />
 
     <item
         android:id="@+id/item3"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="分析" />
+        android:icon="@drawable/ic_bottom_analysis"
+        android:title="@string/bottom_btn3" />
 
 </menu>
