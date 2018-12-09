@@ -30,6 +30,13 @@
             android:layout_height="wrap_content"
             android:text="Button" />
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/head_image_height"
+            android:id="@+id/fm_container">
+        </FrameLayout>
+
     </LinearLayout>
 
     <android.support.design.widget.BottomNavigationView

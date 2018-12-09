@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.hide(fragments[lastIndex]);
         if (!fragments[index].isAdded()) {
-            transaction.add(R.id.container, fragments[index]);
+            transaction.add(R.id.fm_container, fragments[index]);
         }
         transaction.show(fragments[index]).commitAllowingStateLoss();
     }
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity
         lastShowFragment = 0;
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.container, fragment1)
+                .add(R.id.fm_container, fragment1)
                 .show(fragment1)
                 .commit();
     }

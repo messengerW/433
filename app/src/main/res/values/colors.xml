@@ -20,11 +20,13 @@
     <color name="cy_2">#F0E68C</color>
     <color name="cy_3">#F5DEB3</color>
 
+    <color name="cw_0">#cccccc</color>
     <color name="cw_1">#FFFFFF</color>
     <color name="cw_2">#FFFAFA</color>
     <color name="cw_3">#FFF5EE</color>
     <color name="cw_4">#C0C0C0</color>
     <color name="cw_5">#696969</color>
+    <color name="cw_6">#F7F7F7</color>
 
     <drawable name="checkbox">#666666</drawable>
     <drawable name="camera_back_press">#1b1b1b</drawable>
