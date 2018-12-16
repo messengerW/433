@@ -4,21 +4,29 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="cg_1">#008000</color>
-    <color name="cg_2">#006400</color>
-    <color name="cg_3">#228B22</color>
+    <color name="cg_1">#00FF00</color>
+    <color name="cg_2">#00CC00</color>
+    <color name="cg_3">#009900</color>
+    <color name="cg_4">#339900</color>
+    <color name="cg_5">#006600</color>
 
-    <color name="cb_1">#0000FF</color>
-    <color name="cb_2">#00BFFF</color>
-    <color name="cb_3">#1E90ff</color>
+    <color name="cb_1">#66CCFF</color>
+    <color name="cb_2">#3366FF</color>
+    <color name="cb_3">#3333FF</color>
+    <color name="cb_4">#3300CC</color>
+    <color name="cb_5">#000099</color>
 
-    <color name="cr_1">#B22222</color>
-    <color name="cr_2">#DC143C</color>
+    <color name="cr_1">#FF3333</color>
+    <color name="cr_2">#FF3300</color>
     <color name="cr_3">#FF0000</color>
+    <color name="cr_4">#CC0000</color>
+    <color name="cr_5">#990000</color>
 
-    <color name="cy_1">#FFFF00</color>
-    <color name="cy_2">#F0E68C</color>
-    <color name="cy_3">#F5DEB3</color>
+    <color name="cy_1">#CCFF66</color>
+    <color name="cy_2">#FFFF99</color>
+    <color name="cy_3">#FFFF66</color>
+    <color name="cy_4">#FFFF33</color>
+    <color name="cy_5">#FFFF00</color>
 
     <color name="cw_0">#cccccc</color>
     <color name="cw_1">#FFFFFF</color>

@@ -13,15 +13,11 @@
         android:layout_height="wrap_content"
         android:text="第2个页面"
         android:textSize="22sp" />
-    <Button
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="333"/>
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@android:drawable/checkbox_on_background" />
+        android:text="数据展示界面"
+        android:textSize="22sp" />
 
 </LinearLayout>
