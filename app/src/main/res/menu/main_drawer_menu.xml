@@ -7,11 +7,11 @@
         <item
             android:id="@+id/nav_1"
             android:icon="@drawable/ic_drawer_camera"
-            android:title="Import" />
+            android:title="Camera" />
         <item
             android:id="@+id/nav_2"
             android:icon="@drawable/ic_drawer_message"
-            android:title="Gallery" />
+            android:title="Message" />
         <item
             android:id="@+id/nav_3"
             android:icon="@drawable/ic_drawer_fly"
