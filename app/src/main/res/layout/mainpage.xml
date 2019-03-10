@@ -9,11 +9,14 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <!--这个是主页面的布局文件，包含两部分-->
+    <!--首先嵌套了一个布局文件-->
     <include
         layout="@layout/main_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <!--然后包含了一个侧拉抽屉-->
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_left"
         android:layout_width="wrap_content"
@@ -21,6 +24,6 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/main_drawer_header"
-        app:menu="@menu/main_drawer_menu" />
-
+        app:menu="@menu/main_drawer_menu" />    <!--这个是抽屉包含的内容，图标、标题等，放置在menu文件夹下-->
+        <!-- ps:menu文件夹用来存放菜单，抽屉、底部导航栏和顶部设置菜单的图标、标题都在menu文件夹下 -->
 </android.support.v4.widget.DrawerLayout>

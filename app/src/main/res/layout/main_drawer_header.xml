@@ -12,6 +12,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+    <!--这个是抽屉顶部的布局文件，抽屉的菜单放在menu文件夹下-->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="@dimen/head_image_width"

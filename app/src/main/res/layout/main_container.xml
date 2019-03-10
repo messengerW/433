@@ -10,11 +10,17 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/main_bar">
 
+    <!--这是主页面MainPage里面的一个容器-->
+
+    <!--★注意，其实现在(2019.3.10)我们的app只有两个页面：登录页面Login和主页面MainPage。首页、
+    数据、分析这三个都不是页面，而是三个Fragment，这三个Fragment在主页面上切换展示-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!--这个布局文件很重要，它相当于一块幕布，放置在主页面MainPage中，首页、数据、分析这三个
+        页面(Fragment)通过点击按钮切换，轮流在这块幕布上显示-->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -24,10 +30,12 @@
 
     </LinearLayout>
 
+    <!--这个是底部导航栏，用的是Android原生控件-->
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/cw_7"
         android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
