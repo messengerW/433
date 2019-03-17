@@ -1,5 +1,6 @@
 package com.example.f433;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -153,7 +154,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_6) {
 
         } else if (id == R.id.nav_7) {
-
+            Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

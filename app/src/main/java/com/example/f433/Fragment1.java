@@ -79,7 +79,7 @@ public class Fragment1 extends Fragment {
         for (int i = 0; i < 10; i++) {
             News news = new News();
             news.setImgPath(url[i]);
-            news.setTitle("新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题" + i);
+            news.setTitle("新闻标题 曼联是冠军 曼联是冠军 曼联是冠军" + i);
             news.setTime("7:3" + i);
             news.setSource("澎湃新闻");
             newsList.add(news);
