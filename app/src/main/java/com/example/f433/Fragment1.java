@@ -5,10 +5,14 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +22,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Fragment1 extends Fragment {
 
-    private View mView;
+    /*** 第一个碎片中包含两个组件，图片轮播和滚动新闻栏 ***/
+
+    private View mView;     // 注意，mView是两个组件共用的！
     private ViewPager mViewPaper;
     private List<ImageView> images;
     private List<View> dots;
@@ -31,17 +37,83 @@ public class Fragment1 extends Fragment {
             R.mipmap.lunbo_2,
             R.mipmap.lunbo_3
     };
-
     private ViewPagerAdapter adapter;
     private ScheduledExecutorService scheduledExecutorService;
+    //定义RecyclerView
+    public RecyclerView mCollectRecyclerView;
+    //定义以news实体类为对象的数据集合
+    private ArrayList<News> newsList = new ArrayList<News>();
+    //自定义recyclerveiw的适配器
+    private NewsAdapter mCollectRecyclerAdapter;
+
+    /*** 滚动新闻开始 ***/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.page1, container, false);
+        mView = inflater.inflate(R.layout.fragment1, container, false);
         setView();
+        //对recycleview进行配置
+        initRecyclerView();
+        //模拟数据
+        initData();
         return mView;
     }
+
+    /**
+     * TODO 模拟数据
+     */
+    private void initData() {
+        /*图片暂时从网上获取*/
+        String[] url = {"http://image.thepaper.cn/www/image/8/15/751.jpg",
+                        "http://www.ss28.com/newsfiles/file/world/italy/juv/2018-10-09/7acb04f387d969c6d24578bdb2d3a8fa.jpg",
+                        "http://img.mp.itc.cn/upload/20160902/30880a2ef78e4a2983e2c96f665b3c6b_th.jpeg",
+                        "http://img5.imgtn.bdimg.com/it/u=1979028530,4274692987&fm=11&gp=0.jpg",
+                        "http://p1.qhimgs4.com/t0121dd731c29838075.jpg",
+                        "http://image.thepaper.cn/www/image/8/15/751.jpg",
+                        "http://www.ss28.com/newsfiles/file/world/italy/juv/2018-10-09/7acb04f387d969c6d24578bdb2d3a8fa.jpg",
+                        "http://img.mp.itc.cn/upload/20160902/30880a2ef78e4a2983e2c96f665b3c6b_th.jpeg",
+                        "http://img5.imgtn.bdimg.com/it/u=1979028530,4274692987&fm=11&gp=0.jpg",
+                        "http://p1.qhimgs4.com/t0121dd731c29838075.jpg",};
+
+        for (int i = 0; i < 10; i++) {
+            News news = new News();
+            news.setImgPath(url[i]);
+            news.setTitle("新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题" + i);
+            news.setTime("7:3" + i);
+            news.setSource("澎湃新闻");
+            newsList.add(news);
+        }
+    }
+
+    /**
+     * TODO 对recycleview进行配置
+     */
+
+    private void initRecyclerView() {
+        //获取RecyclerView
+        mCollectRecyclerView = (RecyclerView) mView.findViewById(R.id.recycler_view);
+        //创建adapter
+        mCollectRecyclerAdapter = new NewsAdapter(getActivity(), newsList);
+        //给RecyclerView设置adapter
+        mCollectRecyclerView.setAdapter(mCollectRecyclerAdapter);
+        //设置layoutManager,可以设置显示效果，是线性布局、grid布局，还是瀑布流布局
+        //参数是：上下文、列表方向（横向还是纵向）、是否倒叙
+        mCollectRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        //设置item的分割线
+        mCollectRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
+        //RecyclerView中没有item的监听事件，需要自己在适配器中写一个监听事件的接口。参数根据自定义
+        mCollectRecyclerAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(View view, News data) {
+                //此处进行监听事件的业务处理
+                Toast.makeText(getActivity(), "我是item", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    /*** 滚动新闻结束 ***/
+    /*** 图片轮播开始 ***/
 
     private void setView() {
         mViewPaper = (ViewPager) mView.findViewById(R.id.vp);
@@ -143,7 +215,9 @@ public class Fragment1 extends Fragment {
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             mViewPaper.setCurrentItem(currentItem);
-        };
+        }
+
+        ;
 
     };
 
@@ -156,5 +230,6 @@ public class Fragment1 extends Fragment {
         }
 
     }
+    /*** 图片轮播结束 ***/
 
 }

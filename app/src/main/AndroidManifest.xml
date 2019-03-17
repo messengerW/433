@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.f433">
+    <!--添加访问网络权限-->
+    <uses-permission  android:name="android.permission.INTERNET"/>
 
     <!--每创建一个页面都需要在这里注册，格式参考下面主页面的注册-->
     <application
