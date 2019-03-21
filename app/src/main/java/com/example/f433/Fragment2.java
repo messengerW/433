@@ -18,8 +18,9 @@ public class Fragment2 extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     ArrayList<Fragment> fragmentList;  //放所有的fragment
-    ArrayList<String> titleList ;// tablayout的标题
+    ArrayList<String> titleList;// tablayout的标题
     private View view;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class Fragment2 extends Fragment {
         Log.e("test", "---------------------onCreateView");
         return view;
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -39,32 +41,37 @@ public class Fragment2 extends Fragment {
         //让viewpager和顶部标题关联
         tabLayout.setupWithViewPager(viewPager);
     }
+
     private void initData() {
         fragmentList = new ArrayList<Fragment>();
         titleList = new ArrayList<String>();
-        if (fragmentList.size()==0){
+        if (fragmentList.size() == 0) {
             fragmentList.add(new Fragment2_Child1());
             fragmentList.add(new Fragment2_Child2());
             fragmentList.add(new Fragment2_Child3());
         }
-        if (titleList.size()==0){
-            titleList.add("Child1Fragment");
-            titleList.add("Child2Fragment");
-            titleList.add("Child3Fragment");
+        if (titleList.size() == 0) {
+            titleList.add("积分榜");
+            titleList.add("球员榜");
+            titleList.add("球队榜");
         }
     }
+
     private class MAdapter extends FragmentPagerAdapter {
         public MAdapter(FragmentManager fm) {
             super(fm);
         }
+
         @Override
         public Fragment getItem(int position) {
             return fragmentList.get(position);
         }
+
         @Override
         public int getCount() {
             return fragmentList.size();
         }
+
         //一定要重写这个返回标题的方法;
         @Override
         public CharSequence getPageTitle(int position) {
