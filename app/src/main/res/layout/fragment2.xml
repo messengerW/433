@@ -8,16 +8,21 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="第2个页面"
-        android:textSize="22sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="数据展示界面"
-        android:textSize="22sp" />
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:tabIndicatorColor="@color/cg_2"
+        app:tabSelectedTextColor="@color/cb_3"
+        app:tabTextColor="@android:color/darker_gray"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_data"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </android.support.v4.view.ViewPager>
 
 </LinearLayout>

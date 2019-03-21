@@ -13,15 +13,15 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
-public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.myViewHodler> {
+public class Fragment1_NewsAdapter extends RecyclerView.Adapter<Fragment1_NewsAdapter.myViewHodler> {
     private Context context;
-    private ArrayList<News> newsList;
+    private ArrayList<Fragment1_NewsItem> f1NewsItemList;
 
     //创建构造函数
-    public NewsAdapter(Context context, ArrayList<News> newsList) {
+    public Fragment1_NewsAdapter(Context context, ArrayList<Fragment1_NewsItem> f1NewsItemList) {
         //将传递过来的数据，赋值给本地变量
         this.context = context;//上下文
-        this.newsList = newsList;//实体类数据ArrayList
+        this.f1NewsItemList = f1NewsItemList;//实体类数据ArrayList
     }
 
     /**
@@ -34,7 +34,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.myViewHodler> 
     @Override
     public myViewHodler onCreateViewHolder(ViewGroup parent, int viewType) {
         //创建自定义布局
-        View itemView = View.inflate(context, R.layout.news_item, null);
+        View itemView = View.inflate(context, R.layout.fragment1_newsitem, null);
         return new myViewHodler(itemView);
     }
 
@@ -47,7 +47,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.myViewHodler> 
     @Override
     public void onBindViewHolder(myViewHodler holder, int position) {
         //根据点击位置绑定数据
-        News data = newsList.get(position);
+        Fragment1_NewsItem data = f1NewsItemList.get(position);
 
         holder.newsTitle.setText(data.title);//获取实体类中的title字段并设置
         holder.newsTime.setText(data.time);
@@ -80,7 +80,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.myViewHodler> 
      */
     @Override
     public int getItemCount() {
-        return newsList.size();
+        return f1NewsItemList.size();
     }
 
     //自定义viewhodler
@@ -105,7 +105,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.myViewHodler> 
                     //Toast.makeText(context,"点击了xxx",Toast.LENGTH_SHORT).show();
                     //此处回传点击监听事件
                     if(onItemClickListener!=null){
-                        onItemClickListener.OnItemClick(v, newsList.get(getLayoutPosition()));
+                        onItemClickListener.OnItemClick(v, f1NewsItemList.get(getLayoutPosition()));
                     }
                 }
             });
@@ -123,7 +123,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.myViewHodler> 
          * @param view 点击的item的视图
          * @param data 点击的item的数据
          */
-        public void OnItemClick(View view, News data);
+        public void OnItemClick(View view, Fragment1_NewsItem data);
     }
 
     //需要外部访问，所以需要设置set方法，方便调用
