@@ -4,8 +4,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="3333"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="66dp"
+        android:text="Tab2"/>
 
 </android.support.constraint.ConstraintLayout>

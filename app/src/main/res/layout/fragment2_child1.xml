@@ -1,11 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="2222"/>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/divider_vertical"
+        android:orientation="vertical"
+        android:showDividers="middle|beginning|end"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
 
-</android.support.constraint.ConstraintLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:showDividers="middle|beginning|end">
+
+            <TextView
+                android:layout_width="@dimen/text_rank_head_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="排名"
+                android:textColor="@color/word_0"
+                android:textSize="@dimen/text_rank_head"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:paddingLeft="15dp"
+                android:text="球队"
+                android:textColor="@color/word_0"
+                android:textSize="@dimen/text_rank_head"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="@dimen/text_rank_head_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="轮次"
+                android:textColor="@color/word_0"
+                android:textSize="@dimen/text_rank_head"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="@dimen/text_rank_head_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="胜"
+                android:textColor="@color/word_0"
+                android:textSize="@dimen/text_rank_head"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="@dimen/text_rank_head_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="平"
+                android:textColor="@color/word_0"
+                android:textSize="@dimen/text_rank_head"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="@dimen/text_rank_head_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="负"
+                android:textColor="@color/word_0"
+                android:textSize="@dimen/text_rank_head"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="2dp"
+                android:layout_marginLeft="5dp"
+                android:text="进/失"
+                android:textColor="@color/word_0"
+                android:textSize="@dimen/text_rank_head"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="@dimen/text_rank_head_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="2dp"
+                android:layout_marginLeft="5dp"
+                android:text="积分"
+                android:textColor="@color/word_0"
+                android:textSize="@dimen/text_rank_head"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+    </TableLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_rank"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</LinearLayout>

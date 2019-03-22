@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:paddingLeft="2dp"
+    android:paddingTop="0dp"
+    android:paddingRight="2dp">
+
+    <TextView
+        android:id="@+id/rank_rank"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="2dp"
+        android:textColor="@color/word_0"
+        android:textSize="@dimen/text_rank_head"
+        tools:text="n"/>
+
+    <ImageView
+        android:id="@+id/rank_logo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+
+
+
+        tools:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/rank_name"
+        android:layout_width="110dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="2dp"
+        android:textColor="@color/word_0"
+        android:textSize="@dimen/text_rank_head"
+        tools:text="Barcelona"/>
+
+    <TextView
+        android:id="@+id/rank_turn"
+        android:layout_width="@dimen/text_rank_head_width"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="2dp"
+        android:textColor="@color/word_0"
+        android:textSize="@dimen/text_rank_head"
+        tools:text="turn"/>
+
+    <TextView
+        android:id="@+id/rank_num1"
+        android:layout_width="@dimen/text_rank_head_width"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="2dp"
+        android:textColor="@color/word_0"
+        android:textSize="@dimen/text_rank_head"
+        tools:text="win"/>
+
+    <TextView
+        android:id="@+id/rank_num2"
+        android:layout_width="@dimen/text_rank_head_width"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="2dp"
+        android:textColor="@color/word_0"
+        android:textSize="@dimen/text_rank_head"
+        tools:text="ping" />
+
+    <TextView
+        android:id="@+id/rank_num3"
+        android:layout_width="@dimen/text_rank_head_width"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="2dp"
+        android:textColor="@color/word_0"
+        android:textSize="@dimen/text_rank_head"
+        tools:text="lose" />
+
+    <TextView
+        android:id="@+id/rank_rate"
+        android:layout_width="55dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="2dp"
+        android:textColor="@color/word_0"
+        android:textSize="@dimen/text_rank_head"
+        tools:text="进/失" />
+
+    <TextView
+        android:id="@+id/rank_points"
+        android:layout_width="@dimen/text_rank_head_width"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="2dp"
+        android:textColor="@color/word_0"
+        android:textSize="@dimen/text_rank_head"
+        tools:text="points" />
+
+    <!-- 横向分割线 -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_margin="5dp"
+        android:background="#EEEEEE"
+        app:layout_constraintTop_toBottomOf="@id/rank_logo" />
+
+</LinearLayout>

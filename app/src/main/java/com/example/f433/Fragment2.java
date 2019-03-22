@@ -20,6 +20,8 @@ public class Fragment2 extends Fragment {
     ArrayList<Fragment> fragmentList;  //放所有的fragment
     ArrayList<String> titleList ;// tablayout的标题
     private View view;
+
+    /********************* Tab切换栏begin **********************/
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,14 +34,14 @@ public class Fragment2 extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initData();
+        initTab();
         Log.e("test", "---------------------test log");
         viewPager.setAdapter(new MAdapter(getFragmentManager()));//getSupportFragmentManager();
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
         //让viewpager和顶部标题关联
         tabLayout.setupWithViewPager(viewPager);
     }
-    private void initData() {
+    private void initTab() {
         fragmentList = new ArrayList<Fragment>();
         titleList = new ArrayList<String>();
         if (fragmentList.size()==0){
@@ -48,9 +50,9 @@ public class Fragment2 extends Fragment {
             fragmentList.add(new Fragment2_Child3());
         }
         if (titleList.size()==0){
-            titleList.add("Child1Fragment");
-            titleList.add("Child2Fragment");
-            titleList.add("Child3Fragment");
+            titleList.add("Tab1");
+            titleList.add("Tab2");
+            titleList.add("Tab3");
         }
     }
     private class MAdapter extends FragmentPagerAdapter {
@@ -71,5 +73,7 @@ public class Fragment2 extends Fragment {
             return titleList.get(position);
         }
     }
+
+    /*********************** Tab切换栏end *************************/
 
 }

@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <!--以下是常用颜色，你们没事多补充补充呀!!!-->
+
     <color name="cg_1">#00FF00</color>
     <color name="cg_2">#00CC00</color>
     <color name="cg_3">#009900</color>
@@ -36,6 +38,15 @@
     <color name="cw_5">#696969</color>
     <color name="cw_6">#F7F7F7</color>
     <color name="cw_7">#DCDCDC</color>
+
+    <!-- 以下是字体颜色 & 分割线颜色 -->
+
+    <color name="word_0">#1b1b1b</color>
+    <color name="word_1">#888888</color>
+    <color name="word_2">#333333</color>
+
+    <color name="line_0">#EEEEEE</color>
+
 
     <drawable name="checkbox">#666666</drawable>
     <drawable name="camera_back_press">#1b1b1b</drawable>

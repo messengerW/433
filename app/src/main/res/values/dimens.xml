@@ -7,4 +7,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="head_image_width">55dp</dimen>
     <dimen name="head_image_height">55dp</dimen>
+
+    <dimen name="text_rank_head">15sp</dimen>       <!--积分榜第一行标题字号-->
+    <dimen name="text_rank_head_width">35dp</dimen>     <!--积分榜第一行标题栏宽-->
 </resources>

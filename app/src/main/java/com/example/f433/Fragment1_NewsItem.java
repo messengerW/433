@@ -3,10 +3,10 @@ package com.example.f433;
 import java.io.Serializable;
 
 public class Fragment1_NewsItem implements Serializable {
-    public String imgPath;//图片地址
-    public String title;//新闻标题
-    public String time;//新闻时间
-    public String source;//新闻来源
+    public String imgPath;         //   图片地址
+    public String title;           //   新闻标题
+    public String time;            //   新闻时间
+    public String source;          //   新闻来源
 
     public Fragment1_NewsItem() {
     }

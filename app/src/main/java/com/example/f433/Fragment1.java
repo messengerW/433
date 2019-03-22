@@ -54,16 +54,16 @@ public class Fragment1 extends Fragment {
         mView = inflater.inflate(R.layout.fragment1, container, false);
         setView();
         //对recycleview进行配置
-        initRecyclerView();
+        initRecyclerView1();
         //模拟数据
-        initData();
+        initNewsItem();
         return mView;
     }
 
     /**
      * TODO 模拟数据
      */
-    private void initData() {
+    private void initNewsItem() {
         /*图片暂时从网上获取*/
         String[] url = {"http://image.thepaper.cn/www/image/8/15/751.jpg",
                         "http://www.ss28.com/newsfiles/file/world/italy/juv/2018-10-09/7acb04f387d969c6d24578bdb2d3a8fa.jpg",
@@ -76,6 +76,7 @@ public class Fragment1 extends Fragment {
                         "http://img5.imgtn.bdimg.com/it/u=1979028530,4274692987&fm=11&gp=0.jpg",
                         "http://p1.qhimgs4.com/t0121dd731c29838075.jpg",};
 
+        //  新闻的图片、标题、时间等在这里获取，将来设计好数据库后可以改成sql语句
         for (int i = 0; i < 10; i++) {
             Fragment1_NewsItem f1NewsItem = new Fragment1_NewsItem();
             f1NewsItem.setImgPath(url[i]);
@@ -90,9 +91,9 @@ public class Fragment1 extends Fragment {
      * TODO 对recycleview进行配置
      */
 
-    private void initRecyclerView() {
+    private void initRecyclerView1() {
         //获取RecyclerView
-        mCollectRecyclerView = (RecyclerView) mView.findViewById(R.id.recycler_view);
+        mCollectRecyclerView = (RecyclerView) mView.findViewById(R.id.recycler_view_news);
         //创建adapter
         mCollectRecyclerAdapter = new Fragment1_NewsAdapter(getActivity(), f1NewsItemList);
         //给RecyclerView设置adapter
@@ -113,6 +114,7 @@ public class Fragment1 extends Fragment {
     }
 
     /*** 滚动新闻结束 ***/
+
     /*** 图片轮播开始 ***/
 
     private void setView() {
