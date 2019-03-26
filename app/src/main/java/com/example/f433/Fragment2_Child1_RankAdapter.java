@@ -1,7 +1,6 @@
 package com.example.f433;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +9,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Fragment2_RankAdapter extends RecyclerView.Adapter<Fragment2_RankAdapter.myViewHodler> {
+public class Fragment2_Child1_RankAdapter extends RecyclerView.Adapter<Fragment2_Child1_RankAdapter.myViewHodler> {
     private Context context;
-    private ArrayList<Fragment2_RankItem> RankItemList;
+    private ArrayList<Fragment2_Child1_RankItem> RankItemList;
 
     //创建构造函数
-    public Fragment2_RankAdapter(Context context, ArrayList<Fragment2_RankItem> RankItemList) {
+    public Fragment2_Child1_RankAdapter(Context context, ArrayList<Fragment2_Child1_RankItem> RankItemList) {
         //将传递过来的数据，赋值给本地变量
         this.context = context;//上下文
         this.RankItemList = RankItemList;//实体类数据ArrayList
@@ -44,7 +43,7 @@ public class Fragment2_RankAdapter extends RecyclerView.Adapter<Fragment2_RankAd
     @Override
     public void onBindViewHolder(myViewHodler holder, int position) {
         //根据点击位置绑定数据
-        Fragment2_RankItem data = RankItemList.get(position);
+        Fragment2_Child1_RankItem data = RankItemList.get(position);
 
         holder.rank.setText(data.rank);    //获取实体类中的title字段并设置
         holder.logo.setBackgroundResource(R.mipmap.ic_launcher);
@@ -137,7 +136,7 @@ public class Fragment2_RankAdapter extends RecyclerView.Adapter<Fragment2_RankAd
          * @param view 点击的item的视图
          * @param data 点击的item的数据
          */
-        public void OnItemClick(View view, Fragment2_RankItem data);
+        public void OnItemClick(View view, Fragment2_Child1_RankItem data);
     }
 
     //需要外部访问，所以需要设置set方法，方便调用
