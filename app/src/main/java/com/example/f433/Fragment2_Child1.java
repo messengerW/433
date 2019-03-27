@@ -18,8 +18,8 @@ public class Fragment2_Child1 extends Fragment {
 
     private View view;
     public RecyclerView mCollectRecyclerView;
-    private ArrayList<Fragment2_RankItem> ItemArrayList = new ArrayList<Fragment2_RankItem>();
-    private Fragment2_RankAdapter mCollectRecyclerAdapter;
+    private ArrayList<Fragment2_Child1_RankItem> ItemArrayList = new ArrayList<Fragment2_Child1_RankItem>();
+    private Fragment2_Child1_RankAdapter mCollectRecyclerAdapter;
 
     @Nullable
     @Override
@@ -41,7 +41,7 @@ public class Fragment2_Child1 extends Fragment {
 
         //  新闻的图片、标题、时间等在这里获取，将来设计好数据库后可以改成sql语句
         for (int i = 0; i < 18; i++) {
-            Fragment2_RankItem RankItem = new Fragment2_RankItem();
+            Fragment2_Child1_RankItem RankItem = new Fragment2_Child1_RankItem();
             RankItem.setRank("1");
             //RankItem.setLogo("url");
             RankItem.setName("Barcelona");
@@ -70,7 +70,7 @@ public class Fragment2_Child1 extends Fragment {
         //获取RecyclerView
         mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_rank);
         //创建adapter
-        mCollectRecyclerAdapter = new Fragment2_RankAdapter(mActivity,ItemArrayList);
+        mCollectRecyclerAdapter = new Fragment2_Child1_RankAdapter(mActivity,ItemArrayList);
         //给RecyclerView设置adapter
         mCollectRecyclerView.setAdapter(mCollectRecyclerAdapter);
         //设置layoutManager,可以设置显示效果，是线性布局、grid布局，还是瀑布流布局
@@ -79,9 +79,9 @@ public class Fragment2_Child1 extends Fragment {
         //设置item的分割线
         mCollectRecyclerView.addItemDecoration(new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL));
         //RecyclerView中没有item的监听事件，需要自己在适配器中写一个监听事件的接口。参数根据自定义
-        mCollectRecyclerAdapter.setOnItemClickListener(new Fragment2_RankAdapter.OnItemClickListener() {
+        mCollectRecyclerAdapter.setOnItemClickListener(new Fragment2_Child1_RankAdapter.OnItemClickListener() {
             @Override
-            public void OnItemClick(View view, Fragment2_RankItem data) {
+            public void OnItemClick(View view, Fragment2_Child1_RankItem data) {
                 //此处进行监听事件的业务处理
                 Toast.makeText(getActivity(), "我是item", Toast.LENGTH_SHORT).show();
             }

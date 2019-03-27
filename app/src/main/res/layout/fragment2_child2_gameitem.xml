@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:padding="3dp">
+
+    <!--这个所谓的RecyclerView中的item，在这个xml文件中只能设置文本和图片
+        的位置、字体、大小等等，至于图片和文本的具体内容，这里设置的最终并不会在app上面显示，
+        这里仅仅是预览，在这里设置内容后可以在右边Preview中预览，但是最终显示在app上的内容
+        与这里设置的无关，而是取决于适配器中（或Fragment调用Adapter）设置的内容-->
+    <TextView
+        android:id="@+id/game_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#333333"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="3.31" />
+
+    <TextView
+        android:id="@+id/game_team1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:textColor="#333333"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/game_pic1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Barcelona" />
+
+    <ImageView
+        android:id="@+id/game_pic1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginRight="5dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintRight_toLeftOf="@id/game_VS"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:src="@mipmap/ic_launcher" />
+
+    <!-- 注意：这个 TextView 是整个 game 条布局的中心 -->
+    <TextView
+        android:id="@+id/game_VS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#333333"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="VS" />
+
+    <ImageView
+        android:id="@+id/game_pic2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="5dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toRightOf="@id/game_VS"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/game_team2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:textColor="#333333"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/game_pic2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Liverpool" />
+
+    <!--这个是每两个新闻框之间的分割线-->
+    <View
+        android:id="@+id/game_divider"
+        android:layout_width="0dp"
+        android:layout_height="2px"
+        android:layout_margin="5dp"
+        android:background="#EEEEEE"
+        app:layout_constraintTop_toBottomOf="@id/game_pic1" />
+
+
+</android.support.constraint.ConstraintLayout>
