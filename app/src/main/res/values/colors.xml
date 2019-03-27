@@ -39,6 +39,8 @@
     <color name="cw_6">#F7F7F7</color>
     <color name="cw_7">#DCDCDC</color>
 
+    <color name="cbl_0">#000000</color>
+
     <!-- 以下是字体颜色 & 分割线颜色 -->
 
     <color name="word_0">#1b1b1b</color>

@@ -1,6 +1,7 @@
 package com.example.f433;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2_Child2_GameAdapter.myViewHodler> {
+public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2_Child2_GameAdapter.myViewHolder> {
     private Context context;
     private ArrayList<Fragment2_Child2_GameItem> GameItemList;
 
@@ -29,10 +30,10 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
      * @return
      */
     @Override
-    public myViewHodler onCreateViewHolder(ViewGroup parent, int viewType) {
+    public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //创建自定义布局
         View itemView = View.inflate(context, R.layout.fragment2_child2_gameitem, null);
-        return new myViewHodler(itemView);
+        return new myViewHolder(itemView);
     }
 
     /**
@@ -42,7 +43,7 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
      * @param position
      */
     @Override
-    public void onBindViewHolder(myViewHodler holder, int position) {
+    public void onBindViewHolder(myViewHolder holder, int position) {
         //根据点击位置绑定数据
         Fragment2_Child2_GameItem data = GameItemList.get(position);
 
@@ -65,8 +66,8 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
         return GameItemList.size();
     }
 
-    //自定义viewhodler
-    class myViewHodler extends RecyclerView.ViewHolder {
+    //自定义viewHolder
+    class myViewHolder extends RecyclerView.ViewHolder {
 
         private TextView date;
         private TextView team1;
@@ -75,7 +76,7 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
         private ImageView logo2;
         private TextView VS;
 
-        public myViewHodler(View itemView) {
+        public myViewHolder(View itemView) {
             super(itemView);
             date = (TextView) itemView.findViewById(R.id.game_date);
             team1 = (TextView) itemView.findViewById(R.id.game_team1);

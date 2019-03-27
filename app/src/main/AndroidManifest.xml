@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.f433">
 
-    <!--添加访问网络权限-->
-    <uses-permission  android:name="android.permission.INTERNET"/>
+    <!-- 添加访问网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
-    <!--每创建一个页面都需要在这里注册，格式参考下面主页面的注册-->
+    <!-- 每创建一个页面都需要在这里注册，格式参考下面主页面的注册 -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,32 +14,36 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--主页面-->
+        <!-- 主页面 -->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <!--登录页面-->
+        <!-- 登录页面 -->
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <!--下面这几句话是控制打开app哪个页面最先显示的，加在谁下面谁就最先显示-->
+
+            <!-- 下面这几句话是控制打开app哪个页面最先显示的，加在谁下面谁就最先显示 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SettingsActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".GameActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
