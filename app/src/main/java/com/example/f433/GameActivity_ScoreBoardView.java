@@ -64,7 +64,7 @@ public class GameActivity_ScoreBoardView extends View {
 
     private void init() {
         /*数据初始化，默认属性*/
-        mColor = Color.rgb(102,204,255);
+        mColor = Color.rgb(95, 112, 72);
         mScore = 0;
         mWinNumber = 0;
         mDrawNumber = 0;
@@ -96,8 +96,8 @@ public class GameActivity_ScoreBoardView extends View {
         paint.setStyle(Paint.Style.STROKE);
 
         /*积分数，上边的大圆*/
-        paint.setStrokeWidth(6);
-        paint.setColor(Color.rgb(112,244,231));
+        paint.setStrokeWidth(4);
+        paint.setColor(mColor);
         /*积分大圆的中心坐标和半径*/
         float score_radius = totalHeight * 1 / 5, score_circle_x = totalWidth / 2, score_circle_y = totalHeight / 3;
         /*绘制圆弧*/
@@ -110,7 +110,7 @@ public class GameActivity_ScoreBoardView extends View {
         paintText.setTextAlign(Paint.Align.CENTER);
         /*文字画笔大小和颜色设置*/
         paintText.setTextSize(score_radius * 3 / 4);
-        paintText.setColor(Color.rgb(102,204,255)); //cb_4
+        paintText.setColor(Color.rgb(0,204,0));
         /*圆心位置绘制积分数值*/
         canvas.drawText("" + mScore, score_circle_x, score_circle_y, paintText);
         /*缩小字体绘制文本信息*/
@@ -120,7 +120,7 @@ public class GameActivity_ScoreBoardView extends View {
         canvas.drawText("积分", score_circle_x, score_circle_y + score_radius / 2, paintText);
 
         /*设置画笔，画下边的三个小圆*/
-        paint.setStrokeWidth(6);
+        paint.setStrokeWidth(4);
         paint.setAlpha(255);
         /*下边三个小圆的半径*/
         float small_radius = totalHeight / 10;
@@ -135,7 +135,7 @@ public class GameActivity_ScoreBoardView extends View {
                 360 * mDrawNumber / FULL_SCORE* AnimCurrentValue,
                 360 * mLoseNumber / FULL_SCORE* AnimCurrentValue};
         /*设置画笔颜色，绘制外围圆环*/
-        paint.setColor(Color.rgb(204,255,102)); //cy_1
+        paint.setColor(Color.rgb(0,204,0));
         /*分别绘制三个外围圆环*/
         canvas.drawCircle(circleXs[0], circleY, small_radius, paint);//画WIN背景圆
         canvas.drawCircle(circleXs[1], circleY, small_radius, paint);//画DRAW背景圆
@@ -169,7 +169,7 @@ public class GameActivity_ScoreBoardView extends View {
                 circleY - small_radius * (float) Math.cos(theta_values[2] * Math.PI / 180), 6, paint);//画LOSE末尾小圆点
 
         /*绘制文字*/
-        paintText.setColor(Color.rgb(102,204,255));
+        paintText.setColor(Color.rgb(0,204,0));
         paintText.setTextSize(small_radius * 2 / 3);
         /*测量文字大小，确定绘制文字时垂直方向的位置*/
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
