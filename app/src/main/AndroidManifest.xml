@@ -18,14 +18,14 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
         <!-- 登录页面 -->
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-
             <!-- 下面这几句话是控制打开app哪个页面最先显示的，加在谁下面谁就最先显示 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,17 +34,18 @@
             </intent-filter>
         </activity>
 
-        <!-- 设置页面 -->
         <activity
             android:name=".SettingsActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
-        <!-- 赛况页面 -->
         <activity
             android:name=".GameActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>

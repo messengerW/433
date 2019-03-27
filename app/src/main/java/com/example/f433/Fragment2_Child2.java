@@ -25,7 +25,7 @@ public class Fragment2_Child2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment2_child2, container, false);
-        initRecyclerView2();
+        initRecyclerView();
         initGameItem();
         return view;
     }
@@ -42,9 +42,10 @@ public class Fragment2_Child2 extends Fragment {
         //  新闻的图片、标题、时间等在这里获取，将来设计好数据库后可以改成sql语句
         for (int i = 0; i < 18; i++) {
             Fragment2_Child2_GameItem GameItem = new Fragment2_Child2_GameItem();
-            GameItem.setdate("3.31");
-            GameItem.setteam1("Barcelona");
-            GameItem.setteam2("Liverpool");
+            GameItem.setDate("3月31日");
+            GameItem.setTime("23:15");
+            GameItem.setTeam1("巴塞罗那");
+            GameItem.setTeam2("皇家马德里");
             GameItem.setCentertext("VS");
             /*
             上面三条是设置文本内容，图片内容已经在适配器中设置过setBackgroundResource()，因此这里注释掉。
@@ -72,7 +73,7 @@ public class Fragment2_Child2 extends Fragment {
      * TODO 对recycleview进行配置
      */
 
-    private void initRecyclerView2() {
+    private void initRecyclerView() {
         //获取RecyclerView
         mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_game);
         //创建adapter
@@ -83,7 +84,7 @@ public class Fragment2_Child2 extends Fragment {
         //参数是：上下文、列表方向（横向还是纵向）、是否倒叙
         mCollectRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));
         //设置item的分割线
-        mCollectRecyclerView.addItemDecoration(new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL));
+        //mCollectRecyclerView.addItemDecoration(new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL));
 
         //RecyclerView中没有item的监听事件，需要自己在适配器中写一个监听事件的接口。参数根据自定义
         // 尝试一下不在这里定义点击事件，这一次写在适配器里面试一试
