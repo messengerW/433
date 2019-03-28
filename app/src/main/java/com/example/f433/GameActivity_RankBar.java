@@ -45,8 +45,8 @@ public class GameActivity_RankBar extends View {
 
     private void init() {
         /*数据初始化，没有设置数据时候的默认数据*/
-        mColorLeft = Color.rgb(95, 112, 72);
-        mColorRight = Color.rgb(69, 91, 136);
+        mColorLeft = Color.rgb(166,215,67);
+        mColorRight = Color.rgb(166,215,67);
         mRankLeft = 1;
         mRankRight = 1;
         typedValue=new TypedValue();
@@ -198,6 +198,11 @@ public class GameActivity_RankBar extends View {
             throw new IllegalArgumentException("排名参数只能设置成1到30的整数");
         this.mRankLeft =rank1;
         this.mRankRight =rank2;
+        invalidate();
+    }
+    public void setColor(int mColorLeft, int mColorRight){
+        this.mColorLeft = mColorLeft;
+        this.mColorRight = mColorRight;
         invalidate();
     }
 

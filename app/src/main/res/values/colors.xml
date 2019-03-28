@@ -25,6 +25,7 @@
     <color name="cr_4">#CC0000</color>
     <color name="cr_5">#990000</color>
 
+    <color name="cy_0">#a6d743</color>
     <color name="cy_1">#CCFF66</color>
     <color name="cy_2">#FFFF99</color>
     <color name="cy_3">#FFFF66</color>
@@ -37,7 +38,7 @@
     <color name="cw_3">#FFF5EE</color>
     <color name="cw_4">#C0C0C0</color>
     <color name="cw_5">#696969</color>
-    <color name="cw_6">#F7F7F7</color>
+    <color name="cw_6">#4b4949</color>
     <color name="cw_7">#DCDCDC</color>
 
     <color name="cbl_0">#000000</color>

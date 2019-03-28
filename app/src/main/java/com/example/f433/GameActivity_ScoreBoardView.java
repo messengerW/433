@@ -64,7 +64,7 @@ public class GameActivity_ScoreBoardView extends View {
 
     private void init() {
         /*数据初始化，默认属性*/
-        mColor = Color.rgb(95, 112, 72);
+        mColor = Color.rgb(166,215,67);
         mScore = 0;
         mWinNumber = 0;
         mDrawNumber = 0;

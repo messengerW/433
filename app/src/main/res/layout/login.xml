@@ -5,7 +5,6 @@
     android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cw_6"
     tools:context="com.example.f433.LoginActivity">
 
     <!--这个是登录页面，可以通过修改配置清单AndroidManifest文件改变登录页面显示的次序，就是说。。

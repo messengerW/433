@@ -1,59 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@mipmap/game_background" >
+    android:background="@color/cw_6"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/icon"
+    <include
+        android:id="@+id/actionbar"
+        layout="@layout/activity_game_actionbar" />
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@id/custom_view"
-        app:layout_constraintRight_toLeftOf="@id/league"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/premier_league" />
+        android:background="@mipmap/game_background2">
 
-    <TextView
-        android:id="@+id/league"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="24dp"
-        android:text="Premier League"
-        android:textColor="@color/cw_1"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/custom_view"
-        app:layout_constraintLeft_toRightOf="@id/icon" />
+        <com.example.f433.GameActivity_ScoreBoardView
+            android:id="@+id/custom_view"
+            android:layout_width="165dp"
+            android:layout_height="165dp" />
 
+        <com.example.f433.GameActivity_RankBar
+            android:id="@+id/rank_bar"
+            android:layout_width="72dp"
+            android:layout_height="165dp"
+            app:layout_constraintLeft_toRightOf="@id/custom_view"
+            app:layout_constraintRight_toLeftOf="@id/custom_view2" />
 
-    <com.example.f433.GameActivity_ScoreBoardView
-        android:id="@+id/custom_view"
-        android:layout_width="165dp"
-        android:layout_height="165dp"
-        app:layout_constraintTop_toBottomOf="@id/icon" />
+        <com.example.f433.GameActivity_ScoreBoardView
+            android:id="@+id/custom_view2"
+            android:layout_width="165dp"
+            android:layout_height="165dp"
+            android:layout_marginLeft="36dp"
+            app:layout_constraintLeft_toRightOf="@id/custom_view" />
 
-    <com.example.f433.GameActivity_RankBar
-        android:id="@+id/rank_bar"
-        android:layout_width="72dp"
-        android:layout_height="165dp"
-        app:layout_constraintLeft_toRightOf="@id/custom_view"
-        app:layout_constraintRight_toLeftOf="@id/custom_view2"
-        app:layout_constraintTop_toBottomOf="@id/league"/>
+    </android.support.constraint.ConstraintLayout>
 
-    <com.example.f433.GameActivity_ScoreBoardView
-        android:id="@+id/custom_view2"
-        android:layout_width="165dp"
-        android:layout_height="165dp"
-        android:layout_marginLeft="36dp"
-        app:layout_constraintLeft_toRightOf="@id/custom_view"
-        app:layout_constraintTop_toBottomOf="@id/icon" />
-
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
