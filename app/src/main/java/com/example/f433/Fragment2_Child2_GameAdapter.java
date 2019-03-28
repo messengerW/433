@@ -48,6 +48,7 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
         Fragment2_Child2_GameItem data = GameItemList.get(position);
 
         holder.date.setText(data.date);    //获取实体类中的title字段并设置
+        holder.time.setText(data.time);
         holder.team1.setText(data.team1);
         holder.team2.setText(data.team2);
         holder.VS.setText(data.centertext);
@@ -70,6 +71,7 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
     class myViewHolder extends RecyclerView.ViewHolder {
 
         private TextView date;
+        private TextView time;
         private TextView team1;
         private TextView team2;
         private ImageView logo1;
@@ -79,6 +81,7 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
         public myViewHolder(View itemView) {
             super(itemView);
             date = (TextView) itemView.findViewById(R.id.game_date);
+            time = (TextView) itemView.findViewById(R.id.game_time);
             team1 = (TextView) itemView.findViewById(R.id.game_team1);
             team2 = (TextView) itemView.findViewById(R.id.game_team2);
             logo1 = (ImageView) itemView.findViewById(R.id.game_pic1);
@@ -86,12 +89,16 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
             VS = (TextView) itemView.findViewById(R.id.game_VS);
 
             //点击事件放在adapter中使用，也可以写个接口在activity中调用
-            //方法一：在adapter中设置点击事件
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //可以选择直接在本位置直接写业务处理
-                    Toast.makeText(context,"点击了xxx",Toast.LENGTH_SHORT).show();
+                    /*这里是直接添加整个item的点击跳转事件，如果想为item中具体的小的控件添加点击事件的话，
+                    * 稍微麻烦一点。*/
+                    //Toast.makeText(context,"点击了xxx",Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(context,GameActivity.class);
+                    context.startActivity(intent);
+
                     //此处回传点击监听事件
                     if (onItemClickListener != null) {
                         onItemClickListener.OnItemClick(v, GameItemList.get(getLayoutPosition()));
