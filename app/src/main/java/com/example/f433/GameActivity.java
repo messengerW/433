@@ -19,11 +19,11 @@ public class GameActivity extends AppCompatActivity {
         myView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myView.setColor(Color.rgb(102, 204, 255)); //waterBlue
+                myView.setColor(Color.rgb(0, 204, 0));
                 myView.setScore(34);
                 myView.setWinDrawLose(10, 4, 5);
 
-                myView2.setColor(Color.rgb(0, 255, 0));
+                myView2.setColor(Color.rgb(102,204,255));
                 myView2.setScore(31);
                 myView2.setWinDrawLose(8, 7, 4);
             }
@@ -31,11 +31,11 @@ public class GameActivity extends AppCompatActivity {
         myView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myView.setColor(Color.rgb(102, 204, 255)); //waterBlue
+                myView.setColor(Color.rgb(0,204,0));
                 myView.setScore(34);
                 myView.setWinDrawLose(10, 4, 5);
 
-                myView2.setColor(Color.rgb(0, 255, 0));
+                myView2.setColor(Color.rgb(104,204,255));
                 myView2.setScore(31);
                 myView2.setWinDrawLose(8, 7, 4);
             }
