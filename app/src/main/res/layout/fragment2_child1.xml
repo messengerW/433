@@ -6,108 +6,93 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TableLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@drawable/divider_vertical"
-        android:orientation="vertical"
-        android:showDividers="middle|beginning|end"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        android:showDividers="middle|beginning|end">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:showDividers="middle|beginning|end">
+        <TextView
+            android:id="@+id/team"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
+            android:text="球队"
+            android:textColor="@color/word_0"
+            android:textSize="@dimen/text_rank_head"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
-            <TextView
-                android:layout_width="@dimen/text_rank_head_width"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="2dp"
-                android:text="排名"
-                android:textColor="@color/word_0"
-                android:textSize="@dimen/text_rank_head"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/round"
+            android:layout_width="@dimen/text_rank_head_width"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="赛"
+            android:textColor="@color/word_0"
+            android:textSize="@dimen/text_rank_head"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/team" />
 
-            <TextView
-                android:layout_width="140dp"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:paddingBottom="2dp"
-                android:paddingTop="2dp"
-                android:paddingLeft="15dp"
-                android:text="球队"
-                android:textColor="@color/word_0"
-                android:textSize="@dimen/text_rank_head"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/win"
+            android:layout_width="@dimen/text_rank_head_width"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="胜"
+            android:textColor="@color/word_0"
+            android:textSize="@dimen/text_rank_head"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/round" />
 
-            <TextView
-                android:layout_width="@dimen/text_rank_head_width"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="2dp"
-                android:text="轮次"
-                android:textColor="@color/word_0"
-                android:textSize="@dimen/text_rank_head"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/draw"
+            android:layout_width="@dimen/text_rank_head_width"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="平"
+            android:textColor="@color/word_0"
+            android:textSize="@dimen/text_rank_head"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/win" />
 
-            <TextView
-                android:layout_width="@dimen/text_rank_head_width"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="2dp"
-                android:text="胜"
-                android:textColor="@color/word_0"
-                android:textSize="@dimen/text_rank_head"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/lose"
+            android:layout_width="@dimen/text_rank_head_width"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="负"
+            android:textColor="@color/word_0"
+            android:textSize="@dimen/text_rank_head"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/draw" />
 
-            <TextView
-                android:layout_width="@dimen/text_rank_head_width"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="2dp"
-                android:text="平"
-                android:textColor="@color/word_0"
-                android:textSize="@dimen/text_rank_head"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/goals"
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="进/失"
+            android:textColor="@color/word_0"
+            android:textSize="@dimen/text_rank_head"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/lose" />
 
-            <TextView
-                android:layout_width="@dimen/text_rank_head_width"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="2dp"
-                android:text="负"
-                android:textColor="@color/word_0"
-                android:textSize="@dimen/text_rank_head"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="@dimen/text_rank_head_width"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="积分"
+            android:textColor="@color/word_0"
+            android:textSize="@dimen/text_rank_head"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="parent" />
 
-            <TextView
-                android:layout_width="45dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="2dp"
-                android:layout_marginLeft="5dp"
-                android:text="进/失"
-                android:textColor="@color/word_0"
-                android:textSize="@dimen/text_rank_head"
-                android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="@dimen/text_rank_head_width"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="2dp"
-                android:layout_marginLeft="5dp"
-                android:text="积分"
-                android:textColor="@color/word_0"
-                android:textSize="@dimen/text_rank_head"
-                android:textStyle="bold" />
-
-        </TableRow>
-
-    </TableLayout>
+    </android.support.constraint.ConstraintLayout>
 
 
     <android.support.v7.widget.RecyclerView
@@ -117,7 +102,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
 
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

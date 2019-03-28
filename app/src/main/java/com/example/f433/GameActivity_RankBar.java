@@ -24,33 +24,34 @@ public class GameActivity_RankBar extends View {
     private Path path = new Path();
     /*等分*/
     private final int HEIGHT_DEGREE = 40, WIDTH_DEGREES = 31;
+
     public GameActivity_RankBar(Context context) {
         super(context);
-        this.context=context;
+        this.context = context;
         init();
     }
 
     public GameActivity_RankBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.context=context;
+        this.context = context;
         init();
     }
 
     public GameActivity_RankBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        this.context=context;
+        this.context = context;
         init();
     }
 
 
     private void init() {
         /*数据初始化，没有设置数据时候的默认数据*/
-        mColorLeft = Color.rgb(166,215,67);
-        mColorRight = Color.rgb(166,215,67);
+        mColorLeft = Color.rgb(166, 215, 67);
+        mColorRight = Color.rgb(166, 215, 67);
         mRankLeft = 1;
         mRankRight = 1;
-        typedValue=new TypedValue();
-        context.getTheme().resolveAttribute(R.attr.textAppearanceBody1,typedValue,true);
+        typedValue = new TypedValue();
+        context.getTheme().resolveAttribute(R.attr.textAppearanceBody1, typedValue, true);
     }
 
     @Override
@@ -73,45 +74,45 @@ public class GameActivity_RankBar extends View {
         }
 
         /*设置画中间水平线的画笔*/
-        paintDraw.setColor(Color.rgb(204,204,204));
+        paintDraw.setColor(Color.rgb(204, 204, 204));
         paintDraw.setAlpha(50);
         /*设置画笔的宽度*/
-        paintDraw.setStrokeWidth(totalHeight / HEIGHT_DEGREE /3);
+        paintDraw.setStrokeWidth(totalHeight / HEIGHT_DEGREE / 3);
         for (int i = 0; i < lineYs.length; i++) {
             /*循环绘制中间的短横线刻度*/
             canvas.drawLine(totalWidth / 2 - lineLength, lineYs[i], totalWidth / 2 + lineLength, lineYs[i], paintDraw);
         }
 
         /*气泡的半径*/
-        float radius =  totalHeight *2.5f/ HEIGHT_DEGREE;
+        float radius = totalHeight * 2.5f / HEIGHT_DEGREE;
 
         /*绘制左边标签*/
         path.reset();
         /*moveTo：Set the beginning of the next contour to the point (x,y).*/
         /*计算等边三角形右边顶点的坐标rr*/
-        float triangleRightVertexX=totalWidth / 2 - lineLength / 2;
-        float triangleRightVertexY=lineYs[mRankLeft - 1];
+        float triangleRightVertexX = totalWidth / 2 - lineLength / 2;
+        float triangleRightVertexY = lineYs[mRankLeft - 1];
         /*路径起点移动到等边三角形右边顶点rr，以此顶点rr画线*/
         path.moveTo(triangleRightVertexX, triangleRightVertexY);
         /*计算等边三角形的边长，等边三角形上下两个顶点和圆相交于tt,bb,tt、bb与圆心夹角30度*/
-        float triangleLength= radius*(float)Math.sin(15*2*Math.PI/360)*2;
+        float triangleLength = radius * (float) Math.sin(15 * 2 * Math.PI / 360) * 2;
         /*计算bb坐标，为绘制弧形的起点*/
-        float arcStartPointX=triangleRightVertexX-triangleLength*(float)Math.cos(30*2*Math.PI/360);
-        float arcStartPointY=triangleRightVertexY+triangleLength*(float)Math.sin(30*2*Math.PI/360);
+        float arcStartPointX = triangleRightVertexX - triangleLength * (float) Math.cos(30 * 2 * Math.PI / 360);
+        float arcStartPointY = triangleRightVertexY + triangleLength * (float) Math.sin(30 * 2 * Math.PI / 360);
         /*画等边三角形的一条边，rr-bb*/
-        path.lineTo(arcStartPointX,arcStartPointY);
+        path.lineTo(arcStartPointX, arcStartPointY);
 
         /*arcTo 用于绘制弧线（实际是截取圆或椭圆的一部分）。
         mPath.arcTo(ovalRectF, startAngle, sweepAngle) , ovalRectF为椭圆的矩形，
         startAngle 为开始角度，sweepAngle 为结束角度。*/
         /*利用三角函数计算圆最右边点的坐标，利用该坐标值和半径构建圆的外接正方形然后画圆*/
-        float circleRightPointX=arcStartPointX+(radius-radius*(float)Math.cos(15*2*Math.PI/360));
-        float circleRightPointY=triangleRightVertexY;
+        float circleRightPointX = arcStartPointX + (radius - radius * (float) Math.cos(15 * 2 * Math.PI / 360));
+        float circleRightPointY = triangleRightVertexY;
         /*圆弧路径，起始角度0度在3点钟方向，因此弧形起始角度15度，扫过角度360-30度*/
-        path.arcTo(new RectF(  circleRightPointX-2*radius,
-                        circleRightPointY-radius,
+        path.arcTo(new RectF(circleRightPointX - 2 * radius,
+                        circleRightPointY - radius,
                         circleRightPointX,
-                        circleRightPointY+radius),
+                        circleRightPointY + radius),
                 15, 360 - 30);
         /*闭合路径*/
         path.close();
@@ -131,14 +132,14 @@ public class GameActivity_RankBar extends View {
         /*根据数据位数来确定偏移量*/
         float number_offset;
         /*只有一位数字*/
-        if (mRankLeft <10) {
-            number_offset=radius/2;
+        if (mRankLeft < 10) {
+            number_offset = radius / 2;
             /*两位数字*/
         } else {
-            number_offset=radius*3 / 4;
+            number_offset = radius * 3 / 4;
         }
         /*圆心x坐标*/
-        float circleX=arcStartPointX-radius;
+        float circleX = arcStartPointX - radius;
         /*绘制#号*/
         canvas.drawText("#", circleX - number_offset, lineYs[mRankLeft - 1] + radius / 4, paintText);
         float offset = paintText.measureText("#");
@@ -149,23 +150,23 @@ public class GameActivity_RankBar extends View {
         /*绘制右边部分*/
         path.reset();
         /*三角形左边顶点坐标*/
-        float triangleLeftVertexX=totalWidth / 2 + lineLength / 2;
-        float triangleLeftVertexY=lineYs[mRankRight - 1];
+        float triangleLeftVertexX = totalWidth / 2 + lineLength / 2;
+        float triangleLeftVertexY = lineYs[mRankRight - 1];
         /*等边三角形左边顶点作为路径起始点*/
         path.moveTo(triangleLeftVertexX, triangleLeftVertexY);
         /*等边三角形上边顶点和圆的焦点作为圆弧路径的起点*/
-        arcStartPointX=triangleLeftVertexX+triangleLength*(float)Math.cos(30*2*Math.PI/360);
-        arcStartPointY=triangleLeftVertexY-triangleLength*(float)Math.sin(30*2*Math.PI/360);
+        arcStartPointX = triangleLeftVertexX + triangleLength * (float) Math.cos(30 * 2 * Math.PI / 360);
+        arcStartPointY = triangleLeftVertexY - triangleLength * (float) Math.sin(30 * 2 * Math.PI / 360);
         path.lineTo(arcStartPointX, arcStartPointY);
         /*利用三角函数计算圆最左边点的坐标，利用该坐标值和半径构建圆的外接正方形然后做圆弧路径*/
-        float circleLeftPointX=arcStartPointX-(radius-radius*(float)Math.cos(15*2*Math.PI/360));
-        float circleLeftPointY=triangleLeftVertexY;
+        float circleLeftPointX = arcStartPointX - (radius - radius * (float) Math.cos(15 * 2 * Math.PI / 360));
+        float circleLeftPointY = triangleLeftVertexY;
         /*圆弧路径*/
-        path.arcTo(new RectF(  circleLeftPointX,
+        path.arcTo(new RectF(circleLeftPointX,
                         circleLeftPointY - radius,
-                        circleLeftPointX+2*radius,
-                        circleLeftPointY+radius),
-                180+15, 360 - 30);
+                        circleLeftPointX + 2 * radius,
+                        circleLeftPointY + radius),
+                180 + 15, 360 - 30);
         /*闭合路径*/
         path.close();
         /*绘制路径*/
@@ -181,26 +182,27 @@ public class GameActivity_RankBar extends View {
         /*开始绘制文字*/
         paintText.setColor(Color.WHITE);
         paintText.setTextSize(radius * 3 / 5);
-        if (mRankRight <10) {
-            number_offset=radius/2;
+        if (mRankRight < 10) {
+            number_offset = radius / 2;
         } else {
-            number_offset=radius*3 / 4;
+            number_offset = radius * 3 / 4;
         }
-        circleX=circleLeftPointX+radius;
-        canvas.drawText("#", circleX  - number_offset, lineYs[mRankRight - 1] + radius / 4, paintText);
+        circleX = circleLeftPointX + radius;
+        canvas.drawText("#", circleX - number_offset, lineYs[mRankRight - 1] + radius / 4, paintText);
         offset = paintText.measureText("#");
         paintText.setTextSize(radius);
-        canvas.drawText("" + mRankRight, circleX  - number_offset + offset, lineYs[mRankRight - 1] + radius / 4, paintText);
+        canvas.drawText("" + mRankRight, circleX - number_offset + offset, lineYs[mRankRight - 1] + radius / 4, paintText);
     }
 
-    public void setRanks(int rank1,int rank2) {
-        if (rank1<1||rank1>30||rank2<1||rank2>30)
+    public void setRanks(int rank1, int rank2) {
+        if (rank1 < 1 || rank1 > 30 || rank2 < 1 || rank2 > 30)
             throw new IllegalArgumentException("排名参数只能设置成1到30的整数");
-        this.mRankLeft =rank1;
-        this.mRankRight =rank2;
+        this.mRankLeft = rank1;
+        this.mRankRight = rank2;
         invalidate();
     }
-    public void setColor(int mColorLeft, int mColorRight){
+
+    public void setColor(int mColorLeft, int mColorRight) {
         this.mColorLeft = mColorLeft;
         this.mColorRight = mColorRight;
         invalidate();

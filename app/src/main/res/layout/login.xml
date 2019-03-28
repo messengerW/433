@@ -33,10 +33,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:paddingBottom="15dp"
             android:paddingLeft="30dp"
             android:paddingTop="15dp"
-            app:srcCompat="@mipmap/ic_login_account"/>
+            android:paddingBottom="15dp"
+            app:srcCompat="@mipmap/ic_login_account" />
 
         <View
             android:id="@+id/viewName"
@@ -77,9 +77,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:paddingBottom="15dp"
             android:paddingLeft="30dp"
             android:paddingTop="15dp"
+            android:paddingBottom="15dp"
             app:srcCompat="@mipmap/ic_login_password" />
 
         <View
@@ -106,7 +106,6 @@
             android:textColorHint="@color/cw_0"
             android:textCursorDrawable="@drawable/color_cursor"
             android:textSize="15sp" />
-
 
 
     </RelativeLayout>

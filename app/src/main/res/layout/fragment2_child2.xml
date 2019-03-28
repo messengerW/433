@@ -18,5 +18,5 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp" />
 
-        <!--最后两句暂时不知道什么作用，绝对坐标？不过貌似没什么影响以后再说-->
+    <!--最后两句暂时不知道什么作用，绝对坐标？不过貌似没什么影响以后再说-->
 </android.support.constraint.ConstraintLayout>

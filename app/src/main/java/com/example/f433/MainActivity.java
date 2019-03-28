@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainpage);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -154,7 +155,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_6) {
 
         } else if (id == R.id.nav_7) {
-            Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);
         }
 

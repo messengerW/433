@@ -19,7 +19,8 @@
         <com.example.f433.GameActivity_ScoreBoardView
             android:id="@+id/custom_view"
             android:layout_width="165dp"
-            android:layout_height="165dp" />
+            android:layout_height="165dp"
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
         <com.example.f433.GameActivity_RankBar
             android:id="@+id/rank_bar"
@@ -32,7 +33,7 @@
             android:id="@+id/custom_view2"
             android:layout_width="165dp"
             android:layout_height="165dp"
-            android:layout_marginLeft="36dp"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toRightOf="@id/custom_view" />
 
     </android.support.constraint.ConstraintLayout>

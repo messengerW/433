@@ -29,6 +29,7 @@ public class Fragment2_Child2 extends Fragment {
         initGameItem();
         return view;
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -63,6 +64,7 @@ public class Fragment2_Child2 extends Fragment {
     */
 
     protected Activity mActivity;
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -77,7 +79,7 @@ public class Fragment2_Child2 extends Fragment {
         //获取RecyclerView
         mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_game);
         //创建adapter
-        mCollectRecyclerAdapter = new Fragment2_Child2_GameAdapter(mActivity,ItemArrayList);
+        mCollectRecyclerAdapter = new Fragment2_Child2_GameAdapter(mActivity, ItemArrayList);
         //给RecyclerView设置adapter
         mCollectRecyclerView.setAdapter(mCollectRecyclerAdapter);
         //设置layoutManager,可以设置显示效果，是线性布局、grid布局，还是瀑布流布局

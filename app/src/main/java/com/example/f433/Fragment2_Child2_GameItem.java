@@ -15,7 +15,7 @@ public class Fragment2_Child2_GameItem implements Serializable {
     }
 
     public Fragment2_Child2_GameItem(String date, String time, String team1, String team2, String logo1,
-                                     String logo2,String centertext) {
+                                     String logo2, String centertext) {
         this.time = time;
         this.date = date;
         this.team1 = team1;

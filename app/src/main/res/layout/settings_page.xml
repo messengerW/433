@@ -2,192 +2,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#8c8f91">
+    android:background="#8c8f91"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="@color/cg_3">
+
         <LinearLayout
             android:layout_width="120dp"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/tv_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="返回"
-                android:textSize="24sp"
-                android:textColor="#FFFFFF"
+                android:drawableLeft="@drawable/ic_settings_back"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
                 android:paddingLeft="5dp"
                 android:paddingTop="10dp"
-                android:drawableLeft="@drawable/ic_settings_back"
-                android:gravity="center_vertical"
-                android:drawablePadding="5dp"/>
+                android:text="返回"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="设置"
-            android:textSize="28sp"
-            android:paddingTop="10dp"
             android:paddingLeft="44dp"
+            android:paddingTop="10dp"
+            android:text="设置"
             android:textColor="#FFFFFF"
-            />
+            android:textSize="28sp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="12dp"
         android:background="#cacdcf"
-        android:paddingTop="2dp">
-    </LinearLayout>
+        android:paddingTop="2dp"></LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="#dee3e5"
         android:paddingTop="2dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:drawableRight="@drawable/ic_settings_go"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="账号与安全"
-            android:drawableRight="@drawable/ic_settings_go"
-            android:gravity="center_vertical"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="#cacdcf"
-        android:paddingTop="2dp">
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#dee3e5"
-        android:paddingTop="2dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="消息通知"
-            android:drawableRight="@drawable/ic_settings_go"
-            android:gravity="center_vertical"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#dee3e5"
-        android:paddingTop="2dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="隐私"
-            android:drawableRight="@drawable/ic_settings_go"
-            android:gravity="center_vertical"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#dee3e5"
-        android:paddingTop="2dp">
-        <Switch
-            android:id="@+id/switch_1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="消息推送"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="5dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#dee3e5"
-        android:paddingTop="2dp">
-        <Switch
-            android:id="@+id/switch_2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="夜间模式"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="5dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="#cacdcf"
-        android:paddingTop="2dp">
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#dee3e5"
-        android:paddingTop="2dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="帮助与反馈"
-            android:drawableRight="@drawable/ic_settings_go"
-            android:gravity="center_vertical"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#dee3e5"
-        android:paddingTop="2dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="关于"
-            android:drawableRight="@drawable/ic_settings_go"
-            android:gravity="center_vertical"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="#cacdcf"
-        android:paddingTop="2dp">
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#dee3e5"
-        android:paddingTop="2dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="切换账号"
-            android:gravity="center"
             android:textColor="#000000"
             android:textSize="20sp" />
     </LinearLayout>
@@ -196,7 +66,24 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:background="#cacdcf"
+        android:paddingTop="2dp"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#dee3e5"
         android:paddingTop="2dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableRight="@drawable/ic_settings_go"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="消息通知"
+            android:textColor="#000000"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -204,11 +91,131 @@
         android:layout_height="48dp"
         android:background="#dee3e5"
         android:paddingTop="2dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="退出登录"
+            android:drawableRight="@drawable/ic_settings_go"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="隐私"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#dee3e5"
+        android:paddingTop="2dp">
+
+        <Switch
+            android:id="@+id/switch_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="5dp"
+            android:text="消息推送"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#dee3e5"
+        android:paddingTop="2dp">
+
+        <Switch
+            android:id="@+id/switch_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="5dp"
+            android:text="夜间模式"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#cacdcf"
+        android:paddingTop="2dp"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#dee3e5"
+        android:paddingTop="2dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableRight="@drawable/ic_settings_go"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="帮助与反馈"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#dee3e5"
+        android:paddingTop="2dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableRight="@drawable/ic_settings_go"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="关于"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#cacdcf"
+        android:paddingTop="2dp"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#dee3e5"
+        android:paddingTop="2dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
+            android:text="切换账号"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#cacdcf"
+        android:paddingTop="2dp"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#dee3e5"
+        android:paddingTop="2dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="退出登录"
             android:textColor="#000000"
             android:textSize="20sp" />
     </LinearLayout>
@@ -217,7 +224,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#cacdcf"
-        android:paddingTop="2dp">
-    </LinearLayout>
+        android:paddingTop="2dp"></LinearLayout>
 
 </LinearLayout>
