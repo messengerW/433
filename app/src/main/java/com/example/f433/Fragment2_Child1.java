@@ -25,7 +25,7 @@ public class Fragment2_Child1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment2_child1, container, false);
-        initRecyclerView2();
+        initRecyclerView();
         initRankItem();
         return view;
     }
@@ -66,7 +66,7 @@ public class Fragment2_Child1 extends Fragment {
      * TODO 对recycleview进行配置
      */
 
-    private void initRecyclerView2() {
+    private void initRecyclerView() {
         //获取RecyclerView
         mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_rank);
         //创建adapter
