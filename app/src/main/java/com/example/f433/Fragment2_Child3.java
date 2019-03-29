@@ -14,6 +14,7 @@ public class Fragment2_Child3 extends Fragment {
         View view = View.inflate(getActivity(), R.layout.fragment2_child3, null);
         return view;
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

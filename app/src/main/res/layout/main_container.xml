@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/container"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/main_bar">
@@ -22,10 +21,11 @@
         <!--这个布局文件很重要，它相当于一块幕布，放置在主页面MainPage中，首页、数据、分析这三个
         页面(Fragment)通过点击按钮切换，轮流在这块幕布上显示-->
         <FrameLayout
+            android:id="@+id/fm_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/head_image_height"
-            android:id="@+id/fm_container">
+            android:layout_marginBottom="@dimen/head_image_height">
+
         </FrameLayout>
 
     </LinearLayout>
@@ -35,8 +35,8 @@
         android:id="@+id/navigation_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/cw_7"
         android:background="?android:attr/windowBackground"
+        android:backgroundTint="@color/cw_7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"

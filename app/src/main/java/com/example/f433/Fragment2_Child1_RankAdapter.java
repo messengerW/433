@@ -61,10 +61,10 @@ public class Fragment2_Child1_RankAdapter extends RecyclerView.Adapter<Fragment2
                 .placeholder(R.drawable.ic_news_loading)      //处理图片加载时显示的画面
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 *//*
-                 * 上面这句话解释是这样的：Glide具有缓存机制，加载过的图片它会自动缓存下来，因此下一次加载时
-                 * 会从缓存中直接读取，加载速度特别快，看不到加载的过程，所以上面的占位图也就“失效”了，加上这
-                 * 句话相当于禁止读取缓存吧大概。
-                 * *//*
+         * 上面这句话解释是这样的：Glide具有缓存机制，加载过的图片它会自动缓存下来，因此下一次加载时
+         * 会从缓存中直接读取，加载速度特别快，看不到加载的过程，所以上面的占位图也就“失效”了，加上这
+         * 句话相当于禁止读取缓存吧大概。
+         * *//*
                 .error(R.drawable.ic_news_failure);
 
 

@@ -29,6 +29,7 @@ public class Fragment2_Child1 extends Fragment {
         initRankItem();
         return view;
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -40,22 +41,23 @@ public class Fragment2_Child1 extends Fragment {
     private void initRankItem() {
 
         //  新闻的图片、标题、时间等在这里获取，将来设计好数据库后可以改成sql语句
-        for (int i = 0; i < 18; i++) {
+        for (int i = 1; i <= 20; i++) {
             Fragment2_Child1_RankItem RankItem = new Fragment2_Child1_RankItem();
-            RankItem.setRank("1");
+            RankItem.setRank(String.valueOf(i));
             //RankItem.setLogo("url");
             RankItem.setName("Barcelona");
-            RankItem.setTurn("38");
-            RankItem.setNum1("38");
-            RankItem.setNum2("0");
-            RankItem.setNum3("0");
-            RankItem.setRate("100/0");
-            RankItem.setPoints("114");
+            RankItem.setTurn("28");
+            RankItem.setNum1("20");
+            RankItem.setNum2("6");
+            RankItem.setNum3("2");
+            RankItem.setRate("73/27");
+            RankItem.setPoints("66");
             ItemArrayList.add(RankItem);
         }
     }
 
     protected Activity mActivity;
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -70,7 +72,7 @@ public class Fragment2_Child1 extends Fragment {
         //获取RecyclerView
         mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_rank);
         //创建adapter
-        mCollectRecyclerAdapter = new Fragment2_Child1_RankAdapter(mActivity,ItemArrayList);
+        mCollectRecyclerAdapter = new Fragment2_Child1_RankAdapter(mActivity, ItemArrayList);
         //给RecyclerView设置adapter
         mCollectRecyclerView.setAdapter(mCollectRecyclerAdapter);
         //设置layoutManager,可以设置显示效果，是线性布局、grid布局，还是瀑布流布局

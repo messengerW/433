@@ -93,10 +93,10 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
                 @Override
                 public void onClick(View v) {
                     /*这里是直接添加整个item的点击跳转事件，如果想为item中具体的小的控件添加点击事件的话，
-                    * 稍微麻烦一点。*/
+                     * 稍微麻烦一点。*/
                     //Toast.makeText(context,"点击了xxx",Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(context,GameActivity.class);
+                    Intent intent = new Intent(context, GameActivity.class);
                     context.startActivity(intent);
 
                     //此处回传点击监听事件

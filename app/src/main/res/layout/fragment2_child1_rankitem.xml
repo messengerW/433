@@ -1,101 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="45dp"
-    android:paddingLeft="2dp"
-    android:paddingTop="0dp"
-    android:paddingRight="2dp">
+    android:layout_height="50dp">
 
     <TextView
         android:id="@+id/rank_rank"
         android:layout_width="30dp"
         android:layout_height="match_parent"
+        android:layout_marginTop="11dp"
         android:gravity="center"
-        android:padding="2dp"
         android:textColor="@color/word_0"
         android:textSize="@dimen/text_rank_head"
-        tools:text="n"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1" />
 
     <ImageView
         android:id="@+id/rank_logo"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toRightOf="@id/rank_rank"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/rank_name"
-        android:layout_width="110dp"
+        android:layout_width="75dp"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:padding="2dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="11dp"
+        android:gravity="left|center"
         android:textColor="@color/word_0"
         android:textSize="@dimen/text_rank_head"
-        tools:text="Barcelona"/>
+        app:layout_constraintLeft_toRightOf="@id/rank_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Barcelona" />
 
     <TextView
         android:id="@+id/rank_turn"
         android:layout_width="@dimen/text_rank_head_width"
         android:layout_height="match_parent"
+        android:layout_marginTop="11dp"
         android:gravity="center"
-        android:padding="2dp"
         android:textColor="@color/word_0"
         android:textSize="@dimen/text_rank_head"
-        tools:text="turn"/>
+        app:layout_constraintLeft_toRightOf="@id/rank_name"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="28" />
 
     <TextView
         android:id="@+id/rank_num1"
         android:layout_width="@dimen/text_rank_head_width"
         android:layout_height="match_parent"
+        android:layout_marginTop="11dp"
         android:gravity="center"
-        android:padding="2dp"
         android:textColor="@color/word_0"
         android:textSize="@dimen/text_rank_head"
-        tools:text="win"/>
+        app:layout_constraintLeft_toRightOf="@id/rank_turn"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="20" />
 
     <TextView
         android:id="@+id/rank_num2"
         android:layout_width="@dimen/text_rank_head_width"
         android:layout_height="match_parent"
+        android:layout_marginTop="11dp"
         android:gravity="center"
-        android:padding="2dp"
         android:textColor="@color/word_0"
         android:textSize="@dimen/text_rank_head"
-        tools:text="ping" />
+        app:layout_constraintLeft_toRightOf="@id/rank_num1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="6" />
 
     <TextView
         android:id="@+id/rank_num3"
         android:layout_width="@dimen/text_rank_head_width"
         android:layout_height="match_parent"
+        android:layout_marginTop="11dp"
         android:gravity="center"
-        android:padding="2dp"
         android:textColor="@color/word_0"
         android:textSize="@dimen/text_rank_head"
-        tools:text="lose" />
+        app:layout_constraintLeft_toRightOf="@id/rank_num2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2" />
 
     <TextView
         android:id="@+id/rank_rate"
         android:layout_width="55dp"
         android:layout_height="match_parent"
+        android:layout_marginTop="11dp"
         android:gravity="center"
-        android:padding="2dp"
         android:textColor="@color/word_0"
         android:textSize="@dimen/text_rank_head"
-        tools:text="进/失" />
+        app:layout_constraintLeft_toRightOf="@id/rank_num3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="73/27" />
 
     <TextView
         android:id="@+id/rank_points"
         android:layout_width="@dimen/text_rank_head_width"
         android:layout_height="match_parent"
+        android:layout_marginTop="11dp"
+        android:layout_marginRight="10dp"
         android:gravity="center"
-        android:padding="2dp"
         android:textColor="@color/word_0"
         android:textSize="@dimen/text_rank_head"
-        tools:text="points" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="66" />
 
     <!-- 横向分割线 -->
     <View
@@ -105,4 +120,4 @@
         android:background="#EEEEEE"
         app:layout_constraintTop_toBottomOf="@id/rank_logo" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

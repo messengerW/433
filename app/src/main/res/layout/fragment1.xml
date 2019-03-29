@@ -1,12 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <FrameLayout
+        android:id="@+id/lunbo"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:id="@+id/lunbo">
+        android:layout_height="220dp">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/vp_lunbo"
@@ -19,25 +19,25 @@
             android:layout_gravity="bottom"
             android:background="#33000000"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
-                <View
-                    android:id="@+id/dot_0"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/ic_point1"/>
+            <View
+                android:id="@+id/dot_0"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_point1" />
 
-                <View
-                    android:id="@+id/dot_1"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/ic_point2"/>
+            <View
+                android:id="@+id/dot_1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_point2" />
 
-                <View
-                    android:id="@+id/dot_2"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/ic_point2"/>
+            <View
+                android:id="@+id/dot_2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_point2" />
 
         </LinearLayout>
     </FrameLayout>

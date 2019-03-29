@@ -5,7 +5,6 @@
     android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cw_6"
     tools:context="com.example.f433.LoginActivity">
 
     <!--这个是登录页面，可以通过修改配置清单AndroidManifest文件改变登录页面显示的次序，就是说。。
@@ -34,10 +33,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:paddingBottom="15dp"
             android:paddingLeft="30dp"
             android:paddingTop="15dp"
-            app:srcCompat="@mipmap/ic_login_account"/>
+            android:paddingBottom="15dp"
+            app:srcCompat="@mipmap/ic_login_account" />
 
         <View
             android:id="@+id/viewName"
@@ -78,9 +77,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:paddingBottom="15dp"
             android:paddingLeft="30dp"
             android:paddingTop="15dp"
+            android:paddingBottom="15dp"
             app:srcCompat="@mipmap/ic_login_password" />
 
         <View
@@ -107,7 +106,6 @@
             android:textColorHint="@color/cw_0"
             android:textCursorDrawable="@drawable/color_cursor"
             android:textSize="15sp" />
-
 
 
     </RelativeLayout>

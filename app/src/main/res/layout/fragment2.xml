@@ -1,5 +1,4 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,7 +14,7 @@
         android:layout_height="50dp"
         app:tabIndicatorColor="@color/cg_2"
         app:tabSelectedTextColor="@color/cg_5"
-        app:tabTextColor="@android:color/darker_gray"/>
+        app:tabTextColor="@android:color/darker_gray" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_data"
