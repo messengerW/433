@@ -15,73 +15,74 @@
             android:id="@+id/rank"
             android:layout_width="@dimen/text_rank_head_width"
             android:layout_height="match_parent"
-            android:layout_marginLeft="7dp"
+            android:layout_marginLeft="10dp"
             android:gravity="center"
             android:text="排名"
             android:textColor="@color/word_0"
             android:textSize="@dimen/text_rank_head"
             android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/team" />
 
         <TextView
             android:id="@+id/team"
-            android:layout_width="110dp"
+            android:layout_width="112dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="33dp"
             android:gravity="center"
             android:text="球队"
             android:textColor="@color/word_0"
             android:textSize="@dimen/text_rank_head"
             android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="@id/rank" />
+            app:layout_constraintLeft_toRightOf="@id/rank"
+            app:layout_constraintRight_toLeftOf="@id/round"/>
 
         <TextView
             android:id="@+id/round"
             android:layout_width="@dimen/text_rank_head_width"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:text="赛"
             android:textColor="@color/word_0"
             android:textSize="@dimen/text_rank_head"
             android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@id/team" />
+            app:layout_constraintLeft_toRightOf="@id/team"
+            app:layout_constraintRight_toLeftOf="@id/win"/>
 
         <TextView
             android:id="@+id/win"
             android:layout_width="@dimen/text_rank_head_width"
             android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
             android:gravity="center"
             android:text="胜"
             android:textColor="@color/word_0"
             android:textSize="@dimen/text_rank_head"
             android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@id/round" />
+            app:layout_constraintLeft_toRightOf="@id/round"
+            app:layout_constraintRight_toLeftOf="@id/draw"/>
 
         <TextView
             android:id="@+id/draw"
             android:layout_width="@dimen/text_rank_head_width"
             android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
             android:gravity="center"
             android:text="平"
             android:textColor="@color/word_0"
             android:textSize="@dimen/text_rank_head"
             android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@id/win" />
+            app:layout_constraintLeft_toRightOf="@id/win"
+            app:layout_constraintRight_toLeftOf="@id/lose"/>
 
         <TextView
             android:id="@+id/lose"
             android:layout_width="@dimen/text_rank_head_width"
             android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
             android:gravity="center"
             android:text="负"
             android:textColor="@color/word_0"
             android:textSize="@dimen/text_rank_head"
             android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@id/draw" />
+            app:layout_constraintLeft_toRightOf="@id/draw"
+            app:layout_constraintRight_toLeftOf="@id/goals"/>
 
         <TextView
             android:id="@+id/goals"
@@ -92,19 +93,19 @@
             android:textColor="@color/word_0"
             android:textSize="@dimen/text_rank_head"
             android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@id/lose" />
+            app:layout_constraintLeft_toRightOf="@id/lose"
+            app:layout_constraintRight_toLeftOf="@id/score"/>
 
         <TextView
             android:id="@+id/score"
             android:layout_width="@dimen/text_rank_head_width"
             android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
             android:gravity="center"
             android:text="积分"
             android:textColor="@color/word_0"
             android:textSize="@dimen/text_rank_head"
             android:textStyle="bold"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintLeft_toRightOf="@id/score"/>
 
 
     </android.support.constraint.ConstraintLayout>
