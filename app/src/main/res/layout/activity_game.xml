@@ -14,16 +14,15 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_1"
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="125dp">
 
         <ImageView
             android:id="@+id/home_icon"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/vs"
             app:layout_constraintTop_toBottomOf="parent"
             app:srcCompat="@mipmap/mancity" />
 
@@ -31,9 +30,8 @@
             android:id="@+id/away_icon"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/vs"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="parent"
             app:srcCompat="@mipmap/tottenham" />
@@ -62,10 +60,53 @@
             app:layout_constraintRight_toRightOf="@id/away_icon"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
+        <TextView
+            android:id="@+id/vs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VS"
+            android:textSize="24dp"
+            android:textColor="@color/cw_1"
+            app:layout_constraintLeft_toRightOf="@id/home_icon"
+            app:layout_constraintRight_toLeftOf="@id/away_icon"
+            app:layout_constraintTop_toBottomOf="@id/home_icon"
+            app:layout_constraintBottom_toTopOf="@id/home_icon" />
+
     </android.support.constraint.ConstraintLayout>
+
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cw_5">
+
+        <ImageView
+            android:id="@+id/rank_logo"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/rank_text"
+            app:srcCompat="@mipmap/rank" />
+
+        <TextView
+            android:id="@+id/rank_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="联赛积分排名"
+            android:textColor="@color/cw_1"
+            android:textSize="18dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/rank_logo"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraint_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@mipmap/game_background2">
