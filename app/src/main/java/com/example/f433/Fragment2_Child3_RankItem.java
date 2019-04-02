@@ -2,7 +2,7 @@ package com.example.f433;
 
 import java.io.Serializable;
 
-public class Fragment2_Child1_RankItem implements Serializable {
+public class Fragment2_Child3_RankItem implements Serializable {
     public String rank;         //  排名
     public String logo;         //  队徽
     public String name;         //  队名
@@ -13,10 +13,10 @@ public class Fragment2_Child1_RankItem implements Serializable {
     public String rate;         //  进/失球
     public String points;       //  积分
 
-    public Fragment2_Child1_RankItem() {
+    public Fragment2_Child3_RankItem() {
     }
 
-    public Fragment2_Child1_RankItem(String rank, String imgPath, String name, String turn, String num1,
+    public Fragment2_Child3_RankItem(String rank, String imgPath, String name, String turn, String num1,
                                      String num2, String num3, String rate, String points) {
         this.rank = rank;
         this.logo = imgPath;
@@ -103,7 +103,7 @@ public class Fragment2_Child1_RankItem implements Serializable {
 
     @Override
     public String toString() {
-        return "Fragment1_NewsItem{" +
+        return "Fragment2_Child3_RankItem{" +
                 "rank='" + rank + '\'' +
                 "imgPath='" + logo + '\'' +
                 "name='" + name + '\'' +

@@ -11,7 +11,7 @@
         这里仅仅是预览，在这里设置内容后可以在右边Preview中预览，但是最终显示在app上的内容
         与这里设置的无关，而是取决于适配器中（或Fragment调用Adapter）设置的内容-->
     <TextView
-        android:id="@+id/game2_date"
+        android:id="@+id/game1_date"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -23,7 +23,7 @@
         tools:text="3月31日" />
 
     <TextView
-        android:id="@+id/game2_time"
+        android:id="@+id/game1_time"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -32,34 +32,48 @@
         android:textSize="15sp"
         android:textStyle="normal"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/game2_date"
+        app:layout_constraintTop_toBottomOf="@id/game1_date"
         tools:text="3:45" />
 
     <TextView
-        android:id="@+id/game2_team1"
+        android:id="@+id/game1_team1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:textColor="#333333"
         android:textSize="13sp"
-        app:layout_constraintLeft_toLeftOf="@id/game2_pic1"
-        app:layout_constraintRight_toRightOf="@id/game2_pic1"
-        app:layout_constraintTop_toBottomOf="@id/game2_pic1"
+        app:layout_constraintLeft_toLeftOf="@id/game1_pic1"
+        app:layout_constraintRight_toRightOf="@id/game1_pic1"
+        app:layout_constraintTop_toBottomOf="@id/game1_pic1"
         tools:text="Barcelona" />
 
     <ImageView
-        android:id="@+id/game2_pic1"
+        android:id="@+id/game1_pic1"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="5dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@id/game2_VS"
-        app:layout_constraintRight_toLeftOf="@id/game2_VS"
-        app:layout_constraintTop_toTopOf="@id/game2_VS"
+        app:layout_constraintBottom_toBottomOf="@id/game1_center"
+        app:layout_constraintRight_toLeftOf="@id/game1_score1"
+        app:layout_constraintTop_toTopOf="@id/game1_center"
         tools:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/game1_score1"
+        android:layout_width="15dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:textColor="#333333"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/game1_center"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="3" />
 
     <!-- 注意：这个 TextView 是整个 game 条布局的中心 -->
     <TextView
-        android:id="@+id/game2_VS"
+        android:id="@+id/game1_center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
@@ -69,38 +83,52 @@
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="VS" />
+        tools:text=":" />
+
+    <TextView
+        android:id="@+id/game1_score2"
+        android:layout_width="15dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:textColor="#333333"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/game1_center"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="4" />
 
     <ImageView
-        android:id="@+id/game2_pic2"
+        android:id="@+id/game1_pic2"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@id/game2_VS"
-        app:layout_constraintLeft_toRightOf="@id/game2_VS"
-        app:layout_constraintTop_toTopOf="@id/game2_VS"
+        app:layout_constraintBottom_toBottomOf="@id/game1_center"
+        app:layout_constraintLeft_toRightOf="@id/game1_score2"
+        app:layout_constraintTop_toTopOf="@id/game1_center"
         tools:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/game2_team2"
+        android:id="@+id/game1_team2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:textColor="#333333"
         android:textSize="13sp"
-        app:layout_constraintLeft_toLeftOf="@id/game2_pic2"
-        app:layout_constraintRight_toRightOf="@id/game2_pic2"
-        app:layout_constraintTop_toBottomOf="@id/game2_pic2"
+        app:layout_constraintLeft_toLeftOf="@id/game1_pic2"
+        app:layout_constraintRight_toRightOf="@id/game1_pic2"
+        app:layout_constraintTop_toBottomOf="@id/game1_pic2"
         tools:text="Liverpool" />
 
     <!--这个是每两个新闻框之间的分割线-->
     <View
-        android:id="@+id/game2_divider"
+        android:id="@+id/game1_divider"
         android:layout_width="0dp"
         android:layout_height="5px"
         android:layout_margin="5dp"
         android:background="#EEEEEE"
-        app:layout_constraintTop_toBottomOf="@id/game2_team1" />
+        app:layout_constraintTop_toBottomOf="@id/game1_team1" />
 
 
 </android.support.constraint.ConstraintLayout>

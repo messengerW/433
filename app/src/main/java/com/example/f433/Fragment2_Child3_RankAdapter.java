@@ -6,15 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Fragment2_Child1_RankAdapter extends RecyclerView.Adapter<Fragment2_Child1_RankAdapter.myViewHodler> {
+public class Fragment2_Child3_RankAdapter extends RecyclerView.Adapter<Fragment2_Child3_RankAdapter.myViewHodler> {
     private Context context;
-    private ArrayList<Fragment2_Child1_RankItem> RankItemList;
+    private ArrayList<Fragment2_Child3_RankItem> RankItemList;
 
     //创建构造函数
-    public Fragment2_Child1_RankAdapter(Context context, ArrayList<Fragment2_Child1_RankItem> RankItemList) {
+    public Fragment2_Child3_RankAdapter(Context context, ArrayList<Fragment2_Child3_RankItem> RankItemList) {
         //将传递过来的数据，赋值给本地变量
         this.context = context;//上下文
         this.RankItemList = RankItemList;//实体类数据ArrayList
@@ -30,7 +31,7 @@ public class Fragment2_Child1_RankAdapter extends RecyclerView.Adapter<Fragment2
     @Override
     public myViewHodler onCreateViewHolder(ViewGroup parent, int viewType) {
         //创建自定义布局
-        View itemView = View.inflate(context, R.layout.fragment2_child1_rankitem, null);
+        View itemView = View.inflate(context, R.layout.fragment2_child3_rankitem, null);
         return new myViewHodler(itemView);
     }
 
@@ -43,7 +44,7 @@ public class Fragment2_Child1_RankAdapter extends RecyclerView.Adapter<Fragment2
     @Override
     public void onBindViewHolder(myViewHodler holder, int position) {
         //根据点击位置绑定数据
-        Fragment2_Child1_RankItem data = RankItemList.get(position);
+        Fragment2_Child3_RankItem data = RankItemList.get(position);
 
         holder.rank.setText(data.rank);    //获取实体类中的title字段并设置
         holder.logo.setBackgroundResource(R.mipmap.ic_launcher);
@@ -115,7 +116,7 @@ public class Fragment2_Child1_RankAdapter extends RecyclerView.Adapter<Fragment2
                 @Override
                 public void onClick(View v) {
                     //可以选择直接在本位置直接写业务处理
-                    //Toast.makeText(context,"点击了xxx",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,"巴萨三冠王！",Toast.LENGTH_SHORT).show();
                     //此处回传点击监听事件
                     if (onItemClickListener != null) {
                         onItemClickListener.OnItemClick(v, RankItemList.get(getLayoutPosition()));
@@ -136,7 +137,7 @@ public class Fragment2_Child1_RankAdapter extends RecyclerView.Adapter<Fragment2
          * @param view 点击的item的视图
          * @param data 点击的item的数据
          */
-        public void OnItemClick(View view, Fragment2_Child1_RankItem data);
+        public void OnItemClick(View view, Fragment2_Child3_RankItem data);
     }
 
     //需要外部访问，所以需要设置set方法，方便调用

@@ -4,13 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -77,7 +75,7 @@ public class Fragment2_Child2 extends Fragment {
 
     private void initRecyclerView() {
         //获取RecyclerView
-        mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_game);
+        mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_game2);
         //创建adapter
         mCollectRecyclerAdapter = new Fragment2_Child2_GameAdapter(mActivity, ItemArrayList);
         //给RecyclerView设置adapter
