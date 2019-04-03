@@ -6,6 +6,7 @@
 
     <!--以下是常用颜色，你们没事多补充补充呀!!!-->
 
+    <color name="cg_0">#6af74b</color>
     <color name="cg_1">#00FF00</color>
     <color name="cg_2">#00CC00</color>
     <color name="cg_3">#009900</color>
@@ -31,6 +32,7 @@
     <color name="cy_3">#FFFF66</color>
     <color name="cy_4">#FFFF33</color>
     <color name="cy_5">#FFFF00</color>
+    <color name="cy_6">#fcc857</color>
 
     <color name="cw_0">#cccccc</color>
     <color name="cw_1">#FFFFFF</color>
