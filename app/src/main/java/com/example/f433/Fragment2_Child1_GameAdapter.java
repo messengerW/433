@@ -10,12 +10,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2_Child2_GameAdapter.myViewHolder> {
+public class Fragment2_Child1_GameAdapter extends RecyclerView.Adapter<Fragment2_Child1_GameAdapter.myViewHolder> {
     private Context context;
-    private ArrayList<Fragment2_Child2_GameItem> GameItemList;
+    private ArrayList<Fragment2_Child1_GameItem> GameItemList;
 
     //创建构造函数
-    public Fragment2_Child2_GameAdapter(Context context, ArrayList<Fragment2_Child2_GameItem> GameItemList) {
+    public Fragment2_Child1_GameAdapter(Context context, ArrayList<Fragment2_Child1_GameItem> GameItemList) {
         //将传递过来的数据，赋值给本地变量
         this.context = context;//上下文
         this.GameItemList = GameItemList;//实体类数据ArrayList
@@ -31,7 +31,7 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
     @Override
     public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //创建自定义布局
-        View itemView = View.inflate(context, R.layout.fragment2_child2_gameitem, null);
+        View itemView = View.inflate(context, R.layout.fragment2_child1_gameitem, null);
         return new myViewHolder(itemView);
     }
 
@@ -44,13 +44,15 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
     @Override
     public void onBindViewHolder(myViewHolder holder, int position) {
         //根据点击位置绑定数据
-        Fragment2_Child2_GameItem data = GameItemList.get(position);
+        Fragment2_Child1_GameItem data = GameItemList.get(position);
 
         holder.date.setText(data.date);    //获取实体类中的title字段并设置
         holder.time.setText(data.time);
         holder.team1.setText(data.team1);
         holder.team2.setText(data.team2);
-        holder.VS.setText(data.centertext);
+        holder.score1.setText(data.score1);
+        holder.score2.setText(data.score2);
+        holder.center.setText(data.center);
         holder.logo1.setBackgroundResource(R.mipmap.ic_launcher);
         holder.logo2.setBackgroundResource(R.mipmap.ic_launcher);
 
@@ -73,19 +75,23 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
         private TextView time;
         private TextView team1;
         private TextView team2;
+        private TextView score1;
+        private TextView score2;
         private ImageView logo1;
         private ImageView logo2;
-        private TextView VS;
+        private TextView center;
 
         public myViewHolder(View itemView) {
             super(itemView);
-            date = (TextView) itemView.findViewById(R.id.game2_date);
-            time = (TextView) itemView.findViewById(R.id.game2_time);
-            team1 = (TextView) itemView.findViewById(R.id.game2_team1);
-            team2 = (TextView) itemView.findViewById(R.id.game2_team2);
-            logo1 = (ImageView) itemView.findViewById(R.id.game2_pic1);
-            logo2 = (ImageView) itemView.findViewById(R.id.game2_pic2);
-            VS = (TextView) itemView.findViewById(R.id.game2_VS);
+            date = (TextView) itemView.findViewById(R.id.game1_date);
+            time = (TextView) itemView.findViewById(R.id.game1_time);
+            team1 = (TextView) itemView.findViewById(R.id.game1_team1);
+            team2 = (TextView) itemView.findViewById(R.id.game1_team2);
+            score1 = (TextView) itemView.findViewById(R.id.game1_score1);
+            score2 = (TextView) itemView.findViewById(R.id.game1_score2);
+            logo1 = (ImageView) itemView.findViewById(R.id.game1_pic1);
+            logo2 = (ImageView) itemView.findViewById(R.id.game1_pic2);
+            center = (TextView) itemView.findViewById(R.id.game1_center);
 
             //点击事件放在adapter中使用，也可以写个接口在activity中调用
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -118,7 +124,7 @@ public class Fragment2_Child2_GameAdapter extends RecyclerView.Adapter<Fragment2
          * @param view 点击的item的视图
          * @param data 点击的item的数据
          */
-        public void OnItemClick(View view, Fragment2_Child2_GameItem data);
+        public void OnItemClick(View view, Fragment2_Child1_GameItem data);
     }
 
     //需要外部访问，所以需要设置set方法，方便调用
