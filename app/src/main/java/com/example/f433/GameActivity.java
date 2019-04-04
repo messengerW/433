@@ -10,11 +10,22 @@ import android.widget.ImageView;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.charts.RadarChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.MarkerView;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.data.RadarData;
+import com.github.mikephil.charting.data.RadarDataSet;
+import com.github.mikephil.charting.data.RadarEntry;
+import com.github.mikephil.charting.formatter.AxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,13 +35,20 @@ import java.util.Set;
 
 public class GameActivity extends AppCompatActivity {
 
-    private PieChart mp_pieChart;
-    private ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
+    private PieChart pie_chart;
+    private ArrayList<PieEntry> pie_entries = new ArrayList<PieEntry>();
+    private RadarChart radar_chart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        initView();
+
+    }
+
+    private void initView() {
 
         /*
          * 返回按钮
@@ -43,7 +61,6 @@ public class GameActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
         /*
          * 积分情况对照图
@@ -87,8 +104,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-
-        /**
+        /*
          * 饼图绘制
          */
         //模拟数据
@@ -97,41 +113,47 @@ public class GameActivity extends AppCompatActivity {
         dataMap.put("客队胜", "50");
         dataMap.put("平局", "10");
 
-        mp_pieChart = (PieChart) findViewById(R.id.pie_chart);
-        setPieChart(mp_pieChart, dataMap, "Data Analysis", true);
+        pie_chart = (PieChart) findViewById(R.id.pie_chart);
+        setPieChart(pie_chart, dataMap, "Predict", true);
+
+        /*
+         * 雷达图绘制
+         */
+        radar_chart = (RadarChart) findViewById(R.id.radar_chart);
+        setRadarChart(radar_chart);
 
     }
 
-    //设置各区块的颜色
+    //设置饼图各区块的颜色
     public static final int[] PIE_COLORS = {
-            Color.rgb(130, 231, 255), Color.rgb(80, 222, 49),
-            Color.rgb(252, 200, 87)
+            Color.rgb(169, 255, 169), Color.rgb(187, 255, 255),
+            Color.rgb(255, 229, 172)
     };
 
-    //设置饼形图属性
+    //设置饼图属性
     public void setPieChart(PieChart pieChart, Map<String, Float> pieValues, String title, boolean showLegend) {
         pieChart.setUsePercentValues(true);//设置使用百分比（后续有详细介绍）
         //pieChart.setExtraOffsets(5, 5, 5, 5); //设置边距
-        pieChart.setHoleRadius(50);//将饼图中心的孔的半径设置为最大半径的百分比
+        pieChart.setHoleRadius(55);//将饼图中心的孔的半径设置为最大半径的百分比
         pieChart.setDragDecelerationFrictionCoef(0.95f);//设置摩擦系数（值越小摩擦系数越大）
         pieChart.setCenterText(title);//设置环中的文字
         pieChart.setRotationEnabled(true);//是否可以旋转
         pieChart.setHighlightPerTapEnabled(true);//点击是否放大
-        pieChart.setCenterTextSize(20f);//设置环中文字的大小
-        pieChart.setCenterTextColor(Color.rgb(51, 51,255));//设置环中文字的颜色
+        pieChart.setCenterTextSize(18f);//设置环中文字的大小
+        pieChart.setCenterTextColor(Color.WHITE);//设置环中文字的颜色
         pieChart.setDrawCenterText(true);//设置绘制环中文字
         pieChart.setRotationAngle(120f);//设置旋转角度
-        pieChart.setTransparentCircleRadius(55);//设置半透明圆环的半径,看着就有一种立体的感觉
+        pieChart.setTransparentCircleRadius(63);//设置半透明圆环的半径,看着就有一种立体的感觉
         //这个方法为true就是环形图，为false就是饼图
         pieChart.setDrawHoleEnabled(true);
         //设置环形中间空白颜色
-        pieChart.setHoleColor(Color.argb(230,255,255,255));
+        pieChart.setHoleColor(Color.argb(85, 255, 255, 255));
         //设置半透明圆环的颜色
         pieChart.setTransparentCircleColor(Color.WHITE);
         //设置半透明圆环的透明度
         pieChart.setTransparentCircleAlpha(130);
         //设置图标背景
-        pieChart.setBackgroundColor(Color.rgb(204, 204, 204)); //cw_0
+        //pieChart.setBackgroundColor(Color.rgb(0,0,0));
         //设置默认右下角的描述
         pieChart.setDescription(null);
 
@@ -162,10 +184,10 @@ public class GameActivity extends AppCompatActivity {
         Iterator it = set.iterator();
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
-            entries.add(new PieEntry(Float.valueOf(entry.getValue().toString()), entry.getKey().toString()));
+            pie_entries.add(new PieEntry(Float.valueOf(entry.getValue().toString()), entry.getKey().toString()));
         }
 
-        PieDataSet dataSet = new PieDataSet(entries, "");
+        PieDataSet dataSet = new PieDataSet(pie_entries, "");
         dataSet.setSliceSpace(3f);//设置饼块之间的间隔
         dataSet.setSelectionShift(5f);//设置饼块选中时偏离饼图中心的距离
         dataSet.setColors(PIE_COLORS);//设置饼块的颜色
@@ -179,12 +201,124 @@ public class GameActivity extends AppCompatActivity {
         dataSet.setYValuePosition(PieDataSet.ValuePosition.INSIDE_SLICE);
         PieData pieData = new PieData(dataSet);
         pieData.setValueFormatter(new PercentFormatter());
-        pieData.setValueTextSize(16f);
-        pieData.setValueTextColor(Color.WHITE);
-
+        pieData.setValueTextSize(13f);
+        pieData.setValueTextColor(Color.rgb(238, 90, 255));
         pieChart.setData(pieData);
+        pieChart.setEntryLabelColor(Color.rgb(238, 90, 255));
         pieChart.highlightValues(null);
         pieChart.invalidate();
+    }
+
+    //设置雷达图属性
+    public void setRadarChart(RadarChart chart) {
+
+        //设置描述
+        chart.setDescription(null);
+
+        //网格设置
+        chart.setWebLineWidth(1f);
+        chart.setWebColor(Color.LTGRAY);
+        chart.setWebLineWidthInner(1f);
+        chart.setWebColorInner(Color.LTGRAY);
+        chart.setWebAlpha(100);
+
+        //动画设置
+        chart.animateXY(1400, 1400, Easing.EasingOption.EaseInOutQuad, Easing.EasingOption.EaseInOutQuad);
+
+        //x轴--外围文字设置
+        XAxis xAxis = chart.getXAxis();
+        xAxis.setTextSize(12f);
+        //xAxis.setYOffset(10f);
+        //xAxis.setXOffset(10f);
+        xAxis.setValueFormatter(new AxisValueFormatter() {
+            private final String[] mActivities = new String[]{"进攻", "技巧", "体能", "防守", "对抗", "速度"};
+
+            @Override
+            public String getFormattedValue(float value, AxisBase axisBase) {
+                return mActivities[(int) value % mActivities.length];
+            }
+
+            @Override
+            public int getDecimalDigits() {
+                return 0;
+            }
+        });
+        xAxis.setTextColor(Color.WHITE);
+
+        //y轴--内部标签设置
+        YAxis yAxis = chart.getYAxis();
+        yAxis.setLabelCount(5, false);
+        yAxis.setTextSize(10f);
+        yAxis.setTextColor(Color.WHITE);
+        yAxis.setStartAtZero(true); // Y坐标值是否从0开始
+        yAxis.setDrawLabels(false); // 是否显示y值在图表上
+
+        //图例设置
+        Legend l = chart.getLegend();
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+        l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
+        l.setDrawInside(false);
+        l.setXEntrySpace(10f); // 图例X间距
+        l.setYEntrySpace(5f); // 图例Y间距
+        l.setTextSize(16f);
+        l.setTextColor(Color.WHITE);
+
+        setData(chart);
+    }
+
+    //设置雷达图数据
+    private void setData(RadarChart chart) {
+
+        ArrayList<RadarEntry> entries1 = new ArrayList<>();
+        ArrayList<RadarEntry> entries2 = new ArrayList<>();
+
+        // NOTE: The order of the entries when being added to the entries array determines their position around the center of
+        // the chart.
+        //主队数据
+        entries1.add(new RadarEntry(80));
+        entries1.add(new RadarEntry(90));
+        entries1.add(new RadarEntry(60));
+        entries1.add(new RadarEntry(70));
+        entries1.add(new RadarEntry(50));
+        entries1.add(new RadarEntry(50));
+        //客队数据
+        entries2.add(new RadarEntry(90));
+        entries2.add(new RadarEntry(70));
+        entries2.add(new RadarEntry(50));
+        entries2.add(new RadarEntry(60));
+        entries2.add(new RadarEntry(80));
+        entries2.add(new RadarEntry(80));
+        //主队图案绘制
+        RadarDataSet set1 = new RadarDataSet(entries1, "主队");
+        set1.setColor(Color.rgb(187, 255, 250));
+        set1.setFillColor(Color.rgb(187, 255, 250));
+        set1.setDrawFilled(true);
+        set1.setFillAlpha(180);
+        set1.setLineWidth(2f);
+        set1.setDrawHighlightCircleEnabled(true);
+        set1.setDrawHighlightIndicators(false);
+        //客队图案绘制
+        RadarDataSet set2 = new RadarDataSet(entries2, "客队");
+        set2.setColor(Color.rgb(255, 155, 205));
+        set2.setFillColor(Color.rgb(255, 155, 205));
+        set2.setDrawFilled(true);
+        set2.setFillAlpha(120);
+        set2.setLineWidth(2f);
+        set2.setDrawHighlightCircleEnabled(true);
+        set2.setDrawHighlightIndicators(false);
+        //图案应用
+        ArrayList<IRadarDataSet> sets = new ArrayList<>();
+        sets.add(set1);
+        sets.add(set2);
+
+        RadarData data = new RadarData(sets);
+        data.setValueTextSize(8f);
+        data.setDrawValues(false);
+        data.setValueTextColor(Color.WHITE);
+
+        chart.setData(data);
+        chart.invalidate();
     }
 
 }

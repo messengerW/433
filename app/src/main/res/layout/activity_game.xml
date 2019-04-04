@@ -4,143 +4,202 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cw_6"
+    android:background="@mipmap/game_background2"
     android:orientation="vertical">
 
     <include
         android:id="@+id/actionbar"
         layout="@layout/activity_game_actionbar" />
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraint_1"
-        android:layout_width="match_parent"
-        android:layout_height="125dp">
-
-        <ImageView
-            android:id="@+id/home_icon"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/vs"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:srcCompat="@mipmap/mancity" />
-
-        <ImageView
-            android:id="@+id/away_icon"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/vs"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:srcCompat="@mipmap/tottenham" />
-
-        <TextView
-            android:id="@+id/home_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home team"
-            android:textSize="18dp"
-            android:textColor="@color/cw_1"
-            app:layout_constraintTop_toBottomOf="@id/home_icon"
-            app:layout_constraintLeft_toLeftOf="@id/home_icon"
-            app:layout_constraintRight_toRightOf="@id/home_icon"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <TextView
-            android:id="@+id/away_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Away team"
-            android:textSize="18dp"
-            android:textColor="@color/cw_1"
-            app:layout_constraintTop_toBottomOf="@id/away_icon"
-            app:layout_constraintLeft_toLeftOf="@id/away_icon"
-            app:layout_constraintRight_toRightOf="@id/away_icon"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <TextView
-            android:id="@+id/vs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="VS"
-            android:textSize="24dp"
-            android:textColor="@color/cw_1"
-            app:layout_constraintLeft_toRightOf="@id/home_icon"
-            app:layout_constraintRight_toLeftOf="@id/away_icon"
-            app:layout_constraintTop_toBottomOf="@id/home_icon"
-            app:layout_constraintBottom_toTopOf="@id/home_icon" />
-
-    </android.support.constraint.ConstraintLayout>
-
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraint_2"
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cw_5">
+        android:fillViewport="true">
 
-        <ImageView
-            android:id="@+id/rank_logo"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/rank_text"
-            app:srcCompat="@mipmap/rank" />
-
-        <TextView
-            android:id="@+id/rank_text"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="联赛积分排名"
-            android:textColor="@color/cw_1"
-            android:textSize="18dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/rank_logo"/>
+            android:orientation="vertical">
 
-    </android.support.constraint.ConstraintLayout>
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint_1"
+                android:layout_width="match_parent"
+                android:layout_height="125dp">
 
+                <ImageView
+                    android:id="@+id/home_icon"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/vs"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:srcCompat="@mipmap/mancity" />
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraint_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/game_background2">
+                <ImageView
+                    android:id="@+id/away_icon"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/vs"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:srcCompat="@mipmap/tottenham" />
 
-        <com.example.f433.GameActivity_ScoreBoardView
-            android:id="@+id/custom_view"
-            android:layout_width="165dp"
-            android:layout_height="165dp"
-            app:layout_constraintLeft_toLeftOf="parent" />
+                <TextView
+                    android:id="@+id/home_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Man City"
+                    android:textColor="@color/cw_1"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/home_icon"
+                    app:layout_constraintRight_toRightOf="@id/home_icon"
+                    app:layout_constraintTop_toBottomOf="@id/home_icon" />
 
-        <com.example.f433.GameActivity_RankBar
-            android:id="@+id/rank_bar"
-            android:layout_width="72dp"
-            android:layout_height="165dp"
-            app:layout_constraintLeft_toRightOf="@id/custom_view"
-            app:layout_constraintRight_toLeftOf="@id/custom_view2" />
+                <TextView
+                    android:id="@+id/away_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hotspur"
+                    android:textColor="@color/cw_1"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/away_icon"
+                    app:layout_constraintRight_toRightOf="@id/away_icon"
+                    app:layout_constraintTop_toBottomOf="@id/away_icon" />
 
-        <com.example.f433.GameActivity_ScoreBoardView
-            android:id="@+id/custom_view2"
-            android:layout_width="165dp"
-            android:layout_height="165dp"
-            app:layout_constraintLeft_toRightOf="@id/custom_view"
-            app:layout_constraintRight_toRightOf="parent" />
+                <TextView
+                    android:id="@+id/vs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VS"
+                    android:textColor="@color/cw_1"
+                    android:textSize="24dp"
+                    app:layout_constraintBottom_toTopOf="@id/home_icon"
+                    app:layout_constraintLeft_toRightOf="@id/home_icon"
+                    app:layout_constraintRight_toLeftOf="@id/away_icon"
+                    app:layout_constraintTop_toBottomOf="@id/home_icon" />
 
-    </android.support.constraint.ConstraintLayout>
+            </android.support.constraint.ConstraintLayout>
 
-    <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/pie_chart"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cw_5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/rank_logo"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/rank_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/rank" />
+
+                <TextView
+                    android:id="@+id/rank_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="联赛积分排名"
+                    android:textColor="@color/cw_1"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/rank_logo" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.example.f433.GameActivity_ScoreBoardView
+                    android:id="@+id/custom_view"
+                    android:layout_width="165dp"
+                    android:layout_height="165dp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <com.example.f433.GameActivity_RankBar
+                    android:id="@+id/rank_bar"
+                    android:layout_width="72dp"
+                    android:layout_height="165dp"
+                    app:layout_constraintLeft_toRightOf="@id/custom_view"
+                    app:layout_constraintRight_toLeftOf="@id/custom_view2" />
+
+                <com.example.f433.GameActivity_ScoreBoardView
+                    android:id="@+id/custom_view2"
+                    android:layout_width="165dp"
+                    android:layout_height="165dp"
+                    app:layout_constraintLeft_toRightOf="@id/custom_view"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/predict_logo"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@mipmap/pie_chart"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/predict_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="胜率预测"
+                    android:textColor="@color/cw_1"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/predict_logo" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pie_chart"
+                android:layout_width="match_parent"
+                android:layout_height="250dp" />
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/compare_logo"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    app:srcCompat="@mipmap/radar_chart"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/compare_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="属性对比"
+                    android:textColor="@color/cw_1"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/compare_logo" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <com.github.mikephil.charting.charts.RadarChart
+                android:id="@+id/radar_chart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>

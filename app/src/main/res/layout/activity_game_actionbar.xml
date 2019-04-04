@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="45dp"
-    android:background="@color/cw_6">
-
+    android:background="@drawable/background_gradient1">
 
     <ImageView
         android:id="@+id/back"
@@ -19,8 +18,8 @@
 
     <ImageView
         android:id="@+id/icon_league"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/back"
         app:layout_constraintRight_toLeftOf="@id/league"

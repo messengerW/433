@@ -6,7 +6,7 @@
 
     <!--以下是常用颜色，你们没事多补充补充呀!!!-->
 
-    <color name="cg_0">#6af74b</color>
+    <color name="cg_0">#a9ffa9</color>
     <color name="cg_1">#00FF00</color>
     <color name="cg_2">#00CC00</color>
     <color name="cg_3">#009900</color>
@@ -15,10 +15,16 @@
 
     <color name="cb_0">#70f4e7</color>
     <color name="cb_1">#66CCFF</color>
-    <color name="cb_2">#3366FF</color>
+    <color name="cb_2">#6b90ff</color>
     <color name="cb_3">#3333FF</color>
     <color name="cb_4">#3300CC</color>
     <color name="cb_5">#000099</color>
+    <color name="cb_6">#bbfffa</color>
+    <color name="cb_7">#a7fff4</color>
+
+    <color name="cp_1">#ff9bcd</color>
+    <color name="cp_2">#fa8ff7</color>
+    <color name="cp_3">#ee5aff</color>
 
     <color name="cr_1">#FF3333</color>
     <color name="cr_2">#FF3300</color>
@@ -32,7 +38,7 @@
     <color name="cy_3">#FFFF66</color>
     <color name="cy_4">#FFFF33</color>
     <color name="cy_5">#FFFF00</color>
-    <color name="cy_6">#fcc857</color>
+    <color name="cy_6">#ffe5ac</color>
 
     <color name="cw_0">#cccccc</color>
     <color name="cw_1">#FFFFFF</color>
@@ -41,7 +47,7 @@
     <color name="cw_4">#C0C0C0</color>
     <color name="cw_5">#696969</color>
     <color name="cw_6">#4b4949</color>
-    <color name="cw_7">#DCDCDC</color>
+    <color name="cw_7">#464242</color>
 
     <color name="cbl_0">#000000</color>
 
