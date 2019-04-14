@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:padding="3dp"
+    android:orientation="vertical">
+
+    <!-- 单次比赛的竞猜界面 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/game_guess_time"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:text="北京时间  4月2日 15:00"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal">
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:id="@+id/game_guess_pic1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@mipmap/ic_launcher"/>
+                <TextView
+                    android:id="@+id/game_guess_t1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Team1"
+                    android:textSize="16sp"
+                    android:textColor="#333333"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/game_guess_vs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VS"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/game_guess_pic2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@mipmap/ic_launcher"/>
+                <TextView
+                    android:id="@+id/game_guess_t2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Team2"
+                    android:textSize="16sp"
+                    android:textColor="#333333"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/game_guess_btn1"
+                android:layout_width="140dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:text="查看分析"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:background="@color/cg_3"
+                android:layout_marginRight="10dp"/>
+            <Button
+                android:id="@+id/game_guess_btn2"
+                android:layout_width="140dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:text="竞猜"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:background="@color/cg_3"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#333333">
+
+        </View>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
