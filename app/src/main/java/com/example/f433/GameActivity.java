@@ -2,18 +2,17 @@ package com.example.f433;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.annotation.ColorInt;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.MarkerView;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.PieData;
@@ -25,7 +24,6 @@ import com.github.mikephil.charting.data.RadarEntry;
 import com.github.mikephil.charting.formatter.AxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,6 +36,7 @@ public class GameActivity extends AppCompatActivity {
     private PieChart pie_chart;
     private ArrayList<PieEntry> pie_entries = new ArrayList<PieEntry>();
     private RadarChart radar_chart;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,14 +64,23 @@ public class GameActivity extends AppCompatActivity {
         /*
          * 积分情况对照图
          */
-        //主队积分
+        // 主队积分
         final GameActivity_ScoreBoardView myView = (GameActivity_ScoreBoardView) findViewById(R.id.custom_view);
-        //客队积分
+        myView.setColor(Color.rgb(0, 204, 0));
+        myView.setScore(34);
+        myView.setWinDrawLose(10, 4, 5);
+        // 客队积分
         final GameActivity_ScoreBoardView myView2 = (GameActivity_ScoreBoardView) findViewById(R.id.custom_view2);
-        //主客队联赛中排名
+        myView2.setColor(Color.rgb(102, 204, 255));
+        myView2.setScore(31);
+        myView2.setWinDrawLose(8, 7, 4);
+        // 主客队联赛中排名
         final GameActivity_RankBar bar = (GameActivity_RankBar) findViewById(R.id.rank_bar);
         bar.setRanks(1, 1);
-        //点击事件
+        bar.setRanks(6, 10);
+        bar.setColor(Color.rgb(0, 204, 0), Color.rgb(104, 204, 255));
+
+        // 点击动画
         myView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,21 +89,6 @@ public class GameActivity extends AppCompatActivity {
                 myView.setWinDrawLose(10, 4, 5);
 
                 myView2.setColor(Color.rgb(102, 204, 255));
-                myView2.setScore(31);
-                myView2.setWinDrawLose(8, 7, 4);
-
-                bar.setRanks(6, 10);
-                bar.setColor(Color.rgb(0, 204, 0), Color.rgb(104, 204, 255));
-            }
-        });
-        myView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myView.setColor(Color.rgb(0, 204, 0));
-                myView.setScore(34);
-                myView.setWinDrawLose(10, 4, 5);
-
-                myView2.setColor(Color.rgb(104, 204, 255));
                 myView2.setScore(31);
                 myView2.setWinDrawLose(8, 7, 4);
 
@@ -121,6 +114,21 @@ public class GameActivity extends AppCompatActivity {
          */
         radar_chart = (RadarChart) findViewById(R.id.radar_chart);
         setRadarChart(radar_chart);
+
+
+        /*
+         * 对比条文本
+         */
+        final TextView scoreBarText = (TextView) findViewById(R.id.score_bar_text);
+        scoreBarText.setText("射正数");
+        scoreBarText.setTextColor(Color.WHITE);
+
+        /*
+         * 对比条绘制
+         */
+        final GameActivity_ScoreBar scoreBar = (GameActivity_ScoreBar) findViewById(R.id.score_bar);
+        scoreBar.setScores(5, 8); //设置数据
+        scoreBar.setBarColor(Color.rgb(0, 204, 0), Color.rgb(187, 255, 250));
 
     }
 

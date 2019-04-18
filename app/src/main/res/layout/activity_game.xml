@@ -198,6 +198,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp" />
 
+            <TextView
+                android:id="@+id/score_bar_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="射正"
+                android:textSize="16dp"
+                android:textColor="@color/cw_1"
+                android:gravity="center"/>
+
+            <com.example.f433.GameActivity_ScoreBar
+                android:id="@+id/score_bar"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
