@@ -148,8 +148,8 @@
                     android:id="@+id/predict_logo"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    app:srcCompat="@mipmap/pie_chart"
-                    app:layout_constraintLeft_toLeftOf="parent"/>
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:srcCompat="@mipmap/pie_chart" />
 
                 <TextView
                     android:id="@+id/predict_text"
@@ -177,8 +177,8 @@
                     android:id="@+id/compare_logo"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    app:srcCompat="@mipmap/radar_chart"
-                    app:layout_constraintLeft_toLeftOf="parent"/>
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:srcCompat="@mipmap/radar_chart" />
 
                 <TextView
                     android:id="@+id/compare_text"
@@ -198,14 +198,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp" />
 
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/line_chart_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:srcCompat="@mipmap/line_chart" />
+
+                <TextView
+                    android:id="@+id/line_chart_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="防守到位率"
+                    android:textColor="@color/cw_1"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/line_chart_icon"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line_chart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
             <TextView
                 android:id="@+id/score_bar_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="射正"
-                android:textSize="16dp"
                 android:textColor="@color/cw_1"
-                android:gravity="center"/>
+                android:textSize="16dp" />
 
             <com.example.f433.GameActivity_ScoreBar
                 android:id="@+id/score_bar"
