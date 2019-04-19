@@ -14,12 +14,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Fragment3 extends Fragment {
+public class F3 extends Fragment {
 
     private View view;
     public RecyclerView mCollectRecyclerView;
-    private ArrayList<Fragment3_GuessItem> ItemArrayList = new ArrayList<Fragment3_GuessItem>();
-    private Fragment3_GuessAdapter mCollectRecyclerAdapter;
+    private ArrayList<F3_GuessBean> ItemArrayList = new ArrayList<F3_GuessBean>();
+    private F3_GuessAdapter mCollectRecyclerAdapter;
 
     @Nullable
     @Override
@@ -43,7 +43,7 @@ public class Fragment3 extends Fragment {
 
         //  竞猜的队伍logo、队名、比赛时间等在这里获取，将来设计好数据库后可以改成sql语句
         for (int i = 0; i < 10; i++) {
-            Fragment3_GuessItem GuessItem = new Fragment3_GuessItem();
+            F3_GuessBean GuessItem = new F3_GuessBean();
             GuessItem.setTime("北京时间  4月2日 1"+ i +":00");
             GuessItem.setTeam1("巴塞罗那");
             GuessItem.setTeam2("皇家马德里");
@@ -67,7 +67,7 @@ public class Fragment3 extends Fragment {
         //获取RecyclerView
         mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_game_guess);
         //创建adapter
-        mCollectRecyclerAdapter = new Fragment3_GuessAdapter(mActivity, ItemArrayList);
+        mCollectRecyclerAdapter = new F3_GuessAdapter(mActivity, ItemArrayList);
         //给RecyclerView设置adapter
         mCollectRecyclerView.setAdapter(mCollectRecyclerAdapter);
         //设置layoutManager,可以设置显示效果，是线性布局、grid布局，还是瀑布流布局
@@ -76,9 +76,9 @@ public class Fragment3 extends Fragment {
         //设置item的分割线
         mCollectRecyclerView.addItemDecoration(new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL));
         //RecyclerView中没有item的监听事件，需要自己在适配器中写一个监听事件的接口。参数根据自定义
-        mCollectRecyclerAdapter.setOnItemClickListener(new Fragment3_GuessAdapter.OnItemClickListener() {
+        mCollectRecyclerAdapter.setOnItemClickListener(new F3_GuessAdapter.OnItemClickListener() {
             @Override
-            public void OnItemClick(View view, Fragment3_GuessItem data) {
+            public void OnItemClick(View view, F3_GuessBean data) {
                 //此处进行监听事件的业务处理
                 Toast.makeText(getActivity(), "我是item", Toast.LENGTH_SHORT).show();
             }

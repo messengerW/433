@@ -9,12 +9,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Fragment3_GuessAdapter extends RecyclerView.Adapter<Fragment3_GuessAdapter.myViewHolder> {
+public class F3_GuessAdapter extends RecyclerView.Adapter<F3_GuessAdapter.myViewHolder> {
     private Context context;
-    private ArrayList<Fragment3_GuessItem> GuessItemList;
+    private ArrayList<F3_GuessBean> GuessItemList;
 
     //创建构造函数
-    public Fragment3_GuessAdapter(Context context, ArrayList<Fragment3_GuessItem> GuessItemList) {
+    public F3_GuessAdapter(Context context, ArrayList<F3_GuessBean> GuessItemList) {
         //将传递过来的数据，赋值给本地变量
         this.context = context;//上下文
         this.GuessItemList = GuessItemList;//实体类数据ArrayList
@@ -43,7 +43,7 @@ public class Fragment3_GuessAdapter extends RecyclerView.Adapter<Fragment3_Guess
     @Override
     public void onBindViewHolder(myViewHolder holder, int position) {
         //根据点击位置绑定数据
-        Fragment3_GuessItem data = GuessItemList.get(position);
+        F3_GuessBean data = GuessItemList.get(position);
 
         holder.time.setText(data.time);
         holder.team1.setText(data.team1);
@@ -104,7 +104,7 @@ public class Fragment3_GuessAdapter extends RecyclerView.Adapter<Fragment3_Guess
          * @param view 点击的item的视图
          * @param data 点击的item的数据
          */
-        public void OnItemClick(View view, Fragment3_GuessItem data);
+        public void OnItemClick(View view, F3_GuessBean data);
     }
 
     //需要外部访问，所以需要设置set方法，方便调用

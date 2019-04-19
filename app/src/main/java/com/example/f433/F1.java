@@ -20,7 +20,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class Fragment1 extends Fragment {
+public class F1 extends Fragment {
 
     /*** 第一个碎片中包含两个组件，图片轮播和滚动新闻栏 ***/
 
@@ -42,9 +42,9 @@ public class Fragment1 extends Fragment {
     //定义RecyclerView
     public RecyclerView mCollectRecyclerView;
     //定义以news实体类为对象的数据集合
-    private ArrayList<Fragment1_NewsItem> f1NewsItemList = new ArrayList<Fragment1_NewsItem>();
+    private ArrayList<F1_NewsBean> f1NewsItemList = new ArrayList<F1_NewsBean>();
     //自定义recyclerveiw的适配器
-    private Fragment1_NewsAdapter mCollectRecyclerAdapter;
+    private F1_NewsAdapter mCollectRecyclerAdapter;
 
     /*** 滚动新闻开始 ***/
 
@@ -78,7 +78,7 @@ public class Fragment1 extends Fragment {
 
         //  新闻的图片、标题、时间等在这里获取，将来设计好数据库后可以改成sql语句
         for (int i = 0; i < 10; i++) {
-            Fragment1_NewsItem f1NewsItem = new Fragment1_NewsItem();
+            F1_NewsBean f1NewsItem = new F1_NewsBean();
             f1NewsItem.setImgPath(url[i]);
             f1NewsItem.setTitle("新闻标题 曼联是冠军 曼联是冠军 曼联是冠军" + i);
             f1NewsItem.setTime("7:3" + i);
@@ -95,7 +95,7 @@ public class Fragment1 extends Fragment {
         //获取RecyclerView
         mCollectRecyclerView = (RecyclerView) mView.findViewById(R.id.recycler_view_news);
         //创建adapter
-        mCollectRecyclerAdapter = new Fragment1_NewsAdapter(getActivity(), f1NewsItemList);
+        mCollectRecyclerAdapter = new F1_NewsAdapter(getActivity(), f1NewsItemList);
         //给RecyclerView设置adapter
         mCollectRecyclerView.setAdapter(mCollectRecyclerAdapter);
         //设置layoutManager,可以设置显示效果，是线性布局、grid布局，还是瀑布流布局
@@ -104,9 +104,9 @@ public class Fragment1 extends Fragment {
         //设置item的分割线
         mCollectRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         //RecyclerView中没有item的监听事件，需要自己在适配器中写一个监听事件的接口。参数根据自定义
-        mCollectRecyclerAdapter.setOnItemClickListener(new Fragment1_NewsAdapter.OnItemClickListener() {
+        mCollectRecyclerAdapter.setOnItemClickListener(new F1_NewsAdapter.OnItemClickListener() {
             @Override
-            public void OnItemClick(View view, Fragment1_NewsItem data) {
+            public void OnItemClick(View view, F1_NewsBean data) {
                 //此处进行监听事件的业务处理
                 Toast.makeText(getActivity(), "我是item", Toast.LENGTH_SHORT).show();
             }

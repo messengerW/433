@@ -2,14 +2,14 @@ package com.example.f433;
 
 import java.io.Serializable;
 
-public class Fragment3_GuessItem implements Serializable {
+public class F3_GuessBean implements Serializable {
     public String time;         //  比赛时间（包括北京时间+日期+时间）
     public String team1;         //  主队
     public String team2;         //  客队
     public String logo1;         //  主队logo
     public String logo2;         //  客队logo
 
-    public Fragment3_GuessItem(){
+    public F3_GuessBean(){
 
     }
 
@@ -57,7 +57,7 @@ public class Fragment3_GuessItem implements Serializable {
 
     @Override
     public String toString() {
-        return "Fragment3_GuessItem{" +
+        return "F3_GuessBean{" +
                 "time='" + time + '\'' +
                 "team1='" + team1 + '\'' +
                 "team2='" + team2 + '\'' +
