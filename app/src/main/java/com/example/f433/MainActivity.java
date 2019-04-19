@@ -18,9 +18,9 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Fragment1 fragment1;     //Fragment1对象
-    private Fragment2 fragment2;     //Fragment2对象
-    private Fragment3 fragment3;
+    private F1 f1;     //Fragment1对象
+    private F2 f2;     //Fragment2对象
+    private F3 f3;
     private Fragment[] fragments;
     private int lastShowFragment = 0;   //表示最后一个显示的Fragment
 
@@ -71,15 +71,15 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initFragments() {
-        fragment1 = new Fragment1();
-        fragment2 = new Fragment2();
-        fragment3 = new Fragment3();
-        fragments = new Fragment[]{fragment1, fragment2, fragment3};
+        f1 = new F1();
+        f2 = new F2();
+        f3 = new F3();
+        fragments = new Fragment[]{f1, f2, f3};
         lastShowFragment = 0;
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fm_container, fragment1)
-                .show(fragment1)
+                .add(R.id.fm_container, f1)
+                .show(f1)
                 .commit();
     }
 

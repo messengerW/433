@@ -14,7 +14,7 @@ import android.support.v4.app.Fragment;
 
 import java.util.ArrayList;
 
-public class Fragment2 extends Fragment {
+public class F2 extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     ArrayList<Fragment> fragmentList;  //放所有的fragment
@@ -47,9 +47,9 @@ public class Fragment2 extends Fragment {
         fragmentList = new ArrayList<Fragment>();
         titleList = new ArrayList<String>();
         if (fragmentList.size() == 0) {
-            fragmentList.add(new Fragment2_Child1());
-            fragmentList.add(new Fragment2_Child2());
-            fragmentList.add(new Fragment2_Child3());
+            fragmentList.add(new F2_C1());
+            fragmentList.add(new F2_C2());
+            fragmentList.add(new F2_C3());
         }
         if (titleList.size() == 0) {
             titleList.add("Tab1");

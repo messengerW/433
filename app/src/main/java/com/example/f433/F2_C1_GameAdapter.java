@@ -10,12 +10,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Fragment2_Child1_GameAdapter extends RecyclerView.Adapter<Fragment2_Child1_GameAdapter.myViewHolder> {
+public class F2_C1_GameAdapter extends RecyclerView.Adapter<F2_C1_GameAdapter.myViewHolder> {
     private Context context;
-    private ArrayList<Fragment2_Child1_GameItem> GameItemList;
+    private ArrayList<F2_C1_GameBean> GameItemList;
 
     //创建构造函数
-    public Fragment2_Child1_GameAdapter(Context context, ArrayList<Fragment2_Child1_GameItem> GameItemList) {
+    public F2_C1_GameAdapter(Context context, ArrayList<F2_C1_GameBean> GameItemList) {
         //将传递过来的数据，赋值给本地变量
         this.context = context;//上下文
         this.GameItemList = GameItemList;//实体类数据ArrayList
@@ -44,7 +44,7 @@ public class Fragment2_Child1_GameAdapter extends RecyclerView.Adapter<Fragment2
     @Override
     public void onBindViewHolder(myViewHolder holder, int position) {
         //根据点击位置绑定数据
-        Fragment2_Child1_GameItem data = GameItemList.get(position);
+        F2_C1_GameBean data = GameItemList.get(position);
 
         holder.date.setText(data.date);    //获取实体类中的title字段并设置
         holder.time.setText(data.time);
@@ -124,7 +124,7 @@ public class Fragment2_Child1_GameAdapter extends RecyclerView.Adapter<Fragment2
          * @param view 点击的item的视图
          * @param data 点击的item的数据
          */
-        public void OnItemClick(View view, Fragment2_Child1_GameItem data);
+        public void OnItemClick(View view, F2_C1_GameBean data);
     }
 
     //需要外部访问，所以需要设置set方法，方便调用

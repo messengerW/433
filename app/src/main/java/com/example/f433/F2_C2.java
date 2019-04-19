@@ -12,19 +12,19 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-public class Fragment2_Child1 extends Fragment {
+public class F2_C2 extends Fragment {
 
     private View view;
     public RecyclerView mCollectRecyclerView;
-    private ArrayList<Fragment2_Child1_GameItem> ItemArrayList = new ArrayList<Fragment2_Child1_GameItem>();
-    private Fragment2_Child1_GameAdapter mCollectRecyclerAdapter;
+    private ArrayList<F2_C2_GameItem> ItemArrayList = new ArrayList<F2_C2_GameItem>();
+    private F2_C2_GameAdapter mCollectRecyclerAdapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment2_child1, container, false);
-        initRecyclerView();
+        view = inflater.inflate(R.layout.fragment2_child2, container, false);
         initGameItem();
+        initRecyclerView();
         return view;
     }
 
@@ -40,14 +40,12 @@ public class Fragment2_Child1 extends Fragment {
 
         //  新闻的图片、标题、时间等在这里获取，将来设计好数据库后可以改成sql语句
         for (int i = 0; i < 18; i++) {
-            Fragment2_Child1_GameItem GameItem = new Fragment2_Child1_GameItem();
+            F2_C2_GameItem GameItem = new F2_C2_GameItem();
             GameItem.setDate("3月31日");
             GameItem.setTime("23:15");
             GameItem.setTeam1("巴塞罗那");
             GameItem.setTeam2("皇家马德里");
-            GameItem.setScore1("5");
-            GameItem.setScore2("1");
-            GameItem.setCenter(":");
+            GameItem.setCentertext("VS");
             /*
             上面三条是设置文本内容，图片内容已经在适配器中设置过setBackgroundResource()，因此这里注释掉。
             GameItem.setlogo1("url");
@@ -77,16 +75,16 @@ public class Fragment2_Child1 extends Fragment {
 
     private void initRecyclerView() {
         //获取RecyclerView
-        mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_game1);
+        mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_game2);
         //创建adapter
-        mCollectRecyclerAdapter = new Fragment2_Child1_GameAdapter(mActivity, ItemArrayList);
+        mCollectRecyclerAdapter = new F2_C2_GameAdapter(getActivity(), ItemArrayList);
         //给RecyclerView设置adapter
         mCollectRecyclerView.setAdapter(mCollectRecyclerAdapter);
         //设置layoutManager,可以设置显示效果，是线性布局、grid布局，还是瀑布流布局
         //参数是：上下文、列表方向（横向还是纵向）、是否倒叙
-        mCollectRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));
+        mCollectRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         //设置item的分割线
-        //mCollectRecyclerView.addItemDecoration(new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL));
+        //mCollectRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
 
         //RecyclerView中没有item的监听事件，需要自己在适配器中写一个监听事件的接口。参数根据自定义
         // 尝试一下不在这里定义点击事件，这一次写在适配器里面试一试

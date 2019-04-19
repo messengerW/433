@@ -12,19 +12,19 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-public class Fragment2_Child2 extends Fragment {
+public class F2_C1 extends Fragment {
 
     private View view;
     public RecyclerView mCollectRecyclerView;
-    private ArrayList<Fragment2_Child2_GameItem> ItemArrayList = new ArrayList<Fragment2_Child2_GameItem>();
-    private Fragment2_Child2_GameAdapter mCollectRecyclerAdapter;
+    private ArrayList<F2_C1_GameBean> ItemArrayList = new ArrayList<F2_C1_GameBean>();
+    private F2_C1_GameAdapter mCollectRecyclerAdapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment2_child2, container, false);
-        initRecyclerView();
+        view = inflater.inflate(R.layout.fragment2_child1, container, false);
         initGameItem();
+        initRecyclerView();
         return view;
     }
 
@@ -40,12 +40,14 @@ public class Fragment2_Child2 extends Fragment {
 
         //  新闻的图片、标题、时间等在这里获取，将来设计好数据库后可以改成sql语句
         for (int i = 0; i < 18; i++) {
-            Fragment2_Child2_GameItem GameItem = new Fragment2_Child2_GameItem();
+            F2_C1_GameBean GameItem = new F2_C1_GameBean();
             GameItem.setDate("3月31日");
             GameItem.setTime("23:15");
             GameItem.setTeam1("巴塞罗那");
             GameItem.setTeam2("皇家马德里");
-            GameItem.setCentertext("VS");
+            GameItem.setScore1("5");
+            GameItem.setScore2("1");
+            GameItem.setCenter(":");
             /*
             上面三条是设置文本内容，图片内容已经在适配器中设置过setBackgroundResource()，因此这里注释掉。
             GameItem.setlogo1("url");
@@ -75,9 +77,9 @@ public class Fragment2_Child2 extends Fragment {
 
     private void initRecyclerView() {
         //获取RecyclerView
-        mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_game2);
+        mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_game1);
         //创建adapter
-        mCollectRecyclerAdapter = new Fragment2_Child2_GameAdapter(mActivity, ItemArrayList);
+        mCollectRecyclerAdapter = new F2_C1_GameAdapter(mActivity, ItemArrayList);
         //给RecyclerView设置adapter
         mCollectRecyclerView.setAdapter(mCollectRecyclerAdapter);
         //设置layoutManager,可以设置显示效果，是线性布局、grid布局，还是瀑布流布局

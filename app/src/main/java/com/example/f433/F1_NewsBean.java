@@ -2,16 +2,16 @@ package com.example.f433;
 
 import java.io.Serializable;
 
-public class Fragment1_NewsItem implements Serializable {
+public class F1_NewsBean implements Serializable {
     public String imgPath;         //   图片地址
     public String title;           //   新闻标题
     public String time;            //   新闻时间
     public String source;          //   新闻来源
 
-    public Fragment1_NewsItem() {
+    public F1_NewsBean() {
     }
 
-    public Fragment1_NewsItem(String imgPath, String title, String time, String source) {
+    public F1_NewsBean(String imgPath, String title, String time, String source) {
         this.imgPath = imgPath;
         this.title = title;
         this.time = time;
@@ -52,7 +52,7 @@ public class Fragment1_NewsItem implements Serializable {
 
     @Override
     public String toString() {
-        return "Fragment1_NewsItem{" +
+        return "F1_NewsBean{" +
                 "imgPath='" + imgPath + '\'' +
                 ", title='" + title + '\'' +
                 ", time='" + time + '\'' +
