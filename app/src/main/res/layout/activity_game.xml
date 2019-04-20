@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/rank_logo"
+                    android:id="@+id/rank_logo1"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     app:layout_constraintBottom_toBottomOf="parent"

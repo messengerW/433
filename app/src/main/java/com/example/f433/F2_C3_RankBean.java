@@ -1,10 +1,14 @@
 package com.example.f433;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+
 import java.io.Serializable;
 
 public class F2_C3_RankBean implements Serializable {
     public String rank;         //  排名
-    public String logo;         //  队徽
+    public Drawable logo;         //  队徽
     public String name;         //  队名
     public String turn;         //  轮次
     public String num1;         //  胜局
@@ -16,10 +20,10 @@ public class F2_C3_RankBean implements Serializable {
     public F2_C3_RankBean() {
     }
 
-    public F2_C3_RankBean(String rank, String imgPath, String name, String turn, String num1,
+    public F2_C3_RankBean(String rank, Drawable img, String name, String turn, String num1,
                           String num2, String num3, String rate, String points) {
         this.rank = rank;
-        this.logo = imgPath;
+        this.logo = img;
         this.name = name;
         this.turn = turn;
         this.num1 = num1;
@@ -37,11 +41,11 @@ public class F2_C3_RankBean implements Serializable {
         return rank;
     }
 
-    public void setLogo(String logo) {
+    public void setLogo(Drawable logo) {
         this.logo = logo;
     }
 
-    public String getLogo() {
+    public Drawable getLogo() {
         return logo;
     }
 

@@ -16,7 +16,7 @@ public class F2_C2 extends Fragment {
 
     private View view;
     public RecyclerView mCollectRecyclerView;
-    private ArrayList<F2_C2_GameItem> ItemArrayList = new ArrayList<F2_C2_GameItem>();
+    private ArrayList<F2_C2_GameBean> ItemArrayList = new ArrayList<F2_C2_GameBean>();
     private F2_C2_GameAdapter mCollectRecyclerAdapter;
 
     @Nullable
@@ -38,21 +38,8 @@ public class F2_C2 extends Fragment {
      */
     private void initGameItem() {
 
-        //  新闻的图片、标题、时间等在这里获取，将来设计好数据库后可以改成sql语句
-        for (int i = 0; i < 18; i++) {
-            F2_C2_GameItem GameItem = new F2_C2_GameItem();
-            GameItem.setDate("3月31日");
-            GameItem.setTime("23:15");
-            GameItem.setTeam1("巴塞罗那");
-            GameItem.setTeam2("皇家马德里");
-            GameItem.setCentertext("VS");
-            /*
-            上面三条是设置文本内容，图片内容已经在适配器中设置过setBackgroundResource()，因此这里注释掉。
-            GameItem.setlogo1("url");
-            GameItem.setlogo2("url");
-            */
-            ItemArrayList.add(GameItem);
-        }
+        F2_C2_GameDao Dao = new F2_C2_GameDao(getActivity());
+        ItemArrayList = Dao.getGameList();
     }
 
     /*

@@ -47,7 +47,7 @@ public class F2_C3_RankAdapter extends RecyclerView.Adapter<F2_C3_RankAdapter.my
         F2_C3_RankBean bean = RankItemList.get(position);
 
         holder.rank.setText(bean.rank);    //获取实体类中的title字段并设置,调用get方法也可以
-        //holder.logo.setBackgroundResource(R.mipmap.ic_launcher);
+        holder.logo.setImageDrawable(bean.logo);
         holder.name.setText(bean.name);
         holder.turn.setText(bean.turn);
         holder.num1.setText(bean.num1);

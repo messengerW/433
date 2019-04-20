@@ -1,5 +1,7 @@
 package com.example.f433;
 
+import android.graphics.drawable.Drawable;
+
 import java.io.Serializable;
 
 public class F2_C1_GameBean implements Serializable {
@@ -9,8 +11,8 @@ public class F2_C1_GameBean implements Serializable {
     public String team2;         //  客队
     public String score1;         //  主队得分
     public String score2;         //  客队得分
-    public String logo1;         //  主队logo
-    public String logo2;         //  客队logo
+    public Drawable logo1;         //  主队logo
+    public Drawable logo2;         //  客队logo
     public String center;        //   中央
 
     public F2_C1_GameBean() {
@@ -19,7 +21,7 @@ public class F2_C1_GameBean implements Serializable {
     public F2_C1_GameBean(String date, String time,
                           String team1, String team2,
                           String score1, String score2,
-                          String logo1, String logo2,
+                          Drawable logo1, Drawable logo2,
                           String center) {
         this.time = time;
         this.date = date;
@@ -81,19 +83,19 @@ public class F2_C1_GameBean implements Serializable {
         return score2;
     }
 
-    public void setLogo1(String logo1) {
+    public void setLogo1(Drawable logo1) {
         this.logo1 = logo1;
     }
 
-    public String getLogo1() {
+    public Drawable getLogo1() {
         return logo1;
     }
 
-    public void setLogo2(String logo2) {
+    public void setLogo2(Drawable logo2) {
         this.logo2 = logo2;
     }
 
-    public String getLogo2() {
+    public Drawable getLogo2() {
         return logo2;
     }
 

@@ -44,17 +44,17 @@ public class F2_C1_GameAdapter extends RecyclerView.Adapter<F2_C1_GameAdapter.my
     @Override
     public void onBindViewHolder(myViewHolder holder, int position) {
         //根据点击位置绑定数据
-        F2_C1_GameBean data = GameItemList.get(position);
+        F2_C1_GameBean bean = GameItemList.get(position);
 
-        holder.date.setText(data.date);    //获取实体类中的title字段并设置
-        holder.time.setText(data.time);
-        holder.team1.setText(data.team1);
-        holder.team2.setText(data.team2);
-        holder.score1.setText(data.score1);
-        holder.score2.setText(data.score2);
-        holder.center.setText(data.center);
-        holder.logo1.setBackgroundResource(R.mipmap.ic_launcher);
-        holder.logo2.setBackgroundResource(R.mipmap.ic_launcher);
+        holder.date.setText(bean.date);    //获取实体类中的title字段并设置
+        holder.time.setText(bean.time);
+        holder.team1.setText(bean.team1);
+        holder.team2.setText(bean.team2);
+        holder.score1.setText(bean.score1);
+        holder.score2.setText(bean.score2);
+        holder.center.setText(bean.center);
+        holder.logo1.setImageDrawable(bean.logo1);
+        holder.logo2.setImageDrawable(bean.logo2);
 
     }
 

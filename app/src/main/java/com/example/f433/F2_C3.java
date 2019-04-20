@@ -42,6 +42,7 @@ public class F2_C3 extends Fragment {
 
         //  实例化一个Dao
         F2_C3_RankDao Dao = new F2_C3_RankDao(getActivity());
+        //Dao.saveImage(getActivity());
         //  调用Dao的getlist方法，并把从数据库中读取出来的数据传递给ItemArrayList
         ItemArrayList = Dao.getRankList();
 

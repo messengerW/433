@@ -12,10 +12,10 @@ import java.util.ArrayList;
 
 public class F2_C2_GameAdapter extends RecyclerView.Adapter<F2_C2_GameAdapter.myViewHolder> {
     private Context context;
-    private ArrayList<F2_C2_GameItem> GameItemList;
+    private ArrayList<F2_C2_GameBean> GameItemList;
 
     //创建构造函数
-    public F2_C2_GameAdapter(Context context, ArrayList<F2_C2_GameItem> GameItemList) {
+    public F2_C2_GameAdapter(Context context, ArrayList<F2_C2_GameBean> GameItemList) {
         //将传递过来的数据，赋值给本地变量
         this.context = context;//上下文
         this.GameItemList = GameItemList;//实体类数据ArrayList
@@ -44,15 +44,15 @@ public class F2_C2_GameAdapter extends RecyclerView.Adapter<F2_C2_GameAdapter.my
     @Override
     public void onBindViewHolder(myViewHolder holder, int position) {
         //根据点击位置绑定数据
-        F2_C2_GameItem data = GameItemList.get(position);
+        F2_C2_GameBean bean = GameItemList.get(position);
 
-        holder.date.setText(data.date);    //获取实体类中的title字段并设置
-        holder.time.setText(data.time);
-        holder.team1.setText(data.team1);
-        holder.team2.setText(data.team2);
-        holder.VS.setText(data.centertext);
-        holder.logo1.setBackgroundResource(R.mipmap.ic_launcher);
-        holder.logo2.setBackgroundResource(R.mipmap.ic_launcher);
+        holder.date.setText(bean.date);    //获取实体类中的title字段并设置
+        holder.time.setText(bean.time);
+        holder.team1.setText(bean.team1);
+        holder.team2.setText(bean.team2);
+        holder.VS.setText(bean.centertext);
+        holder.logo1.setImageDrawable(bean.logo1);
+        holder.logo2.setImageDrawable(bean.logo2);
 
     }
 
@@ -118,7 +118,7 @@ public class F2_C2_GameAdapter extends RecyclerView.Adapter<F2_C2_GameAdapter.my
          * @param view 点击的item的视图
          * @param data 点击的item的数据
          */
-        public void OnItemClick(View view, F2_C2_GameItem data);
+        public void OnItemClick(View view, F2_C2_GameBean data);
     }
 
     //需要外部访问，所以需要设置set方法，方便调用
