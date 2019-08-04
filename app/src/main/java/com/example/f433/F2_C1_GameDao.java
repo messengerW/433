@@ -16,7 +16,7 @@ public class F2_C1_GameDao {
     private SQLiteDatabase db;
 
     public F2_C1_GameDao(Context context) {
-        helper = new DBHelper(context);
+        helper = new DBHelper(context);     //  实例化一个 helper 对象，用来进行数据库操作
     }
     /**
      * 从本地数据库获取数据

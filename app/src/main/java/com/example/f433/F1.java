@@ -54,7 +54,7 @@ public class F1 extends Fragment {
         mView = inflater.inflate(R.layout.fragment1, container, false);
         setView();
         //对recycleview进行配置
-        initRecyclerView1();
+        initRecyclerView();
         //模拟数据
         initNewsItem();
         return mView;
@@ -91,7 +91,7 @@ public class F1 extends Fragment {
      * TODO 对recycleview进行配置
      */
 
-    private void initRecyclerView1() {
+    private void initRecyclerView() {
         //获取RecyclerView
         mCollectRecyclerView = (RecyclerView) mView.findViewById(R.id.recycler_view_news);
         //创建adapter

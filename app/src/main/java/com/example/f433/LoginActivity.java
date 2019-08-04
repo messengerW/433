@@ -18,7 +18,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         momentContext = this;
+        //  根据按钮的 id 找到制定按钮
         btn1 = (Button) findViewById(R.id.btn_login);
+        //  给按钮设置点击事件，这里实现的是跳转时间，跳转到 MainActivity 页面
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

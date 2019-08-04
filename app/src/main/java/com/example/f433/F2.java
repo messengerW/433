@@ -15,6 +15,7 @@ import android.support.v4.app.Fragment;
 import java.util.ArrayList;
 
 public class F2 extends Fragment {
+
     private TabLayout tabLayout;
     private ViewPager viewPager;
     ArrayList<Fragment> fragmentList;  //放所有的fragment

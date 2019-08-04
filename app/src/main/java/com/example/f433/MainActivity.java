@@ -18,11 +18,11 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private F1 f1;     //Fragment1对象
-    private F2 f2;     //Fragment2对象
-    private F3 f3;
+    private F1 f1;     // Fragment1 对象
+    private F2 f2;     // Fragment2 对象
+    private F3 f3;     // Fragment3 对象
     private Fragment[] fragments;
-    private int lastShowFragment = 0;   //表示最后一个显示的Fragment
+    private int lastShowFragment = 0;   // 表示最后一个显示的 Fragment
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    /*** 侧拉抽屉，可为每个按钮增加点击事件 ***/
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
