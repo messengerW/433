@@ -21,12 +21,18 @@ public class DBHelper extends SQLiteOpenHelper {
     /*wdnmd被这个db_version坑了好久，这个参数就是sqlite的版本，比如我用的sqlite3。*/
     private static final int db_version = 3;    //  当前数据库版本
 
-    //  狗崽方法
+    //  构造方法，调用copy函数
     public DBHelper(Context context) {
         super(context, db_name, null, db_version);
         CopyDB(context);
     }
 
+    /*  这个函数是最重要的一个函数，具体是这样操作的：
+    *   （准备）先用数据库管理工具建立一个数据库文件 ftt.db 然后在工程目录下建立一个 assets 文件夹，把 ftt.db 粘贴进去，
+    *   然后 copydb() 这个函数的作用就是先检查手机（实体机/模拟器）存储目录中是否有你要的这个 .db 文件，没有的话，
+    *   建立目录、文件，然后将 assets 文件夹下的数据库文件写入刚刚创建的目录中。
+    *
+    */
     public void CopyDB(Context context) {
 
         // 检查 SQLite 数据库文件是否存在
