@@ -1,4 +1,4 @@
-package com.example.f433;
+package com.example.f433.Fragment2;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
@@ -7,6 +7,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
+
+import com.example.f433.Util.DBHelper;
 
 /*
  * 这是一个Dao类，在JavaWeb中Dao就是一个专门用来连接数据库的类，但是Android和JavaWeb有点不一样，

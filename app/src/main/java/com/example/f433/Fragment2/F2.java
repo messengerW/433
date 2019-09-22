@@ -1,4 +1,4 @@
-package com.example.f433;
+package com.example.f433.Fragment2;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
+
+import com.example.f433.R;
 
 import java.util.ArrayList;
 

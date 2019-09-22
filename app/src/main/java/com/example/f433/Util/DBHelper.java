@@ -1,4 +1,4 @@
-package com.example.f433;
+package com.example.f433.Util;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

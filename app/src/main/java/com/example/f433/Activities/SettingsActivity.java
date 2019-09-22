@@ -1,9 +1,11 @@
-package com.example.f433;
+package com.example.f433.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.f433.R;
 
 public class SettingsActivity extends AppCompatActivity {
     /*** 这是设置界面 ***/

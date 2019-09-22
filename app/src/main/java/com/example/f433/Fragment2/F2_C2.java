@@ -1,4 +1,4 @@
-package com.example.f433;
+package com.example.f433.Fragment2;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,19 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.f433.R;
+
 import java.util.ArrayList;
 
-public class F2_C1 extends Fragment {
+public class F2_C2 extends Fragment {
 
     private View view;
     public RecyclerView mCollectRecyclerView;
-    private ArrayList<F2_C1_GameBean> ItemArrayList = new ArrayList<F2_C1_GameBean>();
-    private F2_C1_GameAdapter mCollectRecyclerAdapter;
+    private ArrayList<F2_C2_GameBean> ItemArrayList = new ArrayList<F2_C2_GameBean>();
+    private F2_C2_GameAdapter mCollectRecyclerAdapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment2_child1, container, false);
+        view = inflater.inflate(R.layout.fragment2_child2, container, false);
         initGameItem();
         initRecyclerView();
         return view;
@@ -38,7 +40,7 @@ public class F2_C1 extends Fragment {
      */
     private void initGameItem() {
 
-        F2_C1_GameDao Dao = new F2_C1_GameDao(getActivity());
+        F2_C2_GameDao Dao = new F2_C2_GameDao(getActivity());
         ItemArrayList = Dao.getGameList();
     }
 
@@ -62,16 +64,16 @@ public class F2_C1 extends Fragment {
 
     private void initRecyclerView() {
         //获取RecyclerView
-        mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_game1);
+        mCollectRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_game2);
         //创建adapter
-        mCollectRecyclerAdapter = new F2_C1_GameAdapter(mActivity, ItemArrayList);
+        mCollectRecyclerAdapter = new F2_C2_GameAdapter(getActivity(), ItemArrayList);
         //给RecyclerView设置adapter
         mCollectRecyclerView.setAdapter(mCollectRecyclerAdapter);
         //设置layoutManager,可以设置显示效果，是线性布局、grid布局，还是瀑布流布局
         //参数是：上下文、列表方向（横向还是纵向）、是否倒叙
-        mCollectRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));
+        mCollectRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         //设置item的分割线
-        //mCollectRecyclerView.addItemDecoration(new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL));
+        //mCollectRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
 
         //RecyclerView中没有item的监听事件，需要自己在适配器中写一个监听事件的接口。参数根据自定义
         // 尝试一下不在这里定义点击事件，这一次写在适配器里面试一试

@@ -1,4 +1,4 @@
-package com.example.f433;
+package com.example.f433.Activities;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -6,11 +6,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Handler;
-import android.support.annotation.ColorInt;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
+
+import com.example.f433.R;
 
 public class GameActivity_ScoreBoardView extends View {
     private Context context;

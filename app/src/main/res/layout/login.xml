@@ -5,7 +5,7 @@
     android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.f433.LoginActivity">
+    tools:context="com.example.f433.Activities.LoginActivity">
 
     <!--这个是登录页面，可以通过修改配置清单AndroidManifest文件改变登录页面显示的次序，就是说。。
     可以让打开app显示的第一个页面不是这个页面-->

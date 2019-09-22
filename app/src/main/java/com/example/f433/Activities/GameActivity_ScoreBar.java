@@ -1,4 +1,4 @@
-package com.example.f433;
+package com.example.f433.Activities;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,6 +7,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+
+import com.example.f433.R;
 
 public class GameActivity_ScoreBar extends View {
     private Context context;

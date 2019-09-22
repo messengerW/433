@@ -1,4 +1,4 @@
-package com.example.f433;
+package com.example.f433.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.f433.Fragment1.F1;
+import com.example.f433.Fragment2.F2;
+import com.example.f433.Fragment3.F3;
+import com.example.f433.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

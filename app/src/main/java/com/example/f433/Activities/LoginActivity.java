@@ -1,4 +1,4 @@
-package com.example.f433;
+package com.example.f433.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.f433.Activities.MainActivity;
+import com.example.f433.R;
 
 public class LoginActivity extends AppCompatActivity {
 

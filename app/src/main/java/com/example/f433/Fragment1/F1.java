@@ -1,4 +1,4 @@
-package com.example.f433;
+package com.example.f433.Fragment1;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.f433.R;
 
 import java.util.ArrayList;
 import java.util.List;
