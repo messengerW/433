@@ -16,7 +16,7 @@
             android:id="@+id/game_guess_time"
             android:layout_width="match_parent"
             android:layout_height="24dp"
-            android:text="北京时间  4月2日 15:00"
+            android:text="2020-04-02 15:00"
             android:textColor="#333333"
             android:textSize="18sp"
             android:gravity="center"/>
@@ -83,20 +83,20 @@
                 android:layout_width="140dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:text="查看分析"
+                android:text="历史交战"
                 android:textColor="#ffffff"
                 android:textSize="16sp"
-                android:background="@color/cg_3"
+                android:background="@drawable/button_shape"
                 android:layout_marginRight="10dp"/>
             <Button
                 android:id="@+id/game_guess_btn2"
                 android:layout_width="140dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:text="竞猜"
+                android:text="赛前分析"
                 android:textColor="#ffffff"
                 android:textSize="16sp"
-                android:background="@color/cg_3"
+                android:background="@drawable/button_shape"
                 android:layout_marginLeft="10dp"/>
         </LinearLayout>
         <View

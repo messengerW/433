@@ -1,6 +1,8 @@
 package com.example.f433.Activities;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -14,44 +16,186 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.f433.Fragment1.F1;
 import com.example.f433.Fragment2.F2;
 import com.example.f433.Fragment3.F3;
 import com.example.f433.R;
+import com.example.f433.Util.CustomDrawableUtil;
+import com.example.f433.Util.StatusBarUtil;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import java.lang.reflect.Method;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private F1 f1;     // Fragment1 对象
     private F2 f2;     // Fragment2 对象
     private F3 f3;     // Fragment3 对象
     private Fragment[] fragments;
-    private int lastShowFragment = 0;   // 表示最后一个显示的 Fragment
+    private int momentFragment = 0;   // 表示最后一个显示的 Fragment
+    private ImageButton imageButton;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.mainpage);
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+        /*沉浸式状态栏*/
+        StatusBarUtil.setStatusBar(this);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.hide();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+//        要使用自定义toolbar需要先把这一行注释掉
+        toggle.syncState();
+
+        drawer.addDrawerListener(toggle);
+
+        /*
+         * 自定义toolbar左侧头像按钮样式，将其设置为比较流行的圆形头像按钮，
+         * 用到了 CustomDrawableUtil 类
+         * 但是目前还有一个小bug，就是位置问题，所以可以选择使用默认的菜单键，只需要把上面的syncState取消注释
+         */
+//        Resources resources = MainActivity.this.getResources();
+//        Drawable drawable = resources.getDrawable(R.drawable.ic_nav_head);
+//        int size = 42;
+//        CustomDrawableUtil customDrawableUtil = new CustomDrawableUtil(drawable, MainActivity.this, size);
+//        toolbar.setNavigationIcon(customDrawableUtil);
+
+        //  获取侧拉抽屉
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_left);
+        //  屏蔽图标自带颜色
+        navigationView.setItemIconTintList(null);
+        //  为抽屉中的 item 添加“选定事件”，我想，和onClick还是有所不同的吧，不然为什么这样命名
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
+                startActivity(intent);
+            }
+        });
+        //  为抽屉顶部头像按钮添加点击事件，点击可以跳转到个人信息页面，之前我放在抽屉的点击事件里，
+        //  结果放在一起有bug，每次打开抽屉第一次点击头像时无法跳转，必须先点一个下面的任意按钮，然后
+        //  再打开抽屉点击头像才会跳转
+        //  我tmd奇了怪了，为啥别的view就可以获取到，就这个图片按钮获取不到呢??一直报空指针.
+        //  没办法是能先放在抽屉的点击事件里面了。
+//        ImageButton imageButton = (ImageButton) findViewById(R.id.imagebutton_info);
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+
+        //  获取底部导航栏
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation_bottom);
+        //  屏蔽图标自带颜色
+        bottomNavigationView.setItemIconTintList(null);
+        //  初始化三个 fragment，并默认显示 fragment1
+        initFragments();
+        bottomNavigationView.getMenu().findItem(R.id.item1).setIcon(R.drawable.ic_bottom_home2);
+        //  为底部导航栏按钮添加 初次点击事件，点击选择更换 Fragment
+        bottomNavigationView.setOnNavigationItemSelectedListener(ClickToChange);
+        //  为底部导航栏按钮添加 重复点击事件，我理解的就是：
+        //  当前已经在展示这个Fragment了，这时如果再次点击Fragment对应的按钮(item)时，触发此事件
+        //  bottomNavigationView.setOnNavigationItemReselectedListener(...);
+    }
+
+    /*** 处理右上溢出菜单中菜单项的点击事件 ***/
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.toolbar_settings) {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    /*** 侧拉抽屉，可为每个item按钮增加点击事件 ***/
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        //  这样就不难理解了，顶部头像按钮的点击事件写在这里的话就一定会出现那个问题了——必须要先点击一下下面的
+        //  任意一个 item，然后再打开抽屉点击头像按钮才会实现跳转。
+        imageButton = (ImageButton) findViewById(R.id.imagebutton_info);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
+                startActivity(intent);
+            }
+        });
+        // Handle main_bottom_navigation view item clicks here.
+        int id = item.getItemId();
+        if (id == R.id.nav_1) {
+            // Handle the camera action
+        } else if (id == R.id.nav_2) {
+
+        } else if (id == R.id.nav_3) {
+
+        } else if (id == R.id.nav_4) {
+
+        } else if (id == R.id.nav_5) {
+
+        } else if (id == R.id.nav_6) {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    /*** 底部导航栏的点击事件，点击可以切换 Fragment ***/
+    private BottomNavigationView.OnNavigationItemSelectedListener ClickToChange
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            //这里是因为需要重置底部icon，所以声明一个控件找到底部导航栏
+            BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation_bottom);
             switch (item.getItemId()) {
                 case R.id.item1:
-                    if (lastShowFragment != 0) {
-                        switchFragment(lastShowFragment, 0);
-                        lastShowFragment = 0;
+                    //  每次更换Fragment时都要先重置底部 3个 icon 为默认图标
+                    initItemIcon(bottomNavigationView);
+                    if (momentFragment != 0) {
+                        item.setIcon(R.drawable.ic_bottom_home2);
+                        changeFragment(momentFragment, 0);
+                        momentFragment = 0;
                     }
                     return true;
                 case R.id.item2:
-                    if (lastShowFragment != 1) {
-                        switchFragment(lastShowFragment, 1);
-                        lastShowFragment = 1;
+                    //  每次更换Fragment时都要先重置底部 3个 icon 为默认图标
+                    initItemIcon(bottomNavigationView);
+                    if (momentFragment != 1) {
+                        item.setIcon(R.drawable.ic_bottom_rank2);
+                        changeFragment(momentFragment, 1);
+                        momentFragment = 1;
                     }
                     return true;
                 case R.id.item3:
-                    if (lastShowFragment != 2) {
-                        switchFragment(lastShowFragment, 2);
-                        lastShowFragment = 2;
+                    //  每次更换Fragment时都要先重置底部 3个 icon 为默认图标
+                    initItemIcon(bottomNavigationView);
+                    if (momentFragment != 2) {
+                        item.setIcon(R.drawable.ic_bottom_data2);
+                        changeFragment(momentFragment, 2);
+                        momentFragment = 2;
                     }
                     return true;
             }
@@ -60,53 +204,37 @@ public class MainActivity extends AppCompatActivity
 
     };
 
-    /**
-     * 切换Fragment
-     *
-     * @param lastIndex 上个显示Fragment的索引
-     * @param index     需要显示的Fragment的索引
-     */
-    public void switchFragment(int lastIndex, int index) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.hide(fragments[lastIndex]);
-        if (!fragments[index].isAdded()) {
-            transaction.add(R.id.fm_container, fragments[index]);
-        }
-        transaction.show(fragments[index]).commitAllowingStateLoss();
+    //  初始化底部 3 个 icon
+    public void initItemIcon(BottomNavigationView bottomNavigationView) {
+        MenuItem item1 = bottomNavigationView.getMenu().findItem(R.id.item1);
+        item1.setIcon(R.drawable.ic_bottom_home1);
+        MenuItem item2 = bottomNavigationView.getMenu().findItem(R.id.item2);
+        item2.setIcon(R.drawable.ic_bottom_rank1);
+        MenuItem item3 = bottomNavigationView.getMenu().findItem(R.id.item3);
+        item3.setIcon(R.drawable.ic_bottom_data1);
     }
 
+    public void changeFragment(int lastFragment, int nextFragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.hide(fragments[lastFragment]);
+        if (!fragments[nextFragment].isAdded()) {
+            transaction.add(R.id.fm_container, fragments[nextFragment]);
+        }
+        transaction.show(fragments[nextFragment]).commitAllowingStateLoss();
+    }
+
+    //  Fragment初始化函数，默认首先显示 fragment1
     private void initFragments() {
         f1 = new F1();
         f2 = new F2();
         f3 = new F3();
         fragments = new Fragment[]{f1, f2, f3};
-        lastShowFragment = 0;
+        momentFragment = 0;
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.fm_container, f1)
                 .show(f1)
                 .commit();
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.mainpage);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_left);
-        navigationView.setNavigationItemSelectedListener(this);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation_bottom);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        initFragments();
     }
 
     @Override
@@ -126,47 +254,24 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    /**
+     * 解决Toolbar中Menu无法同时显示图标和文字的问题
+     */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        if (menu != null) {
+            if (menu.getClass().getSimpleName().equalsIgnoreCase("MenuBuilder")) {
+                try {
+                    Method method = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+                    method.setAccessible(true);
+                    method.invoke(menu, true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
-
-        return super.onOptionsItemSelected(item);
+        return super.onMenuOpened(featureId, menu);
     }
 
-    /*** 侧拉抽屉，可为每个按钮增加点击事件 ***/
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle main_bottom_navigation view item clicks here.
-        int id = item.getItemId();
 
-        if (id == R.id.nav_1) {
-            // Handle the camera action
-        } else if (id == R.id.nav_2) {
-
-        } else if (id == R.id.nav_3) {
-
-        } else if (id == R.id.nav_4) {
-
-        } else if (id == R.id.nav_5) {
-
-        } else if (id == R.id.nav_6) {
-
-        } else if (id == R.id.nav_7) {
-            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(intent);
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 }

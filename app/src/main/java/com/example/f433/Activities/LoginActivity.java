@@ -2,6 +2,7 @@ package com.example.f433.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.Button;
 
 import com.example.f433.Activities.MainActivity;
 import com.example.f433.R;
+import com.example.f433.Util.StatusBarUtil;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,6 +22,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        StatusBarUtil.setStatusBar(this);
+
         momentContext = this;
         //  根据按钮的 id 找到制定按钮
         btn1 = (Button) findViewById(R.id.btn_login);

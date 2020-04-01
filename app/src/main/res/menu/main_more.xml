@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_sao_yi_sao"
-        android:orderInCategory="100"
-        android:title="@string/action_sao"
-        app:showAsAction="never" />
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <item
+        android:id="@+id/toolbar_share"
+        android:icon="@drawable/ic_drawer_fly"
+        android:title="分享" />
+    <item
+        android:id="@+id/toolbar_saoyisao"
+        android:icon="@drawable/bar_saoyisao"
+        android:title="扫一扫" />
+    <item
+        android:id="@+id/toolbar_settings"
+        android:icon="@drawable/bar_settings"
+        android:title="设置" />
 </menu>

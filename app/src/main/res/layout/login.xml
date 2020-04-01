@@ -5,6 +5,7 @@
     android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/AppTheme"
     tools:context="com.example.f433.Activities.LoginActivity">
 
     <!--这个是登录页面，可以通过修改配置清单AndroidManifest文件改变登录页面显示的次序，就是说。。
@@ -144,15 +145,14 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="130dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="28dp"
-        app:srcCompat="@mipmap/usericon" />
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/ic_login_head" />
 
     <TextView
         android:id="@+id/textView3"
