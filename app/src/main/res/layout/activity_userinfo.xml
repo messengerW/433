@@ -24,6 +24,15 @@
                 android:layout_height="36dp"
                 android:background="@drawable/bar_back2"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="个人信息"
+                android:paddingRight="30dp"
+                android:textSize="28sp"
+                android:gravity="center"
+                />
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>

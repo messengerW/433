@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.f433.Activities.AnalysisAcyivity;
 import com.example.f433.Activities.GameActivity;
 import com.example.f433.R;
 
@@ -79,6 +81,7 @@ public class F2_C2_GameAdapter extends RecyclerView.Adapter<F2_C2_GameAdapter.my
         private ImageView logo1;
         private ImageView logo2;
         private TextView VS;
+        private Button button;
 
         public myViewHolder(View itemView) {
             super(itemView);
@@ -89,6 +92,7 @@ public class F2_C2_GameAdapter extends RecyclerView.Adapter<F2_C2_GameAdapter.my
             logo1 = (ImageView) itemView.findViewById(R.id.game2_pic1);
             logo2 = (ImageView) itemView.findViewById(R.id.game2_pic2);
             VS = (TextView) itemView.findViewById(R.id.game2_VS);
+            button = (Button) itemView.findViewById(R.id.game2_btn1);
 
             //点击事件放在adapter中使用，也可以写个接口在activity中调用
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +109,15 @@ public class F2_C2_GameAdapter extends RecyclerView.Adapter<F2_C2_GameAdapter.my
                     if (onItemClickListener != null) {
                         onItemClickListener.OnItemClick(v, GameItemList.get(getLayoutPosition()));
                     }
+                }
+            });
+
+            // 单独为button添加点击事件，跳转到分析页面 (2020.04.01 Rainy)
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, AnalysisAcyivity.class);
+                    context.startActivity(intent);
                 }
             });
 

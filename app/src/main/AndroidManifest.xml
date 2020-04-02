@@ -51,6 +51,12 @@
             android:name=".Activities.UserInfoActivity"
             android:label="@string/app_name">
         </activity>
+
+        <!-- wzx页面 -->
+        <activity
+            android:name=".Activities.AnalysisAcyivity"
+            android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>

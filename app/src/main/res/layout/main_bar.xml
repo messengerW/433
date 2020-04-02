@@ -23,15 +23,15 @@
             android:fitsSystemWindows="true"
             android:theme="@style/AppTheme.ToolBar">
 
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:text="@string/app_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:singleLine="true"
-                android:textColor="@android:color/white"
-                android:textSize="25sp" />
+            <!--<TextView-->
+                <!--android:id="@+id/toolbar_title"-->
+                <!--android:text="@string/app_name"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:singleLine="true"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:textSize="25sp" />-->
 
         </android.support.v7.widget.Toolbar>
 

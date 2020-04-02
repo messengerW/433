@@ -53,7 +53,7 @@
         <item name="android:layout_width">85dp</item>
         <item name="android:layout_height">45dp</item>
         <item name="android:layout_marginTop">40dp</item>
-        <item name="android:background">@drawable/shape_of_color_button</item>
+        <item name="android:background">@drawable/shape_of_login_button</item>
     </style>
 
     <style name="CardColorButton" parent="Widget.AppCompat.Button">
