@@ -49,8 +49,8 @@
 
     <ImageView
         android:id="@+id/game1_pic1"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginRight="5dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@id/game1_center"
@@ -100,8 +100,8 @@
 
     <ImageView
         android:id="@+id/game1_pic2"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginLeft="5dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@id/game1_center"

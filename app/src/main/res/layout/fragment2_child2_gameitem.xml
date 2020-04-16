@@ -48,8 +48,8 @@
 
     <ImageView
         android:id="@+id/game2_pic1"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginRight="10dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@id/game2_VS"
@@ -73,8 +73,8 @@
 
     <ImageView
         android:id="@+id/game2_pic2"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginLeft="10dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@id/game2_VS"
@@ -93,6 +93,17 @@
         app:layout_constraintTop_toBottomOf="@id/game2_pic2"
         tools:text="Liverpool" />
 
+    <Button
+        android:id="@+id/game2_btn1"
+        android:text="赛前分析"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:background="@drawable/shape_of_click_button"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/game2_VS"
+        app:layout_constraintBottom_toBottomOf="@id/game2_VS"
+        android:layout_marginRight="20dp"/>
+
     <!--这个是每两个新闻框之间的分割线-->
     <View
         android:id="@+id/game2_divider"
@@ -100,6 +111,7 @@
         android:layout_height="5px"
         android:layout_margin="5dp"
         android:background="#EEEEEE"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/game2_team1" />
 
 

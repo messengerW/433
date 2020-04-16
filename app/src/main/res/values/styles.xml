@@ -1,20 +1,64 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/cg_3</item>
-        <item name="colorPrimaryDark">@color/cw_5</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/cg_4</item>
+        <!-- 设置弹出框（溢出菜单）样式 -->
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="TranslucentTheme" parent="AppTheme">
+        <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.ToolBar" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <!--是否覆盖toolbar-->
+        <item name="overlapAnchor">false</item>
+        <!--菜单背景色-->
+        <item name="android:colorBackground">#90000000</item>
+        <!--文字颜色-->
+        <item name="android:textColor">@color/cw_2</item>
+        <!-- 弹出层垂直方向上的偏移，即在竖直方向上距离Toolbar的距离，值为负则会盖住Toolbar -->
+        <item name="android:dropDownVerticalOffset">-15dp</item>
+        <!-- 弹出层水平方向上的偏移，即距离屏幕左边的距离，负值会导致右边出现空隙 -->
+        <item name="android:dropDownHorizontalOffset">0dp</item>
+        <!-- 自定义导航栏右侧按钮图标 -->
+        <item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
+        <!-- 设置弹出框（溢出菜单）样式 -->
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="OverflowButtonStyle" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:src">@drawable/bar_more</item>
+    </style>
+
+    <style name="OverflowMenuStyle" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
+        <!-- 修改竖直方向上与屏幕顶端的距离为50dp -->
+        <item name="android:dropDownVerticalOffset">15dp</item>
+        <!-- 修改水平方向上与屏幕右端的距离为10dp -->
+        <item name="android:dropDownHorizontalOffset">100dp</item>
+        <item name="android:dropDownWidth">30dp</item>
+
+    </style>
+
+    <style name="abc" parent="Theme.AppCompat">
+        <item name="actionOverflowMenuStyle">@style/AppTheme.ToolBar</item>
+    </style>
+
+    <!-- 色卡页面按钮的样式 -->
+    <style name="ColorButtonShape" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">85dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:background">@drawable/shape_of_login_button</item>
+    </style>
+
+    <style name="CardColorButton" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">22dp</item>
+    </style>
 
 </resources>

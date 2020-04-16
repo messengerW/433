@@ -14,10 +14,6 @@
             android:title="Message" />
         <item
             android:id="@+id/nav_3"
-            android:icon="@drawable/ic_drawer_fly"
-            android:title="Send" />
-        <item
-            android:id="@+id/nav_4"
             android:icon="@drawable/ic_drawer_star"
             android:title="Star" />
     </group>
@@ -25,15 +21,15 @@
     <item android:title="Others">
         <menu>
             <item
-                android:id="@+id/nav_5"
+                android:id="@+id/nav_4"
                 android:icon="@drawable/ic_drawer_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_6"
+                android:id="@+id/nav_5"
                 android:icon="@drawable/ic_drawer_customer"
                 android:title="Customer" />
             <item
-                android:id="@+id/nav_7"
+                android:id="@+id/nav_6"
                 android:icon="@drawable/ic_menu_settings"
                 android:title="Settings" />
         </menu>

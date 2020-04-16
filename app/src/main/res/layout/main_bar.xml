@@ -3,22 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <!--这个布局文件包含两部分-->
+
     <!--1.顶部导航栏-->
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        >
 
+        <!--。。。无语，这个navigationIcon 是指左侧打开抽屉的那个图标，我在activity中把它覆盖了-->
+        <!--还有一个点，暂时不知道怎么设置左边头像按钮的位置，我这里是修改整个toolbar的位置来达到目的的-->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/toolbar"
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.ToolBar">
+
+            <!--<TextView-->
+                <!--android:id="@+id/toolbar_title"-->
+                <!--android:text="@string/app_name"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:singleLine="true"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:textSize="25sp" />-->
+
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 

@@ -13,13 +13,15 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <!--这个是抽屉顶部的布局文件，抽屉的菜单放在menu文件夹下-->
-    <ImageView
-        android:id="@+id/imageView"
+    <ImageButton
+        android:id="@+id/imagebutton_info"
         android:layout_width="@dimen/head_image_width"
         android:layout_height="@dimen/head_image_height"
-        android:contentDescription="@string/nav_header_desc"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@mipmap/ic_head3" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/ic_nav_head"/>
 
 
     <TextView
