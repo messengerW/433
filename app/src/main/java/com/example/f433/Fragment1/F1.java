@@ -67,12 +67,13 @@ public class F1 extends Fragment {
      */
     private void initNewsItem() {
         /*图片暂时从网上获取*/
-        String[] url = {"http://image.thepaper.cn/www/image/8/15/751.jpg",
-                "http://www.ss28.com/newsfiles/file/world/italy/juv/2018-10-09/7acb04f387d969c6d24578bdb2d3a8fa.jpg",
-                "http://img.mp.itc.cn/upload/20160902/30880a2ef78e4a2983e2c96f665b3c6b_th.jpeg",
-                "http://img5.imgtn.bdimg.com/it/u=1979028530,4274692987&fm=11&gp=0.jpg",
+        String[] url = {
                 "http://p1.qhimgs4.com/t0121dd731c29838075.jpg",
-                "http://image.thepaper.cn/www/image/8/15/751.jpg",
+                "http://p1.qhimgs4.com/t0121dd731c29838075.jpg",
+                "http://p1.qhimgs4.com/t0121dd731c29838075.jpg",
+                "http://p1.qhimgs4.com/t0121dd731c29838075.jpg",
+                "http://p1.qhimgs4.com/t0121dd731c29838075.jpg",
+                "http://p1.qhimgs4.com/t0121dd731c29838075.jpg",
                 "http://www.ss28.com/newsfiles/file/world/italy/juv/2018-10-09/7acb04f387d969c6d24578bdb2d3a8fa.jpg",
                 "http://img.mp.itc.cn/upload/20160902/30880a2ef78e4a2983e2c96f665b3c6b_th.jpeg",
                 "http://img5.imgtn.bdimg.com/it/u=1979028530,4274692987&fm=11&gp=0.jpg",
