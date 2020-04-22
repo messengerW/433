@@ -6,8 +6,8 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_1"
-            android:icon="@drawable/ic_drawer_camera"
-            android:title="Camera" />
+            android:icon="@drawable/bar_saoyisao"
+            android:title="Scan" />
         <item
             android:id="@+id/nav_2"
             android:icon="@drawable/ic_drawer_message"
@@ -15,7 +15,7 @@
         <item
             android:id="@+id/nav_3"
             android:icon="@drawable/ic_drawer_star"
-            android:title="Star" />
+            android:title="Favorite" />
     </group>
 
     <item android:title="Others">

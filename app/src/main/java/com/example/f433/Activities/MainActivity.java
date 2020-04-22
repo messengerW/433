@@ -74,26 +74,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setItemIconTintList(null);
         //  为抽屉中的 item 添加“选定事件”，我想，和onClick还是有所不同的吧，不然为什么这样命名
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setOnClickListener(new View.OnClickListener() {
+
+        //  为抽屉顶部头像按钮添加点击事件，点击可以跳转到个人信息页面，之前我放在抽屉的点击事件里，
+        //  结果放在一起有bug，每次打开抽屉第一次点击头像时无法跳转，必须先点一个下面的任意按钮，然后
+        //  再打开抽屉点击头像才会跳转
+
+        //  解决了，要想把侧拉抽屉头部图片按钮的点击事件写在外面要先获取到抽屉的头部view
+        // 获取 NavigationView 头部 view
+        View view = navigationView.getHeaderView(0);
+        // 再从头部 view 中获取到 ImageButton
+        imageButton = (ImageButton) view.findViewById(R.id.imagebutton_info);
+        // 为 ImageButton 设置点击事件
+        imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
                 startActivity(intent);
             }
         });
-        //  为抽屉顶部头像按钮添加点击事件，点击可以跳转到个人信息页面，之前我放在抽屉的点击事件里，
-        //  结果放在一起有bug，每次打开抽屉第一次点击头像时无法跳转，必须先点一个下面的任意按钮，然后
-        //  再打开抽屉点击头像才会跳转
-        //  我tmd奇了怪了，为啥别的view就可以获取到，就这个图片按钮获取不到呢??一直报空指针.
-        //  没办法是能先放在抽屉的点击事件里面了。
-//        ImageButton imageButton = (ImageButton) findViewById(R.id.imagebutton_info);
-//        imageButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
 
         //  获取底部导航栏
@@ -127,24 +125,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
+
     /*** 侧拉抽屉，可为每个item按钮增加点击事件 ***/
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        //  这样就不难理解了，顶部头像按钮的点击事件写在这里的话就一定会出现那个问题了——必须要先点击一下下面的
-        //  任意一个 item，然后再打开抽屉点击头像按钮才会实现跳转。
-        imageButton = (ImageButton) findViewById(R.id.imagebutton_info);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
-                startActivity(intent);
-            }
-        });
+        //  这样就不难理解了，顶部头像按钮的点击事件写在这里的话就一定会出现那个问题了——
+        //  必须要先点击一下下面的任意一个 item，然后再打开抽屉点击头像按钮才会实现跳转。
+//        imageButton = (ImageButton) findViewById(R.id.imagebutton_info);
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
         // Handle main_bottom_navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_1) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_2) {
 
         } else if (id == R.id.nav_3) {
@@ -154,13 +154,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_5) {
 
         } else if (id == R.id.nav_6) {
-            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(intent);
+            goSettings();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+
         return true;
+    }
+
+    private void goSettings(){
+        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(intent);
     }
 
     /*** 底部导航栏的点击事件，点击可以切换 Fragment ***/

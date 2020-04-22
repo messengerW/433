@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.f433.Activities.AnalysisAcyivity;
+import com.example.f433.Activities.Analysis.AnalysisAcyivity;
 import com.example.f433.Activities.GameActivity;
 import com.example.f433.R;
 

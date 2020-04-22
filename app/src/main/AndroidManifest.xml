@@ -54,7 +54,7 @@
 
         <!-- wzx页面 -->
         <activity
-            android:name=".Activities.AnalysisAcyivity"
+            android:name=".Activities.Analysis.AnalysisAcyivity"
             android:label="@string/app_name">
         </activity>
     </application>

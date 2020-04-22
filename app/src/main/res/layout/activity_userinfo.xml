@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.design.widget.AppBarLayout
@@ -20,8 +22,8 @@
 
             <ImageButton
                 android:id="@+id/userinfo_back"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/bar_back2"/>
 
             <TextView
@@ -29,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:text="个人信息"
                 android:paddingRight="30dp"
-                android:textSize="28sp"
+                android:textSize="20sp"
                 android:gravity="center"
                 />
 
@@ -37,14 +39,313 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="userinfo"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="55dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="64dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#dee3e5"
+            android:paddingTop="2dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:background="@drawable/ic_userinfo_name" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="昵称"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:text="msw"
+                android:textSize="16sp"
+                android:textColor="#6F000000" />
+
+            <ImageButton
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_settings_go"/>
+        </LinearLayout>
+
+        <!--dividerline-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="?android:attr/listDivider"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="56dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#dee3e5"
+            android:paddingTop="2dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:background="@drawable/ic_userinfo_sex" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="性别"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:text="Male"
+                android:textSize="16sp"
+                android:textColor="#6F000000" />
+
+            <ImageButton
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_settings_go"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="?android:attr/listDivider"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="56dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#dee3e5"
+            android:paddingTop="2dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:background="@drawable/ic_userinfo_phone" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="手机号绑定"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:text="13777827742"
+                android:textSize="16sp"
+                android:textColor="#6F000000" />
+
+            <ImageButton
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_settings_go"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#cacdcf"
+            android:paddingTop="2dp"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#dee3e5"
+            android:paddingTop="2dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:background="@drawable/ic_userinfo_club" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="主队"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:text="Juventus"
+                android:textSize="16sp"
+                android:textColor="#6F000000" />
+
+            <ImageButton
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_settings_go"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="?android:attr/listDivider"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="56dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#dee3e5"
+            android:paddingTop="2dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:background="@drawable/ic_userinfo_years" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="球龄"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:text="6"
+                android:textSize="16sp"
+                android:textColor="#6F000000" />
+
+            <ImageButton
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_settings_go"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="?android:attr/listDivider"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="56dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#dee3e5"
+            android:paddingTop="2dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:background="@drawable/ic_userinfo_ma" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="二维码名片"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:textSize="16sp"
+                android:textColor="#6F000000" />
+
+            <ImageButton
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_settings_go"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#cacdcf"
+            android:paddingTop="2dp"></LinearLayout>
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="48dp"-->
+            <!--android:background="#dee3e5"-->
+            <!--android:paddingTop="2dp">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center"-->
+                <!--android:text="详细信息"-->
+                <!--android:textColor="#F2213DF3"-->
+                <!--android:textSize="20sp" />-->
+        <!--</LinearLayout>-->
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dee3e5"
+            android:text="详细信息"
+            android:textSize="18sp"
+            android:textColor="#F2213DF3"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dee3e5"
+            android:text="隐私设置"
+            android:textSize="18sp"
+            android:textColor="#F2213DF3"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#cacdcf"
+            android:paddingTop="2dp"></LinearLayout>
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
