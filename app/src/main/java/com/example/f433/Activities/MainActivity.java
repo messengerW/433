@@ -3,7 +3,9 @@ package com.example.f433.Activities;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -18,6 +20,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
 
 import com.example.f433.Fragment1.F1;
 import com.example.f433.Fragment2.F2;
@@ -25,8 +31,12 @@ import com.example.f433.Fragment3.F3;
 import com.example.f433.R;
 import com.example.f433.Util.CustomDrawableUtil;
 import com.example.f433.Util.StatusBarUtil;
+import com.yzq.zxinglibrary.android.CaptureActivity;
+import com.yzq.zxinglibrary.bean.ZxingConfig;
+import com.yzq.zxinglibrary.common.Constant;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -36,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Fragment[] fragments;
     private int momentFragment = 0;   // 表示最后一个显示的 Fragment
     private ImageButton imageButton;
+
+    private int REQUEST_CODE_SCAN = 111;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,8 +131,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.toolbar_settings) {
-            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(intent);
+            goSettings();
+        } else if (id == R.id.toolbar_saoyisao) {
+            goScan();
+        }  else {
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -144,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle main_bottom_navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_1) {
-
+            goScan();
         } else if (id == R.id.nav_2) {
 
         } else if (id == R.id.nav_3) {
@@ -164,6 +180,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    // 1.扫一扫
+    private void goScan() {
+        AndPermission.with(this)
+                .permission(Permission.CAMERA, Permission.READ_EXTERNAL_STORAGE)
+                .onGranted(new Action() {
+                    @Override
+                    public void onAction(List<String> permissions) {
+                        Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
+                        /*ZxingConfig是配置类
+                         *可以设置是否显示底部布局，闪光灯，相册，
+                         * 是否播放提示音  震动
+                         * 设置扫描框颜色等
+                         * 也可以不传这个参数
+                         * */
+                        ZxingConfig config = new ZxingConfig();
+                        // config.setPlayBeep(false);//是否播放扫描声音 默认为true
+                        // config.setShake(false);//是否震动  默认为true
+                        // config.setDecodeBarCode(false);//是否扫描条形码 默认为true
+                        // config.setReactColor(R.color.colorAccent);//设置扫描框四个角的颜色 默认为白色
+                        // config.setFrameLineColor(R.color.colorAccent);//设置扫描框边框颜色 默认无色
+                        // config.setScanLineColor(R.color.colorAccent);//设置扫描线的颜色 默认白色
+                        config.setFullScreenScan(false);//是否全屏扫描  默认为true  设为false则只会在扫描框中扫描
+                        intent.putExtra(Constant.INTENT_ZXING_CONFIG, config);
+                        startActivityForResult(intent, REQUEST_CODE_SCAN);
+                    }
+                })
+                .onDenied(new Action() {
+                    @Override
+                    public void onAction(List<String> permissions) {
+                        Uri packageURI = Uri.parse("package:" + getPackageName());
+                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageURI);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                        startActivity(intent);
+
+                        Toast.makeText(MainActivity.this, "没有权限无法扫描呦", Toast.LENGTH_LONG).show();
+                    }
+                }).start();
+    }
+
+    // 2.设置界面
     private void goSettings(){
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
         startActivity(intent);

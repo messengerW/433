@@ -332,6 +332,13 @@
             android:textSize="18sp"
             android:textColor="#F2213DF3"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="56dp" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
