@@ -1,8 +1,6 @@
 package com.example.f433.Activities;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -22,6 +20,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.f433.Activities.Favorites.FavAvtivity;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
@@ -30,7 +29,6 @@ import com.example.f433.Fragment1.F1;
 import com.example.f433.Fragment2.F2;
 import com.example.f433.Fragment3.F3;
 import com.example.f433.R;
-import com.example.f433.Util.CustomDrawableUtil;
 import com.example.f433.Util.StatusBarUtil;
 import com.yzq.zxinglibrary.android.CaptureActivity;
 import com.yzq.zxinglibrary.bean.ZxingConfig;

@@ -1,20 +1,17 @@
-package com.example.f433.Activities;
+package com.example.f433.Activities.Favorites;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.f433.R;
 
 import java.util.ArrayList;
 
 public class FavAvtivity extends AppCompatActivity {
-    private ArrayList<CardBean> ItemList = new ArrayList<CardBean>();
+    private ArrayList<FavBean> ItemList = new ArrayList<FavBean>();
     private FavAdapter adapter;
     public RecyclerView recyclerView;
 
@@ -31,7 +28,7 @@ public class FavAvtivity extends AppCompatActivity {
 //        ItemList = dao.getItemList();
 
         for (int i = 0; i < 10; i++) {
-            CardBean cardBean = new CardBean();
+            FavBean cardBean = new FavBean();
             cardBean.setUserName("CardItem" + i);
             ItemList.add(cardBean);
         }

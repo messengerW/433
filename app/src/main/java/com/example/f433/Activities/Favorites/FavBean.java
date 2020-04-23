@@ -1,10 +1,10 @@
-package com.example.f433.Activities;
+package com.example.f433.Activities.Favorites;
 
 import android.graphics.drawable.Drawable;
 
 import java.io.Serializable;
 
-public class CardBean implements Serializable {
+public class FavBean implements Serializable {
     public String imageId;      //  图片id
     public Drawable image;      //  图片
     public String userId;       //  用户id
@@ -12,10 +12,10 @@ public class CardBean implements Serializable {
     public Drawable userHead;     //  用户头像
     //  ... 其他属性
 
-    public CardBean() {
+    public FavBean() {
     }
 
-    public CardBean(String imageId, Drawable img, String userId, String userName, Drawable head) {
+    public FavBean(String imageId, Drawable img, String userId, String userName, Drawable head) {
         this.imageId = imageId;
         this.image = img;
         this.userId = userId;

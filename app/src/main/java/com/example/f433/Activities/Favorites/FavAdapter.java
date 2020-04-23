@@ -1,7 +1,6 @@
-package com.example.f433.Activities;
+package com.example.f433.Activities.Favorites;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -19,9 +18,9 @@ import java.util.ArrayList;
 public class FavAdapter extends RecyclerView.Adapter<FavAdapter.myViewHolder> {
 
     private Context context;
-    private ArrayList<CardBean> itemList;
+    private ArrayList<FavBean> itemList;
 
-    public FavAdapter(Context context, ArrayList<CardBean> itemList) {
+    public FavAdapter(Context context, ArrayList<FavBean> itemList) {
         this.context = context;
         this.itemList = itemList;
     }
@@ -81,7 +80,7 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.myViewHolder> {
     /* 为 holder 填充数据，holder 是上面获取到的item中所有view控件的集合 */
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int index) {
-        CardBean bean = itemList.get(index);
+        FavBean bean = itemList.get(index);
 
 //        holder.imageId.setText(bean.imageId);
 //        holder.image.setImageDrawable(bean.image);

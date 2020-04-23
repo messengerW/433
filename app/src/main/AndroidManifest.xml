@@ -60,7 +60,7 @@
 
         <!-- 抽屉 - 收藏页面 -->
         <activity
-            android:name=".Activities.FavAvtivity"
+            android:name=".Activities.Favorites.FavAvtivity"
             android:label="@string/app_name">
         </activity>
 

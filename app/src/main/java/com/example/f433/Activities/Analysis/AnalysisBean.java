@@ -1,6 +1,7 @@
 package com.example.f433.Activities.Analysis;
 
 import java.io.Serializable;
+
 import android.graphics.drawable.Drawable;
 
 public class AnalysisBean implements Serializable {
@@ -72,7 +73,7 @@ public class AnalysisBean implements Serializable {
             int yelCards,
             int isHome,
             String date,
-            String opponent){
+            String opponent) {
         this.aerialDuelScc = aerialDuelScc;
         this.aerialsWon = aerialsWon;
         this.assists = assists;
@@ -104,59 +105,256 @@ public class AnalysisBean implements Serializable {
         this.isHome = isHome;
         this.date = date;
         this.opponent = opponent;
-        
+
     }
 
-    public void setAerialDuelScc(float aerialDuelScc) {this.aerialDuelScc = aerialDuelScc;}
-    public float getAerialDuelScc() {return aerialDuelScc;}
+    public void setAerialDuelScc(float aerialDuelScc) {
+        this.aerialDuelScc = aerialDuelScc;
+    }
 
-    public void setAerialsWon(int aerialsWon){this.aerialsWon = aerialsWon;}
-    public int getAerialsWon(){return aerialsWon;}
+    public float getAerialDuelScc() {
+        return aerialDuelScc;
+    }
 
-    public void setAssists(int assists){this.assists = assists;}
-    public int getAssists(){return assists;}
+    public void setAerialsWon(int aerialsWon) {
+        this.aerialsWon = aerialsWon;
+    }
 
-    public void setBigChanceCreated(int bigChanceCreated){this.bigChanceCreated = bigChanceCreated;}
-    public int getBigChanceCreated(){return bigChanceCreated;}
+    public int getAerialsWon() {
+        return aerialsWon;
+    }
 
-    public void setClearances(int clearances){this.clearances = clearances;}
-    public int getClearances(){return clearances;}
+    public void setAssists(int assists) {
+        this.assists = assists;
+    }
 
-    public void setDribblesWon(int dribblesWon){this.dribblesWon = dribblesWon;}
-    public int getDribblesWon(){return dribblesWon;}
+    public int getAssists() {
+        return assists;
+    }
 
-    public void setErrorsSum(int errorsSum){this.errorsSum = errorsSum;}
-    public int getErrorsSum(){return errorsSum;}
+    public void setBigChanceCreated(int bigChanceCreated) {
+        this.bigChanceCreated = bigChanceCreated;
+    }
 
-    public void setFinalThirdPass(int finalThirdPass){this.finalThirdPass = finalThirdPass;}
-    public int getFinalThirdPass(){return finalThirdPass;}
+    public int getBigChanceCreated() {
+        return bigChanceCreated;
+    }
 
-    public void setFinalThirdPassAcc(int finalThirdPassAcc){this.finalThirdPassAcc = finalThirdPassAcc;}
-    public int getFinalThirdPassAcc(){return finalThirdPassAcc;}
+    public void setClearances(int clearances) {
+        this.clearances = clearances;
+    }
 
-    public void setFouled(int fouled){this.fouled = fouled;}
-    public int getFouled(){return fouled;}
+    public int getClearances() {
+        return clearances;
+    }
 
-    public void setFouls(int fouls){this.fouls = fouls;}
-    public int getFouls(){return fouls;}
+    public void setDribblesWon(int dribblesWon) {
+        this.dribblesWon = dribblesWon;
+    }
 
-    public void setGoals(int goals){this.goals = goals;}
-    public int getGoals(){return goals;}
+    public int getDribblesWon() {
+        return dribblesWon;
+    }
 
-    public void setGoalsLost(int goalsLost){this.goalsLost = goalsLost;}
-    public int getGoalsLost(){return goalsLost;}
+    public void setErrorsSum(int errorsSum) {
+        this.errorsSum = errorsSum;
+    }
 
-    public void setInterceptions(int interceptions){this.interceptions = interceptions;}
-    public int getInterceptions(){return interceptions;}
+    public int getErrorsSum() {
+        return errorsSum;
+    }
 
-    public void setKeyPasses(int keyPasses){this.keyPasses = keyPasses;}
-    public int getKeyPasses(){return keyPasses;}
+    public void setFinalThirdPass(int finalThirdPass) {
+        this.finalThirdPass = finalThirdPass;
+    }
 
-    public void setOffsideWon(int offsideWon){this.offsideWon = offsideWon;}
-    public int getOffsideWon(){return offsideWon;}
+    public int getFinalThirdPass() {
+        return finalThirdPass;
+    }
 
-    public void setOffsides(int offsides){this.offsides = offsides;}
-    public int getOffsides(){return offsides;}
+    public void setFinalThirdPassAcc(int finalThirdPassAcc) {
+        this.finalThirdPassAcc = finalThirdPassAcc;
+    }
+
+    public int getFinalThirdPassAcc() {
+        return finalThirdPassAcc;
+    }
+
+    public void setFouled(int fouled) {
+        this.fouled = fouled;
+    }
+
+    public int getFouled() {
+        return fouled;
+    }
+
+    public void setFouls(int fouls) {
+        this.fouls = fouls;
+    }
+
+    public int getFouls() {
+        return fouls;
+    }
+
+    public void setGoals(int goals) {
+        this.goals = goals;
+    }
+
+    public int getGoals() {
+        return goals;
+    }
+
+    public void setGoalsLost(int goalsLost) {
+        this.goalsLost = goalsLost;
+    }
+
+    public int getGoalsLost() {
+        return goalsLost;
+    }
+
+    public void setInterceptions(int interceptions) {
+        this.interceptions = interceptions;
+    }
+
+    public int getInterceptions() {
+        return interceptions;
+    }
+
+    public void setKeyPasses(int keyPasses) {
+        this.keyPasses = keyPasses;
+    }
+
+    public int getKeyPasses() {
+        return keyPasses;
+    }
+
+    public void setOffsideWon(int offsideWon) {
+        this.offsideWon = offsideWon;
+    }
+
+    public int getOffsideWon() {
+        return offsideWon;
+    }
+
+    public void setOffsides(int offsides) {
+        this.offsides = offsides;
+    }
+
+    public int getOffsides() {
+        return offsides;
+    }
+
+    public void setPassSucc(float passSucc) {
+        this.passSucc = passSucc;
+    }
+
+    public float getPassSucc() {
+        return passSucc;
+    }
+
+    public void setPasses(int passes) {
+        this.passes = passes;
+    }
+
+    public int getPasses() {
+        return passes;
+    }
+
+    public void setPossession(float possession) {
+        this.possession = possession;
+    }
+
+    public float getPossession() {
+        return possession;
+    }
+
+    public void setRate(float rate) {
+        this.rate = rate;
+    }
+
+    public float getRate() {
+        return rate;
+    }
+
+    public void setRedCards(int redCards) {
+        this.redCards = redCards;
+    }
+
+    public int getRedCards() {
+        return redCards;
+    }
+
+    public void setShots(int shots) {
+        this.shots = shots;
+    }
+
+    public int getShots() {
+        return shots;
+    }
+
+    public void setShotsOT(int shotsOT) {
+        this.shotsOT = shotsOT;
+    }
+
+    public int getShotsOT() {
+        return shotsOT;
+    }
+
+    public void setTacklesSuccful(int tacklesSuccful) {
+        this.tacklesSuccful = tacklesSuccful;
+    }
+
+    public int getTacklesSuccful() {
+        return tacklesSuccful;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setYelCards(int yelCards) {
+        this.yelCards = yelCards;
+    }
+
+    public int getYelCards() {
+        return yelCards;
+    }
+
+    public void setIsHome(int isHome) {
+        this.isHome = isHome;
+    }
+
+    public int getIsHome() {
+        return isHome;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setOpponent(String opponent) {
+        this.opponent = opponent;
+    }
+
+    public String getOpponent() {
+        return opponent;
+    }
 
 
 //    @Override
