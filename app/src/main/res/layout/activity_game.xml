@@ -122,21 +122,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.f433.Activities.GameActivity_ScoreBoardView
+                <com.example.f433.Activities.Game.GameActivity_ScoreBoardView
                     android:id="@+id/custom_view"
                     android:layout_width="165dp"
                     android:layout_height="165dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.example.f433.Activities.GameActivity_RankBar
+                <com.example.f433.Activities.Game.GameActivity_RankBar
                     android:id="@+id/rank_bar"
                     android:layout_width="72dp"
                     android:layout_height="165dp"
                     app:layout_constraintLeft_toRightOf="@id/custom_view"
                     app:layout_constraintTop_toTopOf="@id/custom_view2" />
 
-                <com.example.f433.Activities.GameActivity_ScoreBoardView
+                <com.example.f433.Activities.Game.GameActivity_ScoreBoardView
                     android:id="@+id/custom_view2"
                     android:layout_width="165dp"
                     android:layout_height="165dp"
@@ -244,7 +244,7 @@
                 android:textColor="@color/cw_1"
                 android:textSize="16dp" />
 
-            <com.example.f433.Activities.GameActivity_ScoreBar
+            <com.example.f433.Activities.Game.GameActivity_ScoreBar
                 android:id="@+id/score_bar"
                 android:layout_width="match_parent"
                 android:layout_height="30dp" />

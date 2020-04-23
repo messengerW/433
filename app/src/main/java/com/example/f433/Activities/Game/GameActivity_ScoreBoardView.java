@@ -1,4 +1,4 @@
-package com.example.f433.Activities;
+package com.example.f433.Activities.Game;
 
 import android.content.Context;
 import android.graphics.Canvas;

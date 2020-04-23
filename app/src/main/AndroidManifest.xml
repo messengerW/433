@@ -34,21 +34,9 @@
             </intent-filter>
         </activity>
 
-        <!-- 设置页面 -->
-        <activity
-            android:name=".Activities.SettingsActivity"
-            android:label="@string/app_name">
-        </activity>
-
         <!-- 吴昶昱页面 -->
         <activity
-            android:name=".Activities.GameActivity"
-            android:label="@string/app_name">
-        </activity>
-
-        <!-- 用户信息页面 -->
-        <activity
-            android:name=".Activities.UserInfoActivity"
+            android:name=".Activities.Game.GameActivity"
             android:label="@string/app_name">
         </activity>
 
@@ -57,6 +45,25 @@
             android:name=".Activities.Analysis.AnalysisAcyivity"
             android:label="@string/app_name">
         </activity>
+
+        <!-- 抽屉 - 用户信息页面 -->
+        <activity
+            android:name=".Activities.UserInfoActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <!-- 抽屉 - 设置页面 -->
+        <activity
+            android:name=".Activities.SettingsActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <!-- 抽屉 - 收藏页面 -->
+        <activity
+            android:name=".Activities.FavAvtivity"
+            android:label="@string/app_name">
+        </activity>
+
     </application>
 
 </manifest>

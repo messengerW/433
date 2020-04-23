@@ -37,6 +37,8 @@ dependencies {
 //    implementation 'com.github.yuzhiqiang1993:zxing:2.2.8'
     implementation project(':zxinglibrary')
     implementation 'com.yanzhenjie:permission:2.0.0-rc4'
+    implementation 'com.youth.banner:banner:1.4.10'  // 图片轮播
+
 
 }
 

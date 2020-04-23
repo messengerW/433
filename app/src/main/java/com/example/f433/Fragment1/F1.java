@@ -1,10 +1,8 @@
 package com.example.f433.Fragment1;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,54 +12,61 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.f433.R;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
+import com.youth.banner.listener.OnBannerListener;
+import com.youth.banner.loader.ImageLoader;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class F1 extends Fragment {
 
     /*** 第一个碎片中包含两个组件，图片轮播和滚动新闻栏 ***/
 
-    private View mView;     // 注意，mView是两个组件共用的！
-    private ViewPager mViewPaper;
-    private List<ImageView> images;
-    private List<View> dots;
-    private int currentItem;
-    //记录上一次点的位置
-    private int oldPosition = 0;
-    //存放图片的id
-    private int[] imageIds = new int[]{
-            R.mipmap.lunbo_1,
-            R.mipmap.lunbo_2,
-            R.mipmap.lunbo_3
-    };
-    private ViewPagerAdapter adapter;
-    private ScheduledExecutorService scheduledExecutorService;
+    private View view;
+
+    /* 图片轮播用到的变量 */
+    // 轮播组件
+    private Banner mBanner;
+    //  直接使用本地图片，res资源的id号；如果使用网络图片这里数组需改为字符串数组
+    private ArrayList<Integer> images;
+    //  轮播图片对应的 title
+    private ArrayList<String> titles;
+
+    /* 滑动新闻用到的变量 */
     //定义RecyclerView
-    public RecyclerView mCollectRecyclerView;
+    public RecyclerView recyclerView;
     //定义以news实体类为对象的数据集合
     private ArrayList<F1_NewsBean> f1NewsItemList = new ArrayList<F1_NewsBean>();
     //自定义recyclerveiw的适配器
-    private F1_NewsAdapter mCollectRecyclerAdapter;
+    private F1_NewsAdapter adapter;
 
     /*** 滚动新闻开始 ***/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment1, container, false);
-        setView();
-        //对recycleview进行配置
-        initRecyclerView();
-        //模拟数据
+        view = inflater.inflate(R.layout.fragment1, container, false);
+
+        // 注意，这里一开始踩了个坑，用getActivity()一直闪退，好好思考一下
+        mBanner = (Banner) view.findViewById(R.id.banner);
+        // 初始化轮播数据
+        initData();
+        // 初始化布局
+        initView();
+
+
+        // 模拟数据
         initNewsItem();
-        return mView;
+        // 对recycleview进行配置
+        initRecyclerView();
+        return view;
     }
 
+    /*** 下拉新闻开始 ***/
     /**
      * TODO 模拟数据
      */
@@ -96,18 +101,18 @@ public class F1 extends Fragment {
 
     private void initRecyclerView() {
         //获取RecyclerView
-        mCollectRecyclerView = (RecyclerView) mView.findViewById(R.id.recycler_view_news);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_news);
         //创建adapter
-        mCollectRecyclerAdapter = new F1_NewsAdapter(getActivity(), f1NewsItemList);
+        adapter = new F1_NewsAdapter(getActivity(), f1NewsItemList);
         //给RecyclerView设置adapter
-        mCollectRecyclerView.setAdapter(mCollectRecyclerAdapter);
+        recyclerView.setAdapter(adapter);
         //设置layoutManager,可以设置显示效果，是线性布局、grid布局，还是瀑布流布局
         //参数是：上下文、列表方向（横向还是纵向）、是否倒叙
-        mCollectRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         //设置item的分割线
-        mCollectRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         //RecyclerView中没有item的监听事件，需要自己在适配器中写一个监听事件的接口。参数根据自定义
-        mCollectRecyclerAdapter.setOnItemClickListener(new F1_NewsAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new F1_NewsAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View view, F1_NewsBean data) {
                 //此处进行监听事件的业务处理
@@ -116,125 +121,106 @@ public class F1 extends Fragment {
         });
     }
 
-    /*** 滚动新闻结束 ***/
+    /*** 下拉新闻结束 ***/
 
-    /*** 图片轮播开始 ***/
+    /*** Begin---图片轮播 ***/
+    //  有改进！433当时用的是viewpager，这个banner更加简单好用
+    private void initView() {
 
-    private void setView() {
-        mViewPaper = (ViewPager) mView.findViewById(R.id.vp_lunbo);
+        //设置banner样式,默认为:Banner.NOT_INDICATOR(不显示指示器和标题)
+        //可选样式如下:
+        //1. Banner.CIRCLE_INDICATOR    显示圆形指示器
+        //2. Banner.NUM_INDICATOR   显示数字指示器
+        //3. Banner.NUM_INDICATOR_TITLE 显示数字指示器和标题
+        //4. Banner.CIRCLE_INDICATOR_TITLE  显示圆形指示器和标题
+        mBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
 
-        //显示图片
-        images = new ArrayList<>();
-        for (int i = 0; i < imageIds.length; i++) {
-            ImageView imageView = new ImageView(getActivity());
-            imageView.setBackgroundResource(imageIds[i]);
-            images.add(imageView);
-        }
+        //设置图片加载器
+        mBanner.setImageLoader(new GlideImageLoader());
 
-        //显示小白点
-        dots = new ArrayList<>();
-        dots.add(mView.findViewById(R.id.dot_0));
-        dots.add(mView.findViewById(R.id.dot_1));
-        dots.add(mView.findViewById(R.id.dot_2));
+        //设置轮播样式（没有标题默认为右边,有标题时默认左边）
+        //可选样式:
+        //Banner.LEFT   指示器居左
+        //Banner.CENTER 指示器居中
+        //Banner.RIGHT  指示器居右
+        mBanner.setIndicatorGravity(BannerConfig.CENTER);
 
-        adapter = new ViewPagerAdapter();
-        mViewPaper.setAdapter(adapter);
+        //设置是否允许手动滑动轮播图
+        mBanner.setViewPagerIsScroll(true);
 
-        mViewPaper.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        //设置是否自动轮播（不设置则默认自动）
+        mBanner.isAutoPlay(true);
 
+        //设置轮播图片间隔时间（不设置默认为2000）
+        mBanner.setDelayTime(1500);
+
+        //设置图片资源:可选图片网址/资源文件，默认用Glide加载,也可自定义图片的加载框架
+        //所有设置参数方法都放在此方法之前执行
+        mBanner.setImages(images);
+
+        //设置标题资源（当banner样式有显示title时）
+        //mBanner.setBannerTitles(imageTitle);
+
+        //设置banner动画效果
+        mBanner.setBannerAnimation(Transformer.DepthPage);
+
+        //添加点击事件
+        mBanner.setOnBannerListener(new OnBannerListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                dots.get(position).setBackgroundResource(R.drawable.ic_point1);
-                dots.get(position).setBackgroundResource(R.drawable.ic_point2);
-
-                oldPosition = position;
-                currentItem = position;
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
+            public void OnBannerClick(int position) {
+                Toast.makeText(getContext(), "你点了第" + (position + 1) + "张轮播图", Toast.LENGTH_SHORT).show();
             }
         });
+        mBanner.start();
 
     }
 
-    /*定义适配器*/
-    public class ViewPagerAdapter extends PagerAdapter {
+    private void initData() {
+        //设置图片资源:url或本地资源
+        images = new ArrayList<>();
+        images.add(R.mipmap.lunbo_1);
+        images.add(R.mipmap.lunbo_2);
+        images.add(R.mipmap.lunbo_3);
 
-        @Override
-        public int getCount() {
-            return images.size();
-        }
+        //设置图片标题:自动对应
+        titles = new ArrayList<>();
+        titles.add("Title1");
+        titles.add("Title2");
+        titles.add("Title3");
 
-        @Override
-        public boolean isViewFromObject(View arg0, Object arg1) {
-            return arg0 == arg1;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup view, int position, Object object) {
-            view.removeView(images.get(position));
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup view, int position) {
-            view.addView(images.get(position));
-            return images.get(position);
-        }
     }
 
-    //利用线性池执行动画轮播
+    /**
+     * 网络加载图片
+     * 使用了Glide图片加载框架
+     */
+    public class GlideImageLoader extends ImageLoader {
+        @Override
+        public void displayImage(Context context, Object path, ImageView imageView) {
+            Glide.with(context)
+                    .load(path)
+                    .into(imageView);
+        }
+
+    }
 
     @Override
-    public void onStart() {
-        // TODO Auto-generated method stub
-        super.onStart();
-        scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
-        scheduledExecutorService.scheduleWithFixedDelay(
-                new ViewPageTask(),
-                2,
-                2,
-                TimeUnit.SECONDS);
+    public void onResume() {
+        super.onResume();
+
     }
-
-
-    //图片轮播任务
-    private class ViewPageTask implements Runnable {
-        @Override
-        public void run() {
-            currentItem = (currentItem + 1) % imageIds.length;
-            mHandler.sendEmptyMessage(0);
-
-        }
-    }
-
-    //接受子线程传递过来的数据
-
-    private Handler mHandler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
-            mViewPaper.setCurrentItem(currentItem);
-        }
-
-        ;
-
-    };
 
     @Override
     public void onStop() {
         super.onStop();
-        if (scheduledExecutorService != null) {
-            scheduledExecutorService.shutdown();
-            scheduledExecutorService = null;
-        }
 
     }
-    /*** 图片轮播结束 ***/
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+    }
+    /*** End---图片轮播 ***/
 
 }

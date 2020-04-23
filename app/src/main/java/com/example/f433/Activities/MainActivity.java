@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
@@ -134,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             goSettings();
         } else if (id == R.id.toolbar_saoyisao) {
             goScan();
-        }  else {
+        } else {
 
         }
 
@@ -162,13 +163,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_1) {
             goScan();
         } else if (id == R.id.nav_2) {
-
+            goMessage();
         } else if (id == R.id.nav_3) {
-
+            goFavorites();
         } else if (id == R.id.nav_4) {
-
+            goShare();
         } else if (id == R.id.nav_5) {
-
+            goFuck();
         } else if (id == R.id.nav_6) {
             goSettings();
         }
@@ -220,8 +221,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }).start();
     }
 
-    // 2.设置界面
-    private void goSettings(){
+    // 2.消息页面
+    private void goMessage() {
+
+    }
+
+    // 3.收藏页面
+    private void goFavorites() {
+        Intent intent = new Intent(MainActivity.this, FavAvtivity.class);
+        startActivity(intent);
+    }
+
+    // 4.分享页面
+    private void goShare() {
+
+    }
+
+    // 5.反馈页面
+    private void goFuck() {
+
+    }
+
+    // 6.设置界面
+    private void goSettings() {
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
         startActivity(intent);
     }

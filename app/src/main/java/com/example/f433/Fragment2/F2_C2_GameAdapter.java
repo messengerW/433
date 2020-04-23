@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.f433.Activities.Analysis.AnalysisAcyivity;
-import com.example.f433.Activities.GameActivity;
+import com.example.f433.Activities.Game.GameActivity;
 import com.example.f433.R;
 
 import java.util.ArrayList;
