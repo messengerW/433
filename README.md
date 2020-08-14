@@ -1,7 +1,7 @@
 # 433
 安装包下载地址： http://120.26.175.26:8080/433web/download/433.apk 
 
-<img src="download-1597417772529.png" style="zoom:50%;" />
+<img src="download.png" style="zoom:50%;" />
 
 
 
